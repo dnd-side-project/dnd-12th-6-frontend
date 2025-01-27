@@ -3,5 +3,3 @@
 
 pnpm test
 pnpm lint-staged
-
-exit 1
