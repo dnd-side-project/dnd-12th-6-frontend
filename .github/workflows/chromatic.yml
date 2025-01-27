@@ -24,7 +24,7 @@ jobs:
         run: npm install -g pnpm@8.15.6
 
       - name: Cache Dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/.pnpm-store
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
