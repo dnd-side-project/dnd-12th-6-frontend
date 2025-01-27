@@ -1,0 +1,48 @@
+# Workflow name
+name: 'Chromatic Storybook Auto Deployment'
+
+# Event for the workflow
+on: pull_request
+
+# List of jobs
+jobs:
+  storybook:
+    # Operating System
+    runs-on: ubuntu-latest
+    # Job steps
+    steps:
+      - uses: actions/checkout@v4 # Update to the latest version of checkout action
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3 # Example of using a different action
+        with:
+          node-version: 20
+
+      - name: Install pnpm
+        run: npm install -g pnpm@8.15.6
+
+      - name: Cache Dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Run Chromatic
+        id: chromatic
+        uses: chromaui/action@latest # Update to the latest version of Chromatic action
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: comment PR
+        uses: thollander/actions-comment-pull-request@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          message: '🚀 Storybook 자동 배포 URL: ${{ steps.chromatic.outputs.storybookUrl }}'
