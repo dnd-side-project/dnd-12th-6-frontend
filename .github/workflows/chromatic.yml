@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3 # Example of using a different action
         with:
-          node-version: 20
+          node-version: 20.9.0
 
       - name: Install pnpm
         run: npm install -g pnpm@8.15.6
