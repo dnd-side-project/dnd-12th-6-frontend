@@ -14,7 +14,9 @@
     "lint:fix": "next lint --fix",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prepare": "husky"
+    "prepare": "husky",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.1",
@@ -28,7 +30,16 @@
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.4",
     "@next/eslint-plugin-next": "^15.1.5",
+    "@storybook/addon-essentials": "8.5.0",
+    "@storybook/addon-interactions": "8.5.0",
+    "@storybook/addon-onboarding": "8.5.0",
+    "@storybook/addon-styling-webpack": "^1.0.1",
+    "@storybook/blocks": "8.5.0",
+    "@storybook/nextjs": "8.5.0",
+    "@storybook/react": "8.5.0",
+    "@storybook/test": "8.5.0",
     "@tanstack/eslint-plugin-query": "^5.64.2",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
@@ -39,6 +50,7 @@
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^8.20.0",
     "@typescript-eslint/parser": "^8.20.0",
+    "chromatic": "^11.25.1",
     "eslint": "8.57.0",
     "eslint-config-next": "15.1.5",
     "eslint-config-prettier": "^10.0.1",
@@ -50,9 +62,11 @@
     "jest-config": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.4.3",
+    "eslint-plugin-storybook": "^0.11.2",
     "postcss": "^8",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.10",
+    "storybook": "^8.5.0",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
     "ts-jest": "^29.2.5",
