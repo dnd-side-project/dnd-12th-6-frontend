@@ -1,10 +1,14 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+@font-face {
+  font-family: 'NEXON Lv1 Gothic Low';
+  src: url('/fonts/NEXON_Lv1_Gothic_OTF_Bold.otf') format('opentype');
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 @layer utilities {
   .text-balance {
@@ -74,5 +78,6 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Pretendard Variable', Pretendard, sans-serif;
   }
 }
