@@ -22,10 +22,6 @@ const config: Config = {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))',
         },
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
-        },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',
@@ -52,11 +48,56 @@ const config: Config = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
+        gray: {
+          1: '#F7F8F9',
+          2: '#E8EBED',
+          3: '#C9CDD2',
+          4: '#9EA4AA',
+          5: '#72787F',
+          6: '#454C53',
+          7: '#171719',
+        },
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+          strong: '#6F3CC8',
+          normal: '#D3BAFF',
+          natural: '#F8F4FF',
+          neon: '#7020FF',
+          assistive: '#E6D8FF',
+        },
+        static: {
+          black: '#000000',
+          white: '#FFFFFF',
+        },
       },
       borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+        default: 'var(--radius)', // 기본 border-radius (0.5rem)
+        lg: '20px', // round-20
+        md: '16px', // round-16
+        sm: '10px', // round-10
+        xs: '6px', // round-6
+        none: '0px',
+      },
+      fontFamily: {
+        sans: ['"Pretendard Variable"', 'sans-serif'], // 기본 적용
+        nexon: ['"NEXON Lv1 Gothic Low"', 'sans-serif'],
+      },
+      fontSize: {
+        title: ['20pt', { lineHeight: '140%', letterSpacing: '-0.02em' }],
+        heading: ['18px', { lineHeight: '140%', letterSpacing: '-0.02em' }],
+        body: ['16px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
+        label1: ['14px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
+        label2: ['13px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
+        caption1: ['12px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
+        caption2: ['10px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
+        headline: ['20px', { lineHeight: '140%', letterSpacing: '0' }],
+      },
+      fontWeight: {
+        regular: '400',
+        medium: '500',
+        semibold: '600',
+        bold: '700',
       },
     },
   },
