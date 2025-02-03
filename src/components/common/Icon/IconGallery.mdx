@@ -1,0 +1,18 @@
+import { Meta, IconGallery, IconItem } from '@storybook/blocks';
+
+import Icon from '.';
+import * as iconTypes from './lib/index';
+
+<Meta title='Common/Icon/IconGallery' />
+
+# IconGallery
+
+<IconGallery>
+  {Object.keys(iconTypes).map(name => {
+     return (
+      <IconItem key={name} name={name}>
+        <Icon name={name} />
+      </IconItem>)
+})}
+
+</IconGallery>
