@@ -1,6 +1,8 @@
 import type { Config } from 'tailwindcss';
 import TailwindAnimate from 'tailwindcss-animate';
 
+import { spacing } from './src/styles/theme';
+
 const config: Config = {
   darkMode: ['class'],
   content: [
@@ -11,6 +13,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      spacing,
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -78,13 +81,15 @@ const config: Config = {
         sm: '10px', // round-10
         xs: '6px', // round-6
         none: '0px',
+        round: '9999px',
+        full: '50%',
       },
       fontFamily: {
         sans: ['"Pretendard Variable"', 'sans-serif'], // 기본 적용
         nexon: ['"NEXON Lv1 Gothic Low"', 'sans-serif'],
       },
       fontSize: {
-        title: ['20pt', { lineHeight: '140%', letterSpacing: '-0.02em' }],
+        title: ['20px', { lineHeight: '140%', letterSpacing: '-0.02em' }],
         heading: ['18px', { lineHeight: '140%', letterSpacing: '-0.02em' }],
         body: ['16px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
         label1: ['14px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
