@@ -15,6 +15,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     value: '',
+    active: true,
     children: (
       <>
         <Tab.Text>전체</Tab.Text>
