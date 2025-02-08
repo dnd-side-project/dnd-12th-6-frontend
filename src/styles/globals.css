@@ -78,6 +78,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Pretendard Variable', Pretendard, sans-serif;
+    font-family: Pretendard, sans-serif;
   }
 }

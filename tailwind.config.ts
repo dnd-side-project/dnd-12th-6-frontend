@@ -14,6 +14,9 @@ const config: Config = {
   theme: {
     extend: {
       spacing,
+      maxWidth: {
+        content: '600px',
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
