@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import BottomNav from '@/components/common/BottomNav';
+import BottomNav from '@/components/layout/BottomNav';
 import { BottomNavList } from '@/store/bottomNavStore';
 import '@/styles/globals.css';
 
