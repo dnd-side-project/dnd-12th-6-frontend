@@ -64,6 +64,9 @@ devDependencies:
   '@storybook/test':
     specifier: 8.5.0
     version: 8.5.0(storybook@8.5.3)
+  '@svgr/webpack':
+    specifier: ^8.1.0
+    version: 8.1.0(typescript@5.7.3)
   '@tanstack/eslint-plugin-query':
     specifier: ^5.64.2
     version: 5.66.0(eslint@8.57.0)(typescript@5.7.3)
@@ -1089,7 +1092,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
-
   /@babel/plugin-transform-property-literals@7.25.9(@babel/core@7.26.7):
     resolution: {integrity: sha512-IvIUeV5KrS/VPavfSM/Iu+RE6llrHrYIKY1yfCzyO/lMXHQ+p7uGhonmGVisv6tSBSVgWzMBohTcvkC9vQcQFA==}
     engines: {node: '>=6.9.0'}
@@ -4694,7 +4696,6 @@ packages:
     resolution: {integrity: sha512-HTUrgRJ7r4dsZKU6GjmpfRK1O76h97Z8MfS1G0FozR+oF2kG6Vfe8JE6zwrkbxigziPHinCJ+gCPjA9EaBDtRw==}
     engines: {node: '>= 6'}
     dev: true
-
   /css.escape@1.5.1:
     resolution: {integrity: sha512-YUifsXXuknHlUsmlgyY0PKzgPOr7/FjCePfHNt0jxm83wHZi44VDMQ7/fGNkjY3/jV1MC+1CmZbaHzugyeRtpg==}
     dev: true
