@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
 
-import BottomNav from '@/components/layout/BottomNav';
-import { BottomNavList } from '@/store/bottomNavStore';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -17,15 +15,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <div className='max-w-content min-h-dvh my-0 mx-auto border border-y-0'>
-          {children}
-          <BottomNav>
-            <BottomNav.Item label='메인' tab={BottomNavList.MAIN} icon='home' />
-            <BottomNav.Item label='초대장 만들기' tab={BottomNavList.CREATE} icon='message' />
-            <BottomNav.Item label='초대장 목록' tab={BottomNavList.LIST} icon='mailbox' />
-            <BottomNav.Item label='설정' tab={BottomNavList.SETTING} icon='setting' />
-          </BottomNav>
-        </div>
+        <div className='max-w-content min-h-dvh max-h-dvh my-0 mx-auto'>{children}</div>
       </body>
     </html>
   );
