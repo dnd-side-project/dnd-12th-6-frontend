@@ -17,12 +17,12 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     children: (
-      <BottomNav>
+      <>
         <BottomNav.Item label='메인' tab={BottomNavList.MAIN} icon='home' />
         <BottomNav.Item label='초대장 만들기' tab={BottomNavList.CREATE} icon='message' />
         <BottomNav.Item label='초대장 목록' tab={BottomNavList.LIST} icon='mailbox' />
         <BottomNav.Item label='설정' tab={BottomNavList.SETTING} icon='setting' />
-      </BottomNav>
+      </>
     ),
   },
 };
