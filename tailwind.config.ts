@@ -107,6 +107,9 @@ const config: Config = {
         semibold: '600',
         bold: '700',
       },
+      dropShadow: {
+        navbar: '0px -1px 6px rgba(0, 0, 0, 0.05)',
+      },
     },
   },
   plugins: [TailwindAnimate],
