@@ -18,6 +18,7 @@ export const Default: Story = {
       <>
         <Field.Label>라벨</Field.Label>
         <input className='border' />
+        <Field.helpText status='error'>이름을 확인해주세요</Field.helpText>
       </>
     ),
   },

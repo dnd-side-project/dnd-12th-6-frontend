@@ -15,4 +15,4 @@ const FieldLabel = ({ children, ...rest }: Props) => {
 
 export default FieldLabel;
 
-const labelVariants = cva('text-label1');
+const labelVariants = cva(' mb-12 typo-label1 text-gray-6');

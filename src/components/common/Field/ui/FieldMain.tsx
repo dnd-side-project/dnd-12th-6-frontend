@@ -9,4 +9,4 @@ const FieldMain = ({ children }: PropsWithChildren) => {
 
 export default FieldMain;
 
-const fieldVariants = cva(['flex flex-col gap-12']);
+const fieldVariants = cva(['flex flex-col']);

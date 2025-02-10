@@ -7,13 +7,13 @@ export interface Props extends PropsWithChildren {
   status?: 'help' | 'error';
 }
 
-const FieldHelpText = ({ status = 'help, ', children }: Props) => {
+const FieldHelpText = ({ status = 'help', children }: Props) => {
   return <p className={cn(helpTextVariants({ status }))}>{children}</p>;
 };
 
 export default FieldHelpText;
 
-const helpTextVariants = cva([''], {
+const helpTextVariants = cva(['mt-10 typo-caption1'], {
   variants: {
     status: {
       help: '',
