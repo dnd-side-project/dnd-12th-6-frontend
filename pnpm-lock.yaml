@@ -6042,7 +6042,6 @@ snapshots:
       '@babel/helper-plugin-utils': 7.26.5
     transitivePeerDependencies:
       - supports-color
-
   '@babel/plugin-transform-property-literals@7.25.9(@babel/core@7.26.7)':
     dependencies:
       '@babel/core': 7.26.7
@@ -8243,6 +8242,7 @@ snapshots:
       js-yaml: 4.1.0
       parse-json: 5.2.0
       path-type: 4.0.0
+
     optionalDependencies:
       typescript: 5.7.3
 
