@@ -5,7 +5,7 @@
   "packageManager": "pnpm@8.15.6",
   "type": "module",
   "engines": {
-    "node": "20.9.0"
+    "node": "20.x"
   },
   "scripts": {
     "dev": "next dev",
@@ -29,7 +29,8 @@
     "next": "14.2.23",
     "react": "^18",
     "react-dom": "^18",
-    "tailwind-merge": "^2.6.0"
+    "tailwind-merge": "^2.6.0",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.4",
