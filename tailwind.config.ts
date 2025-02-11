@@ -100,6 +100,7 @@ const config: Config = {
         caption1: ['12px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
         caption2: ['10px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
         headline: ['20px', { lineHeight: '140%', letterSpacing: '0' }],
+        moduleBody: ['16px', { lineHeight: '20px', letterSpacing: '-0.02em' }],
       },
       fontWeight: {
         regular: '400',
@@ -108,6 +109,7 @@ const config: Config = {
         bold: '700',
       },
       dropShadow: {
+        moduleText: '0 0 3px rgba(0, 0, 0, 0.5)',
         navbar: '0px -1px 6px rgba(0, 0, 0, 0.05)',
       },
     },
