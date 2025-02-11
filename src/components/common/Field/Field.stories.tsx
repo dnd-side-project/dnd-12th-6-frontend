@@ -17,7 +17,7 @@ export const Default: Story = {
   args: {
     children: (
       <>
-        <Field.Label>라벨</Field.Label>
+        <Field.Label required>라벨</Field.Label>
         <Input placeholder='이름 또는 닉네임' />
         <Field.helpText>도움말</Field.helpText>
       </>
