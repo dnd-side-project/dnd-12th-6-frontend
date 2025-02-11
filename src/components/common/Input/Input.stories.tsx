@@ -1,26 +1,27 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Input from '.';
+import InputRoot from '.';
 
-const meta: Meta<typeof Input> = {
+const meta: Meta<typeof InputRoot> = {
   title: 'Common/Input',
-  component: Input,
+  component: InputRoot,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {},
-  args: {
-    placeholder: '플레이스 홀더',
-  },
-} satisfies Meta<typeof Input>;
+  args: {},
+} satisfies Meta<typeof InputRoot>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
-  render: (args) => {
-    return <Input {...args} />;
+  args: {
+    children: (
+      <>
+        <InputRoot.Input />
+      </>
+    ),
   },
 };
