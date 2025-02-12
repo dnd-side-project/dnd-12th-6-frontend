@@ -16,8 +16,8 @@ const CardHeader = ({ invitationType, hostName }: Pick<ICard, 'invitationType' |
             <Image src={'https://avatar.iran.liara.run/public'} alt='host' width={36} height={36} />
           </div>
           <div className={messageBoxStyles}>
-            <span className='font-medium mr-2'>From.</span>
-            <span>{hostName}</span>
+            <span className='font-semibold mr-2'>From.</span>
+            <span className='font-regular'>{hostName}</span>
           </div>
         </>
       )}
@@ -34,9 +34,9 @@ const cardHeaderVariants = cva('w-[180px] absolute top-0', {
   },
 });
 
-const profileImageStyles = 'w-[38px] h-[38px] rounded-full border-2 border-white';
+const profileImageStyles = 'w-[38px] h-[38px] rounded-full border-2 border-white drop-shadow-md';
 
 const messageBoxStyles =
-  'w-fit mt-6 px-8 py-4 bg-white opacity-80 rounded-[6px] text-caption2 text-gray-7';
+  'w-fit mt-6 px-8 py-4 bg-white opacity-80 rounded-md typo-caption1 text-gray-7';
 
 export default CardHeader;
