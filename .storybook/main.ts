@@ -11,6 +11,7 @@ const config: StorybookConfig = {
     name: '@storybook/nextjs',
     options: {},
   },
+  staticDirs: ['../public'],
   webpackFinal: async (config) => {
     config.module = config.module || {};
     config.module.rules = config.module.rules || [];
@@ -26,6 +27,15 @@ const config: StorybookConfig = {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
+    });
+
+    // 폰트 파일(.otf, .woff, .woff2, .ttf) 로딩 설정 추가
+    config.module.rules.push({
+      test: /\.(woff|woff2|eot|ttf|otf)$/,
+      type: 'asset/resource',
+      generator: {
+        filename: 'fonts/[name][ext]', // 폰트 파일을 fonts 폴더에 저장
+      },
     });
 
     return config;
