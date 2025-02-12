@@ -13,7 +13,11 @@ interface Props {
 const PageContainer = ({ header, bottomNav, children }: StrictPropsWithChildren<Props>) => {
   return (
     <div
-      className={clsx('w-full max-w-content relative', header && 'pt-[54px]', bottomNav && 'pb-64')}
+      className={clsx(
+        'w-full max-w-content relative',
+        header && 'pt-[54px]',
+        bottomNav && 'pb-[88px]',
+      )}
     >
       {children}
       {header && <Header />}
