@@ -1,12 +1,13 @@
-import CardScroller from '@/components/common/Card/layout/CardScroller';
-import CardDataFetcher from '@/components/common/Card/modules/CardDataFetcher';
 import PageContainer from '@/components/layout/PageContainer';
+import InvitationHistory from '@/components/main/InvitationHistory';
+import UpcomingInvitation from '@/components/main/UpcomingInvitation';
 
 export default function Home() {
   return (
     <PageContainer header bottomNav>
-      Main
-      <CardDataFetcher>{(cards) => <CardScroller cards={cards} />}</CardDataFetcher>
+      <UpcomingInvitation />
+      <hr className='h-48 border-none' />
+      <InvitationHistory />
     </PageContainer>
   );
 }
