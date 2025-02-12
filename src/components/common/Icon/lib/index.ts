@@ -10,4 +10,6 @@ export { default as error } from './error_icon.svg';
 export { default as home } from './home_icon.svg';
 export { default as mailbox } from './mailbox_icon.svg';
 export { default as message } from './message_icon.svg';
+export { default as minus } from './minus_icon.svg';
+export { default as plus } from './plus_icon.svg';
 export { default as setting } from './setting_icon.svg';
