@@ -25,7 +25,7 @@ const CardHeader = ({ invitationType, hostName }: Pick<ICard, 'invitationType' |
   );
 };
 
-const cardHeaderVariants = cva('w-[180px] absolute top-0', {
+const cardHeaderVariants = cva('w-[180px] absolute top-10', {
   variants: {
     invitationType: {
       RECEIVED: 'flex justify-center',
@@ -34,7 +34,8 @@ const cardHeaderVariants = cva('w-[180px] absolute top-0', {
   },
 });
 
-const profileImageStyles = 'w-[38px] h-[38px] rounded-full border-2 border-white drop-shadow-md';
+const profileImageStyles =
+  'w-[38px] h-[38px] rounded-full border-2 border-white drop-shadow-moduleProfile';
 
 const messageBoxStyles =
   'w-fit mt-6 px-8 py-4 bg-white opacity-80 rounded-md typo-caption1 text-gray-7';

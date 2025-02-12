@@ -12,7 +12,7 @@ const CardScroller = ({ cards }: CardScrollerProps) => {
   return (
     <>
       <div
-        className='ml-[18px] flex space-x-16 overflow-x-auto [&::-webkit-scrollbar]:hidden'
+        className='ml-[8px] px-10 flex space-x-16 overflow-x-auto [&::-webkit-scrollbar]:hidden'
         style={{
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',

@@ -7,7 +7,7 @@ import cardImage from '/public/images/module/01-Card-Module.png';
 
 const CardContainer = ({ children }: PropsWithChildren) => {
   return (
-    <div className='w-[180px] h-[216px] relative shrink-0 drop-shadow-module'>
+    <div className='w-[180px] h-[226px] relative shrink-0 drop-shadow-module'>
       <Image
         src={cardImage}
         alt='card'
