@@ -29,7 +29,7 @@ const PageHeader = ({ left, right, backButton }: Props) => {
   };
 
   return (
-    <header className='h-[54px] px-[22px] sticky top-0 flex justify-space items-center bg-white border-b border-gray-2'>
+    <header className='h-[54px] px-[22px] sticky top-0 flex justify-space items-center bg-white border-b border-gray-2 z-50'>
       {backButton && (
         <button onClick={() => router.back()}>
           <Icon name='back' className='w-24 h-24' />
