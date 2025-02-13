@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import '@/styles/globals.css';
+import Providers from '@/utils/query/provider';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <div className='max-w-content min-h-dvh max-h-dvh my-0 mx-auto'>{children}</div>
+        <Providers>
+          <div className='max-w-content min-h-dvh max-h-dvh my-0 mx-auto'>{children}</div>
+        </Providers>
       </body>
     </html>
   );
