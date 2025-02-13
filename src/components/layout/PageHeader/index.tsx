@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 
 import Icon from '@/components/common/Icon';
 
-interface Props {
+export interface Props {
   /**
    * left 영역 컴포넌트
    */
@@ -29,14 +29,16 @@ const PageHeader = ({ left, right, backButton }: Props) => {
   };
 
   return (
-    <header className='h-[54px] px-[22px] flex justify-center items-center bg-white border-b border-gray-2'>
+    <header className='h-[54px] px-[22px] sticky top-0 flex justify-space items-center bg-white border-b border-gray-2'>
       {backButton && (
         <button onClick={() => router.back()}>
           <Icon name='back' className='w-24 h-24' />
         </button>
       )}
       {!backButton && left}
-      <h1 className='flex-1 text-center typo-heading font-bold'>{routerTitle[pathName]}</h1>
+      <h1 className='absolute left-1/2 -translate-x-1/2 text-center typo-heading font-bold'>
+        {routerTitle[pathName]}
+      </h1>
       {right}
     </header>
   );

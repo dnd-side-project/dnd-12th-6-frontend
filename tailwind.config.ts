@@ -14,6 +14,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        preview: "url('/images/create/create_background.png')",
+      },
       spacing,
       maxWidth: {
         content: '600px',
