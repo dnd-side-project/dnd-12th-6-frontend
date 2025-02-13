@@ -31,7 +31,7 @@ export const Error: Story = {
   args: {
     children: (
       <>
-        <Field.Label>라벨</Field.Label>
+        <Field.Label optional>라벨</Field.Label>
         <InputRoot>
           <InputRoot.Input placeholder='이름 또는 닉네임' />
         </InputRoot>
