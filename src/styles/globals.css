@@ -80,4 +80,16 @@
     @apply bg-background text-foreground;
     font-family: Pretendard, sans-serif;
   }
+
+  /* Input number 화살표 제거 */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox  */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
 }
