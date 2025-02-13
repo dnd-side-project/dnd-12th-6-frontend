@@ -12,10 +12,10 @@ const CardHeader = ({ invitationType, hostName }: Pick<ICard, 'invitationType' |
       )}
       {invitationType === 'SENT' && (
         <>
-          <div className={profileImageStyles}>
+          <div className='w-[38px] h-[38px] rounded-full border-2 border-white drop-shadow-moduleProfile'>
             <Image src={'https://avatar.iran.liara.run/public'} alt='host' width={36} height={36} />
           </div>
-          <div className={messageBoxStyles}>
+          <div className='w-fit mt-6 px-8 py-4 bg-white opacity-80 rounded-md typo-caption1 text-gray-7'>
             <span className='font-semibold mr-2'>From.</span>
             <span className='font-regular'>{hostName}</span>
           </div>
@@ -33,11 +33,5 @@ const cardHeaderVariants = cva('w-[180px] absolute top-10', {
     },
   },
 });
-
-const profileImageStyles =
-  'w-[38px] h-[38px] rounded-full border-2 border-white drop-shadow-moduleProfile';
-
-const messageBoxStyles =
-  'w-fit mt-6 px-8 py-4 bg-white opacity-80 rounded-md typo-caption1 text-gray-7';
 
 export default CardHeader;
