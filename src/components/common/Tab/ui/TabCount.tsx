@@ -12,10 +12,13 @@ const TabCount = () => {
 
 export default TabCount;
 
-const countVariants = cva(['min-w-[19px] px-6 py-1 text-caption2 bg-gray-2 rounded-round'], {
-  variants: {
-    active: {
-      true: 'bg-gray-1',
+const countVariants = cva(
+  ['min-w-[19px] px-6 py-1 typo-caption2 font-medium bg-gray-2 text-gray-5 rounded-round'],
+  {
+    variants: {
+      active: {
+        true: 'bg-gray-1',
+      },
     },
   },
-});
+);
