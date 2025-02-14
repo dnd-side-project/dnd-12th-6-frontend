@@ -13,7 +13,7 @@ const TabText = ({ children }: PropsWithChildren) => {
 
 export default TabText;
 
-const textVariants = cva(['text-label1 text-gray-4'], {
+const textVariants = cva(['typo-label1 font-semibold text-gray-4 whitespace-nowrap'], {
   variants: {
     active: {
       true: 'text-gray-2',
