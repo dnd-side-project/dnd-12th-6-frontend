@@ -14,7 +14,26 @@ const meta: Meta<typeof Button> = {
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: {},
+  argTypes: {
+    variant: {
+      options: [
+        'default',
+        'destructive',
+        'outline',
+        'secondary',
+        'ghost',
+        'link',
+        'disabled',
+        'primaryLight',
+        'primaryStrong',
+      ],
+      control: { type: 'select' },
+    },
+    size: {
+      options: ['default', 'sm', 'lg', 'icon', 'tab'],
+      control: { type: 'select' },
+    },
+  },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: { onClick: fn() },
 } satisfies Meta<typeof Button>;

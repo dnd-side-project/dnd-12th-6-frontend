@@ -79,6 +79,8 @@
   body {
     @apply bg-background text-foreground;
     font-family: Pretendard, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Input number 화살표 제거 */
