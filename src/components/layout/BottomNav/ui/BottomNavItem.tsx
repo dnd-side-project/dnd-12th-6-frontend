@@ -23,7 +23,7 @@ const BottomNavItem = ({ icon, label, tab }: BottomNavItemProps) => {
       onClick={() => setActiveTab(tab)}
     >
       <Icon name={icon} className='w-24 h-24' />
-      <div className='h-15 typo-caption2 text-gray-7 font-regular'>{label}</div>
+      <div className='h-15 typo-caption2 text-gray-7 font-regular whitespace-nowrap'>{label}</div>
     </Link>
   );
 };
