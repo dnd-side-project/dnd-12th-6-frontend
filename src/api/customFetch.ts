@@ -1,4 +1,4 @@
-export type FetchOptions<B = BodyInit | object | null> = {
+export type FetchOptions<B = unknown> = {
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
   body?: B;
   headers?: Record<string, string>;
@@ -7,7 +7,7 @@ export type FetchOptions<B = BodyInit | object | null> = {
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
-export async function customFetch<T, B = BodyInit | object | null>(
+export async function customFetch<T, B = unknown>(
   endpoint: string,
   options: FetchOptions<B> = {},
 ): Promise<T> {
