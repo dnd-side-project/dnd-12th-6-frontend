@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { ReactNode } from 'react';
 
 import Icon from '@/components/common/Icon';
@@ -18,15 +18,14 @@ export interface Props {
    * back button
    */
   backButton?: boolean;
+  /**
+   * page title
+   */
+  title?: string;
 }
 
-const PageHeader = ({ left, right, backButton }: Props) => {
-  const pathName = usePathname();
+const PageHeader = ({ left, right, backButton, title }: Props) => {
   const router = useRouter();
-
-  const routerTitle: Record<string, string> = {
-    '/create': '초대장 만들기',
-  };
 
   return (
     <header className='h-[54px] px-[22px] sticky top-0 flex justify-space items-center bg-white border-b border-gray-2 z-50'>
@@ -36,9 +35,11 @@ const PageHeader = ({ left, right, backButton }: Props) => {
         </button>
       )}
       {!backButton && left}
-      <h1 className='absolute left-1/2 -translate-x-1/2 text-center typo-heading font-bold'>
-        {routerTitle[pathName]}
-      </h1>
+      {title && (
+        <h1 className='absolute left-1/2 -translate-x-1/2 text-center typo-heading font-bold'>
+          {title}
+        </h1>
+      )}
       {right}
     </header>
   );

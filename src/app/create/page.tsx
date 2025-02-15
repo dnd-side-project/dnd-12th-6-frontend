@@ -5,11 +5,12 @@ import InputRoot from '@/components/common/Input';
 import NumberInput from '@/components/common/NumberInput';
 import PageContainer from '@/components/layout/PageContainer';
 import PageHeader from '@/components/layout/PageHeader';
+import { ROUTER_TITLE } from '@/constants/enum';
 
 const page = () => {
   return (
     <PageContainer>
-      <PageHeader backButton />
+      <PageHeader backButton title={ROUTER_TITLE.CREATE} />
       <div className='cursor-pointer w-full relative h-[360px] bg-preview bg-cover'>
         <div className='w-[190px] absolute top-80 left-1/2 -translate-x-1/2 flex flex-col items-center gap-24'>
           <img className='w-[106px]' src='/images/create/letter_image.png' />
