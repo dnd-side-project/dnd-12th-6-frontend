@@ -80,6 +80,7 @@ const config: Config = {
           black: '#000000',
           white: '#FFFFFF',
         },
+        error: '#FF4F4F',
       },
       borderRadius: {
         default: 'var(--radius)', // 기본 border-radius (0.5rem)
