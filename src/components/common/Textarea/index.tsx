@@ -1,4 +1,5 @@
-import React from 'react';
+import clsx from 'clsx';
+import React, { useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -9,6 +10,15 @@ interface Props extends React.ComponentProps<'textarea'> {
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
   ({ counter, max = 200, className, ...props }, ref) => {
+    const [length, setLength] = useState(0);
+
+    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setLength(e.target.value.length);
+      if (props.onChange) {
+        props.onChange(e);
+      }
+    };
+
     return (
       <div className='w-full h-fit relative'>
         <textarea
@@ -17,11 +27,17 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
             className,
           )}
           ref={ref}
+          onChange={handleChange}
           {...props}
         />
         {counter && (
-          <span className='absolute right-24 bottom-24 typo-label1 font-medium text-gray-4'>
-            {1}/{max}
+          <span
+            className={clsx(
+              'absolute right-24 bottom-24 typo-label1 font-medium text-gray-4',
+              max < length && 'text-error',
+            )}
+          >
+            {length}/{max}
           </span>
         )}
       </div>
