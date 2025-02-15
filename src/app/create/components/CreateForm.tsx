@@ -29,7 +29,7 @@ const CreateForm = () => {
     },
     validationSchema: yup.object({
       title: yup.string().min(1).max(10).required('이름을 입력해주세요.'),
-      addaddress_detail: yup.string().required('장소명을 입력해주세요.'),
+      address_detail: yup.string().required('장소명을 입력해주세요.'),
       date: yup.string().required('모임 임시를 선택해주세요.'),
       max_length: yup.number().min(1).max(20),
       message: yup.string().max(200),
@@ -56,6 +56,9 @@ const CreateForm = () => {
               onChange={formik.handleChange}
             />
           </InputRoot>
+          {formik.errors.title && (
+            <Field.HelpText status='error'>{formik.errors.title}</Field.HelpText>
+          )}
         </Field>
         <Field className='mb-[22px]'>
           <Field.Label required>장소</Field.Label>
@@ -67,6 +70,9 @@ const CreateForm = () => {
               onChange={formik.handleChange}
             />
           </InputRoot>
+          {formik.errors.address_detail && (
+            <Field.HelpText status='error'>{formik.errors.address_detail}</Field.HelpText>
+          )}
         </Field>
         <Field className='mb-[22px]'>
           <Field.Label required>일시</Field.Label>
@@ -75,6 +81,9 @@ const CreateForm = () => {
             value={formik.values.date}
             onChange={formik.handleChange}
           />
+          {formik.errors.date && (
+            <Field.HelpText status='error'>{formik.errors.date}</Field.HelpText>
+          )}
         </Field>
       </div>
 
@@ -102,6 +111,7 @@ const CreateForm = () => {
 
       <button
         className='sticky bottom-0 w-full h-[57px] flex items-center justify-center bg-gray-7 disabled:bg-gray-3'
+        type='submit'
         onClick={() => formik.handleSubmit()}
       >
         <p className='typo-heading font-semibold text-white'>완료</p>
