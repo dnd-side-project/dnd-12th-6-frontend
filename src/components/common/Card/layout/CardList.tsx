@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 import Link from 'next/link';
+import { forwardRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 import Card, { ICard } from '..';
 import { Button } from '../../Button';
@@ -7,9 +9,10 @@ import Icon from '../../Icon';
 
 interface CardListProps {
   cards: ICard[];
-  lastCardRef: (node?: Element | null) => void;
 }
-const CardList = ({ cards, lastCardRef }: CardListProps) => {
+const CardList = forwardRef<HTMLDivElement, CardListProps>(function CardListWithRef({ cards }) {
+  const { ref: inViewRef } = useInView({ threshold: 0.1 });
+
   return (
     <div className='flex flex-col py-40 gap-y-12'>
       {cards.length === 0 ? (
@@ -26,7 +29,7 @@ const CardList = ({ cards, lastCardRef }: CardListProps) => {
         cards.map((card, index) => (
           <div
             key={index}
-            ref={index === cards.length - 1 ? lastCardRef : undefined}
+            ref={index === cards.length - 1 ? inViewRef : undefined}
             className={clsx('flex', index % 2 === 0 ? 'justify-start ml-40' : 'justify-end mr-40')}
           >
             <Card card={card} />
@@ -35,6 +38,6 @@ const CardList = ({ cards, lastCardRef }: CardListProps) => {
       )}
     </div>
   );
-};
+});
 
 export default CardList;

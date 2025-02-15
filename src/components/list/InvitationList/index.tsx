@@ -6,9 +6,7 @@ import InfiniteCardFetcher from '@/components/common/Card/modules/InfiniteCardFe
 export default function InvitationList() {
   return (
     <div className='absolute top-[209px] w-full'>
-      <InfiniteCardFetcher>
-        {(cards, ref) => <CardList cards={cards} lastCardRef={ref} />}
-      </InfiniteCardFetcher>
+      <InfiniteCardFetcher>{(cards) => <CardList cards={cards} />}</InfiniteCardFetcher>
     </div>
   );
 }

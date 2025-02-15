@@ -1,7 +1,5 @@
 'use client';
 
-import { useInView } from 'react-intersection-observer';
-
 import { useInvitationTabStore } from '@/store/invitationListStore';
 
 import { ICard } from '..';
@@ -51,11 +49,10 @@ const dummyData = {
 };
 
 interface Props {
-  children: (cards: ICard[], lastCardRef: (node?: Element | null) => void) => JSX.Element;
+  children: (cards: ICard[]) => JSX.Element;
 }
 export default function InfiniteCardFetcher({ children }: Props) {
   const { selectedTab } = useInvitationTabStore();
-  const { ref } = useInView({ threshold: 0.1 });
 
-  return <>{children(dummyData[selectedTab], ref)}</>;
+  return <>{children(dummyData[selectedTab])}</>;
 }
