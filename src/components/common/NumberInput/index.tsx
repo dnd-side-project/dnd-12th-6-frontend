@@ -42,7 +42,7 @@ const NumberInput = React.forwardRef<HTMLInputElement, Props>(function NumberInp
         value={number}
         onChange={handleChangeText}
       />
-      <div className='flex gap-16'>
+      <div className='pt-4 flex gap-16'>
         <button className='w-28 h-28 flex items-center justify-center' onClick={handleDecrease}>
           <Icon name='minus' className='w-[18px] h-[18px] text-gray-6' />
         </button>
