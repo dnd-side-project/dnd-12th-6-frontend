@@ -6,16 +6,17 @@ import { cn } from '@/lib/utils';
 interface Props extends React.ComponentProps<'textarea'> {
   counter?: boolean;
   max?: number;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
-  ({ counter, max = 200, className, ...props }, ref) => {
+  ({ counter, max = 200, className, onChange, ...props }, ref) => {
     const [length, setLength] = useState(0);
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       setLength(e.target.value.length);
-      if (props.onChange) {
-        props.onChange(e);
+      if (onChange) {
+        onChange(e);
       }
     };
 
