@@ -9,6 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '../BottomSheet';
+import { Button } from '../Button';
 import Field from '../Field';
 import Icon from '../Icon';
 import InputRoot from '../Input';
@@ -46,7 +47,9 @@ const DateInput = ({ ...rest }: Props) => {
           </Field>
         </div>
         <SheetFooter>
-          <SheetClose asChild>{/* <Button type='submit'>Save changes</Button> */}</SheetClose>
+          <SheetClose asChild>
+            <Button variant={'default'}>다음</Button>
+          </SheetClose>
         </SheetFooter>
       </SheetContent>
     </Sheet>
