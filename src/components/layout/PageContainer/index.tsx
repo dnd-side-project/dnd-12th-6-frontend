@@ -5,6 +5,8 @@ import Header from '@/components/layout/Header';
 import { BottomNavList } from '@/store/bottomNavStore';
 import { StrictPropsWithChildren } from '@/types/common';
 
+import PageHeader from './lib/PageHeader';
+
 interface Props {
   header?: boolean;
   bottomNav?: boolean;
@@ -39,5 +41,7 @@ const PageContainer = ({
     </div>
   );
 };
+
+PageContainer.PageHeader = PageHeader; // 정적 속성으로 추가
 
 export default PageContainer;

@@ -5,6 +5,8 @@
  * color 관련 작업 필요 fill, stroke, color
  */
 
+export { default as back } from './back_icon.svg';
+export { default as calendar } from './calendar_icon.svg';
 export { default as check_circle } from './check_circle_icon.svg';
 export { default as error } from './error_icon.svg';
 export { default as home } from './home_icon.svg';

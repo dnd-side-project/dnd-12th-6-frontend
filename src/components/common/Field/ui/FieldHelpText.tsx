@@ -22,7 +22,7 @@ const helpTextVariants = cva(['mx-10 mt-10 flex items-center gap-4 typo-caption1
   variants: {
     status: {
       default: '',
-      error: 'text-[#FF4F4F]',
+      error: 'text-error',
     },
   },
 });

@@ -6,30 +6,42 @@ import Icon from '../Icon';
 import InputRoot from '../Input';
 
 interface Props {
-  initValue?: number;
+  value?: number;
   min?: number;
   max?: number;
+  onChangeValue?: (value: number) => void;
 }
 
 const NumberInput = React.forwardRef<HTMLInputElement, Props>(function NumberInput(
-  { initValue = 1, min = 1, max = 20 },
+  { value = 1, min = 1, max = 20, onChangeValue, ...rest },
   ref,
 ) {
-  const [number, setNumber] = useState<number>(initValue);
+  const [number, setNumber] = useState<number>(value);
 
   const handleChangeText = (e: ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
 
     if (!isNaN(value)) {
-      setNumber(Math.min(Math.max(value, min), max));
+      const formatValue = Math.min(Math.max(value, min), max);
+
+      if (onChangeValue) {
+        onChangeValue(formatValue);
+      }
+      setNumber(formatValue);
     }
   };
 
   const handleIncrease = () => {
+    if (onChangeValue) {
+      onChangeValue(number + 1);
+    }
     setNumber((prev) => Math.min(prev + 1, max));
   };
 
   const handleDecrease = () => {
+    if (onChangeValue) {
+      onChangeValue(number - 1);
+    }
     setNumber((prev) => Math.max(prev - 1, min));
   };
 
@@ -41,8 +53,9 @@ const NumberInput = React.forwardRef<HTMLInputElement, Props>(function NumberInp
         inputMode='numeric'
         value={number}
         onChange={handleChangeText}
+        {...rest}
       />
-      <div className='flex gap-16'>
+      <div className='pt-4 flex gap-16'>
         <button className='w-28 h-28 flex items-center justify-center' onClick={handleDecrease}>
           <Icon name='minus' className='w-[18px] h-[18px] text-gray-6' />
         </button>

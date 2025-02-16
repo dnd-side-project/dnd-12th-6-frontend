@@ -1,12 +1,14 @@
-import { cva } from 'class-variance-authority';
-import React, { PropsWithChildren } from 'react';
+import clsx from 'clsx';
+import React from 'react';
 
-import { cn } from '@/lib/utils';
+import { StrictPropsWithChildren } from '@/types/common';
 
-const FieldMain = ({ children }: PropsWithChildren) => {
-  return <div className={cn(fieldVariants())}>{children}</div>;
+export interface Props extends StrictPropsWithChildren {
+  className?: string;
+}
+
+const FieldMain = ({ className, children }: Props) => {
+  return <div className={clsx('flex flex-col', className)}>{children}</div>;
 };
 
 export default FieldMain;
-
-const fieldVariants = cva(['flex flex-col']);

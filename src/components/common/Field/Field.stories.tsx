@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import Field from '.';
 import InputRoot from '../Input';
+import NumberInput from '../NumberInput';
+import Textarea from '../Textarea';
 
 const meta = {
   title: 'Common/Field',
@@ -49,6 +51,30 @@ export const InputField: Story = {
         <InputRoot>
           <InputRoot.Input placeholder='이름 또는 닉네임' />
         </InputRoot>
+        <Field.HelpText>도움말</Field.HelpText>
+      </>
+    ),
+  },
+};
+
+export const NumberInputField: Story = {
+  args: {
+    children: (
+      <>
+        <Field.Label>라벨</Field.Label>
+        <NumberInput />
+        <Field.HelpText>도움말</Field.HelpText>
+      </>
+    ),
+  },
+};
+
+export const TextareaField: Story = {
+  args: {
+    children: (
+      <>
+        <Field.Label>라벨</Field.Label>
+        <Textarea placeholder='전달할 메세지를 입력해주세요.' counter />
         <Field.HelpText>도움말</Field.HelpText>
       </>
     ),

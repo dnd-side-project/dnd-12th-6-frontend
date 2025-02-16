@@ -14,6 +14,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        preview: "url('/images/create/create_background.png')",
+      },
       spacing,
       maxWidth: {
         content: '600px',
@@ -77,6 +80,7 @@ const config: Config = {
           black: '#000000',
           white: '#FFFFFF',
         },
+        error: '#FF4F4F',
       },
       borderRadius: {
         default: 'var(--radius)', // 기본 border-radius (0.5rem)
