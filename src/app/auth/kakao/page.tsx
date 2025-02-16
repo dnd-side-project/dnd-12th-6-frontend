@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 import PageContainer from '@/components/layout/PageContainer';
 import { useAuthStore } from '@/store/authStore';
@@ -14,16 +14,20 @@ export default function KakaoLoginPage() {
   const email = searchParams.get('email');
 
   const { setUser } = useAuthStore();
+  const hasRedirected = useRef(false);
 
   useEffect(() => {
+    if (!userId || hasRedirected.current) return;
     setUser({
       userId: Number(userId),
       name: name || '',
       profileImageUrl: profileImageUrl || '',
       email: email || '',
     });
+
+    hasRedirected.current = true;
     window.location.href = '/';
-  }, []);
+  }, [userId, name, profileImageUrl, email]);
 
   return (
     <PageContainer>
