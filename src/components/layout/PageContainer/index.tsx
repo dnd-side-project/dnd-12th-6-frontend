@@ -10,15 +10,22 @@ import PageHeader from './lib/PageHeader';
 interface Props {
   header?: boolean;
   bottomNav?: boolean;
+  className?: string;
 }
 
-const PageContainer = ({ header, bottomNav, children }: StrictPropsWithChildren<Props>) => {
+const PageContainer = ({
+  header,
+  bottomNav,
+  className,
+  children,
+}: StrictPropsWithChildren<Props>) => {
   return (
     <div
       className={clsx(
         'w-full max-w-content relative',
         header && 'pt-[54px]',
         bottomNav && 'pb-[88px]',
+        className,
       )}
     >
       {children}

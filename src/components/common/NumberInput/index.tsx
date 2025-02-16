@@ -9,7 +9,7 @@ interface Props {
   value?: number;
   min?: number;
   max?: number;
-  onChangeValue: (value: number) => void;
+  onChangeValue?: (value: number) => void;
 }
 
 const NumberInput = React.forwardRef<HTMLInputElement, Props>(function NumberInput(

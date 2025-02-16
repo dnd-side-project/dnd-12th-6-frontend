@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 interface Props extends React.ComponentProps<'textarea'> {
   counter?: boolean;
   max?: number;
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
