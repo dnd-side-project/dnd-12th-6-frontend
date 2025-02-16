@@ -4,7 +4,7 @@ import FieldMain from './ui/FieldMain';
 
 const Field = Object.assign(FieldMain, {
   Label: FieldLabel,
-  helpText: FieldHelpText,
+  HelpText: FieldHelpText,
 });
 
 export default Field;
