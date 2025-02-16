@@ -51,3 +51,11 @@ export const Default: Story = {
     cards: cards,
   },
 };
+
+export const Empty: Story = {
+  render: () => (
+    <div style={{ width: '400px' }}>
+      <CardScroller cards={[]} />
+    </div>
+  ),
+};
