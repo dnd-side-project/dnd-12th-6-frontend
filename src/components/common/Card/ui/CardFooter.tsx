@@ -1,6 +1,6 @@
 'use client';
 
-import formatDate from '@/utils/format/formatDate';
+import { formatDate } from '@/utils/format/formatDate';
 
 import { ICard } from '..';
 
