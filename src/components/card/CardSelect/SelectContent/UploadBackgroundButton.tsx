@@ -53,12 +53,12 @@ export const UploadBackgroundButton = () => {
         }}
       >
         {previewImage && (
-          <div className='absolute inset-0 rounded-full bg-black bg-opacity-20 flex items-center justify-center' />
+          <div className='absolute inset-0 rounded-full bg-static-dimmer flex items-center justify-center' />
         )}
         {previewImage ? (
-          <Icon name='minus' className='text-white w-20 h-20 z-20' />
+          <Icon name='close' className='text-white w-20 h-20 z-20' />
         ) : (
-          <Icon name='plus' className='text-white w-20 h-20' />
+          <Icon name='background_white' className='fill-white w-30 h-30' />
         )}
       </button>
     </>

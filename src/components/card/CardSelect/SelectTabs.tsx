@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import Icon from '@/components/common/Icon';
+import Icon, { IconTypes } from '@/components/common/Icon';
 
 import { selectType } from '.';
 
@@ -9,14 +9,12 @@ interface SelectTabsProps {
   setSelected: (selected: selectType) => void;
 }
 
-//TODO: 아이콘 수정
-
 export const SelectTabs = ({ selected, setSelected }: SelectTabsProps) => {
-  const tabs: { label: string; value: selectType }[] = [
-    { label: '편지지', value: 'theme' },
-    { label: '제목', value: 'title' },
-    { label: '스티커', value: 'sticker' },
-    { label: '배경', value: 'background' },
+  const tabs: { label: string; value: selectType; icon: IconTypes; icon_active: IconTypes }[] = [
+    { label: '편지지', value: 'theme', icon: 'envelope', icon_active: 'envelope_active' },
+    { label: '제목', value: 'title', icon: 'text', icon_active: 'text_active' },
+    { label: '스티커', value: 'sticker', icon: 'sticker', icon_active: 'sticker_active' },
+    { label: '배경', value: 'background', icon: 'background', icon_active: 'background_active' },
   ];
 
   return (
@@ -32,7 +30,10 @@ export const SelectTabs = ({ selected, setSelected }: SelectTabsProps) => {
               : 'border-b-2 border-transparent text-gray-6',
           )}
         >
-          <Icon name='back' className='w-20 h-20' />
+          <Icon
+            name={selected === tab.value ? tab.icon_active : tab.icon}
+            className={clsx('w-20 h-20')}
+          />
           {tab.label}
         </button>
       ))}
