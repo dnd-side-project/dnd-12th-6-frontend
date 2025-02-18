@@ -23,10 +23,13 @@ export const BackgroundSelect = () => {
               'w-[50px] h-[50px] border-2 bg-gray-1 rounded-full transition-colors duration-150',
               background === invitation.background ? 'border-primary-strong' : 'border-gray-1',
             )}
+            style={{
+              backgroundImage: background
+                ? `url(/images/background/background_${background}.png)`
+                : 'none',
+            }}
             onClick={background ? () => setInvitation({ ...invitation, background }) : undefined}
-          >
-            {background ? background : ''}
-          </button>
+          />
         ))}
       </div>
 
@@ -38,10 +41,13 @@ export const BackgroundSelect = () => {
               'w-[50px] h-[50px] border-2 bg-gray-1 rounded-full transition-colors duration-150',
               background === invitation.background ? 'border-primary-strong' : 'border-gray-1',
             )}
+            style={{
+              backgroundImage: background
+                ? `url(/images/background/background_${background}.png)`
+                : 'none',
+            }}
             onClick={background ? () => setInvitation({ ...invitation, background }) : undefined}
-          >
-            {background ? background : ''}
-          </button>
+          />
         ))}
       </div>
     </div>

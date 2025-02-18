@@ -13,9 +13,10 @@ const CardContainer = () => {
     <div
       className='relative w-full min-h-[600px] h-[calc(100dvh-54px)] pb-[210px] flex items-center justify-center'
       style={{
-        backgroundImage: invitation.backgroundImageData
-          ? `url(${invitation.backgroundImageData})`
-          : undefined,
+        backgroundImage:
+          invitation.background === 'custom'
+            ? `url(${invitation.backgroundImageData})`
+            : `url(/images/background/background_${invitation.background}.png)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}

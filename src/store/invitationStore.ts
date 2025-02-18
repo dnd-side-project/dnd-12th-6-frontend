@@ -14,7 +14,7 @@ const initialInvitation: IInvitation = {
   title: '',
   sticker: 'sticker1',
   fontName: 'basic',
-  background: 'background1',
+  background: 'purple',
   backgroundImageData: '',
 };
 

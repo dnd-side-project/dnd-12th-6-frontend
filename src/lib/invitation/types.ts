@@ -7,7 +7,7 @@ export type stickerType = (typeof stickerArray)[number];
 export const fontArray = ['basic', 'bold', 'cute'] as const;
 export type fontType = (typeof fontArray)[number];
 
-export const backgroundArray = ['custom', 'background1', 'background2', 'background3'] as const;
+export const backgroundArray = ['custom', 'purple', 'check', 'confetti', 'blue'] as const;
 export type backgroundType = (typeof backgroundArray)[number];
 
 /**
