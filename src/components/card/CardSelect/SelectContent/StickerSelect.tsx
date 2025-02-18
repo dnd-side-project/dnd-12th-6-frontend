@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import Icon from '@/components/common/Icon';
 import { stickerArray } from '@/lib/invitation/types';
 import { useInvitationStore } from '@/store/invitationStore';
 
@@ -18,12 +19,18 @@ export const StickerSelect = () => {
             <button
               key={index}
               className={clsx(
-                'w-[50px] h-[50px] border-2 bg-gray-1 rounded-full transition-colors duration-150',
+                'flex justify-center items-center w-[50px] h-[50px] border-2 bg-gray-1 rounded-full transition-colors duration-150 bg-contain',
                 sticker === invitation.sticker ? 'border-primary-strong' : 'border-gray-1',
+                sticker === 'none' && 'bg-gray-6',
               )}
+              style={{
+                backgroundImage: sticker
+                  ? `url(/images/sticker/sticker_${sticker}_module.png)`
+                  : 'none',
+              }}
               onClick={sticker ? () => setInvitation({ ...invitation, sticker }) : undefined}
             >
-              {sticker ? sticker : ''}
+              {sticker === 'none' && <Icon name='close' className='w-20 h-20' />}
             </button>
           ))}
         </div>

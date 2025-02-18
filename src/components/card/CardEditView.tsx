@@ -59,7 +59,7 @@ const CardEditView = () => {
             />
           </div>
         </div>
-        <CardImageView />
+        <CardImageView invitation={invitation} />
       </div>
       <AlertToast
         message='글자 수가 초과되었습니다. (최대 20자)'
