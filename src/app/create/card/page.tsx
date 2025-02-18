@@ -1,3 +1,4 @@
+import CardBackground from '@/components/card/CardBackground';
 import {
   PageHeaderCancelButton,
   PageHeaderCompleteButton,
@@ -13,7 +14,7 @@ const page = () => {
         left={<PageHeaderCancelButton />}
         right={<PageHeaderCompleteButton />}
       />
-      <div>초대장 꾸미기 페이지</div>
+      <CardBackground />
     </PageContainer>
   );
 };
