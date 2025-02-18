@@ -2,7 +2,8 @@
 
 import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+
+import { useInvitationStore } from '@/store/invitationStore';
 
 export const PageHeaderCancelButton = () => {
   const router = useRouter();
@@ -21,7 +22,7 @@ export const PageHeaderCancelButton = () => {
 };
 
 export const PageHeaderCompleteButton = () => {
-  const [isComplete] = useState(false);
+  const { invitation } = useInvitationStore();
   const router = useRouter();
   const handleClick = () => {
     router.back();
@@ -31,7 +32,7 @@ export const PageHeaderCompleteButton = () => {
     <button
       className={clsx(
         'absolute right-[22px] w-[30px] h-[30px] flex items-center justify-center typo-body font-medium',
-        isComplete ? 'text-primary-strong' : 'text-gray-4',
+        invitation.title !== '' ? 'text-primary-strong' : 'text-gray-4',
       )}
       onClick={handleClick}
     >
