@@ -1,12 +1,15 @@
 import clsx from 'clsx';
 import { useState, useEffect, useRef } from 'react';
 
+import AlertToast from '@/components/common/AlertToast';
 import { useInvitationStore } from '@/store/invitationStore';
 
 const CardSection = () => {
   const { invitation, setInvitation } = useInvitationStore();
   const [type] = useState<'card' | 'envelop'>('card');
   const [isEditing, setIsEditing] = useState(false);
+  const [isToastVisible, setToastVisible] = useState(false);
+
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
@@ -29,10 +32,13 @@ const CardSection = () => {
           >
             <textarea
               value={invitation.title}
-              onChange={(e) => setInvitation({ ...invitation, title: e.target.value })}
+              onChange={(e) => {
+                if (e.target.value.length <= 20)
+                  setInvitation({ ...invitation, title: e.target.value });
+                else setToastVisible(true);
+              }}
               ref={textareaRef}
               placeholder={'초대장 제목을 입력해주세요.'}
-              maxLength={20}
               onFocus={() => setIsEditing(true)}
               onBlur={() => setIsEditing(false)}
               onKeyDown={(e) => {
@@ -52,6 +58,11 @@ const CardSection = () => {
           </div>
         </div>
       </div>
+      <AlertToast
+        message='글자 수가 초과되었습니다. (최대 20자)'
+        isVisible={isToastVisible}
+        onClose={() => setToastVisible(false)}
+      />
     </>
   );
 };
