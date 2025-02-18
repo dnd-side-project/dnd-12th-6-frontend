@@ -2,11 +2,12 @@ import Link from 'next/link';
 
 import { Button } from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
+import { InvitationDTO } from '@/lib/invitation';
 
-import Card, { ICard } from '..';
+import Card from '..';
 
 interface CardScrollerProps {
-  cards: ICard[];
+  cards: InvitationDTO[];
 }
 const CardScroller = ({ cards }: CardScrollerProps) => {
   return (
