@@ -1,7 +1,7 @@
 'use client';
 
+import CardResetButton from '@/components/card/CardResetButton';
 import CardSelect from '@/components/card/CardSelect';
-import ResetButton from '@/components/card/ResetButton';
 import { useInvitationStore } from '@/store/invitationStore';
 
 import CardEditView from './CardEditView';
@@ -20,7 +20,7 @@ const CardContainer = () => {
         backgroundPosition: 'center',
       }}
     >
-      <ResetButton />
+      <CardResetButton />
       <CardEditView />
       <CardSelect />
     </div>

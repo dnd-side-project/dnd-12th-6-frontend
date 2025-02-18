@@ -6,7 +6,7 @@ import { useInvitationStore } from '@/store/invitationStore';
 
 import Icon from '../common/Icon';
 
-const ResetButton = () => {
+const CardResetButton = () => {
   const { invitation, isModified, resetInvitation } = useInvitationStore();
   const isActive = isModified && invitation.title !== '';
 
@@ -34,4 +34,4 @@ const ResetButton = () => {
   );
 };
 
-export default ResetButton;
+export default CardResetButton;
