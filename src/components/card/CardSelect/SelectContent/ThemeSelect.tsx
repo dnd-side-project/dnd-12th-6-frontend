@@ -22,7 +22,7 @@ export const ThemeSelect = () => {
                 theme === invitation.theme ? 'border-primary-strong' : 'border-gray-1',
               )}
               style={{
-                backgroundImage: `url(/images/card/envelope_${theme}.png)`,
+                backgroundImage: theme && `url(/images/card/envelope_${theme}.png)`,
               }}
               onClick={theme ? () => setInvitation({ ...invitation, theme }) : undefined}
             ></button>

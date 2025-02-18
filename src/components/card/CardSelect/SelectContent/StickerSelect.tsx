@@ -24,9 +24,7 @@ export const StickerSelect = () => {
                 sticker === 'none' && 'bg-gray-6',
               )}
               style={{
-                backgroundImage: sticker
-                  ? `url(/images/sticker/sticker_${sticker}_module.png)`
-                  : 'none',
+                backgroundImage: sticker && `url(/images/sticker/sticker_${sticker}_module.png)`,
               }}
               onClick={sticker ? () => setInvitation({ ...invitation, sticker }) : undefined}
             >
