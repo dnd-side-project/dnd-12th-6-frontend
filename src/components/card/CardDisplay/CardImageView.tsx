@@ -1,24 +1,22 @@
-import { IInvitation } from '@/lib/invitation/types';
+import { stickerType, themeType } from '@/lib/invitation/types';
 
 interface CardImageViewProps {
-  invitation: IInvitation;
+  theme: themeType;
+  sticker: stickerType;
 }
-const CardImageView = ({ invitation }: CardImageViewProps) => {
+const CardImageView = ({ theme, sticker }: CardImageViewProps) => {
   return (
     <div
       className='w-[300px] h-[300px] absolute top-[23px] bg-cover'
       style={{
-        backgroundImage: `url(/images/card/envelope_${invitation.theme}.png)`,
+        backgroundImage: `url(/images/card/envelope_${theme}.png)`,
       }}
     >
       <div className='w-full h-[90px] absolute top-[-23px]'>
         <div
           className='h-full bg-no-repeat bg-left bg-contain'
           style={{
-            backgroundImage:
-              invitation.sticker !== 'none'
-                ? `url(/images/sticker/sticker_${invitation.sticker}_L.png)`
-                : 'none',
+            backgroundImage: `url(/images/sticker/sticker_${sticker}_L.png)`,
           }}
         />
       </div>
@@ -26,10 +24,7 @@ const CardImageView = ({ invitation }: CardImageViewProps) => {
         <div
           className='h-full bg-no-repeat bg-right bg-contain'
           style={{
-            backgroundImage:
-              invitation.sticker !== 'none'
-                ? `url(/images/sticker/sticker_${invitation.sticker}_R.png)`
-                : 'none',
+            backgroundImage: `url(/images/sticker/sticker_${sticker}_R.png)`,
           }}
         />
       </div>
