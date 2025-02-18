@@ -1,15 +1,12 @@
 import { cva } from 'class-variance-authority';
 import Image from 'next/image';
-import stickerImage from 'public/images/sticker/01-Sticker-Module.png';
 
 import { ICard } from '..';
 
 const CardHeader = ({ invitationType, hostName }: Pick<ICard, 'invitationType' | 'hostName'>) => {
   return (
     <div className={cardHeaderVariants({ invitationType })}>
-      {invitationType === 'RECEIVED' && (
-        <Image src={stickerImage} alt='sticker' width={58} height={58} />
-      )}
+      {invitationType === 'RECEIVED' && <Image src={''} alt='sticker' width={58} height={58} />}
       {invitationType === 'SENT' && (
         <>
           <div className='w-[38px] h-[38px] rounded-full border-2 border-white drop-shadow-moduleProfile'>
