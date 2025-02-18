@@ -2,11 +2,13 @@ import clsx from 'clsx';
 import { useState, useEffect, useRef } from 'react';
 
 import AlertToast from '@/components/common/AlertToast';
+import { themeUIType } from '@/lib/invitation/types';
 import { useInvitationStore } from '@/store/invitationStore';
+
+import CardImageView from './CardImageView';
 
 const CardEditView = () => {
   const { invitation, setInvitation } = useInvitationStore();
-  const [type] = useState<'card' | 'envelop'>('card');
   const [isEditing, setIsEditing] = useState(false);
   const [isToastVisible, setToastVisible] = useState(false);
 
@@ -22,12 +24,12 @@ const CardEditView = () => {
   return (
     <>
       {isEditing && <div className='fixed inset-0 bg-static-dimmer z-50'></div>}
-      <div className='relative bg-blue-100 w-[300px] h-[350px]'>
+      <div className='border border-red-500 relative w-[300px] h-[350px]'>
         <div className='z-[80] w-[300px] h-[300px] absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2'>
           <div
             className={clsx(
               'z-[70] w-160 h-80 absolute left-1/2 -translate-x-1/2 flex items-center justify-center',
-              type === 'card' ? 'top-[117px]' : 'top-[70px]',
+              themeUIType[invitation.theme] === 'card' ? 'top-[117px]' : 'top-[70px]',
             )}
           >
             <textarea
@@ -57,6 +59,7 @@ const CardEditView = () => {
             />
           </div>
         </div>
+        <CardImageView />
       </div>
       <AlertToast
         message='글자 수가 초과되었습니다. (최대 20자)'

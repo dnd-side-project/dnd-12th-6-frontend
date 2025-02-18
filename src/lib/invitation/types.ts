@@ -1,7 +1,13 @@
-export const themeArray = ['theme1', 'theme2', 'theme3'] as const;
+export const themeArray = ['confetti', 'heart', 'mono', 'lucky'] as const;
 export type themeType = (typeof themeArray)[number];
+export const themeUIType = {
+  confetti: 'envelope',
+  heart: 'card',
+  mono: 'envelope',
+  lucky: 'envelope',
+};
 
-export const stickerArray = ['sticker1', 'sticker2', 'sticker3'] as const;
+export const stickerArray = ['none', 'sparkle', 'confetti', 'mono', 'cloud'] as const;
 export type stickerType = (typeof stickerArray)[number];
 
 export const fontArray = ['basic', 'bold', 'cute'] as const;

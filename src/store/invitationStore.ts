@@ -10,9 +10,9 @@ export interface InvitationStore {
 }
 
 const initialInvitation: IInvitation = {
-  theme: 'theme1',
+  theme: 'confetti',
   title: '',
-  sticker: 'sticker1',
+  sticker: 'none',
   fontName: 'basic',
   background: 'purple',
   backgroundImageData: '',

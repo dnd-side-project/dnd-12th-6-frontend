@@ -18,13 +18,14 @@ export const ThemeSelect = () => {
             <button
               key={index}
               className={clsx(
-                'w-[50px] h-[50px] border-2 bg-gray-1 rounded-full transition-colors duration-100',
+                'w-[50px] h-[50px] border-2 bg-gray-1 rounded-full transition-colors duration-100 bg-cover',
                 theme === invitation.theme ? 'border-primary-strong' : 'border-gray-1',
               )}
+              style={{
+                backgroundImage: `url(/images/card/envelope_${theme}.png)`,
+              }}
               onClick={theme ? () => setInvitation({ ...invitation, theme }) : undefined}
-            >
-              {theme ? theme : ''}
-            </button>
+            ></button>
           ))}
         </div>
       ))}
