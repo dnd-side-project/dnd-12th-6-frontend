@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import AlertToast from '@/components/common/AlertToast';
 import { useInvitationStore } from '@/store/invitationStore';
 
-const CardSection = () => {
+const CardEditView = () => {
   const { invitation, setInvitation } = useInvitationStore();
   const [type] = useState<'card' | 'envelop'>('card');
   const [isEditing, setIsEditing] = useState(false);
@@ -67,4 +67,4 @@ const CardSection = () => {
   );
 };
 
-export default CardSection;
+export default CardEditView;

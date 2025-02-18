@@ -9,7 +9,8 @@ import { TitleSelect } from './SelectContent/TitleSelect';
 import { SelectTabs } from './SelectTabs';
 
 export type selectType = 'theme' | 'title' | 'sticker' | 'background';
-export default function SelectSection() {
+
+export default function CardSelect() {
   const [selected, setSelected] = useState<selectType>('theme');
 
   const renderContent = () => {

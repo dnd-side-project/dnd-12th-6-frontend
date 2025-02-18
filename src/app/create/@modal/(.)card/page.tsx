@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-import CardBackground from '@/components/card/CardBackground';
+import CardContainer from '@/components/card/CardContainer';
 import {
   PageHeaderCancelButton,
   PageHeaderCompleteButton,
@@ -26,7 +26,7 @@ const page = () => {
           left={<PageHeaderCancelButton />}
           right={<PageHeaderCompleteButton />}
         />
-        <CardBackground />
+        <CardContainer />
       </PageContainer>
     </div>
   );

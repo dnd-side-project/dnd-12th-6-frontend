@@ -1,12 +1,12 @@
 'use client';
 
+import CardSelect from '@/components/card/CardSelect';
 import ResetButton from '@/components/card/ResetButton';
-import SelectSection from '@/components/card/SelectSection';
 import { useInvitationStore } from '@/store/invitationStore';
 
-import CardSection from './CardSection';
+import CardEditView from './CardEditView';
 
-const CardBackground = () => {
+const CardContainer = () => {
   const { invitation } = useInvitationStore();
 
   return (
@@ -21,10 +21,10 @@ const CardBackground = () => {
       }}
     >
       <ResetButton />
-      <CardSection />
-      <SelectSection />
+      <CardEditView />
+      <CardSelect />
     </div>
   );
 };
 
-export default CardBackground;
+export default CardContainer;
