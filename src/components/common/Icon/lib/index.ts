@@ -8,10 +8,13 @@
 export { default as arrow_down } from './arrow_down_icon.svg';
 export { default as back } from './back_icon.svg';
 export { default as calendar } from './calendar_icon.svg';
+export { default as chat } from './chat_icon.svg';
 export { default as check_circle } from './check_circle_icon.svg';
 export { default as error } from './error_icon.svg';
+export { default as head_count } from './head_count_icon.svg';
 export { default as home } from './home_icon.svg';
 export { default as mailbox } from './mailbox_icon.svg';
+export { default as marker } from './marker_icon.svg';
 export { default as message } from './message_icon.svg';
 export { default as minus } from './minus_icon.svg';
 export { default as plus } from './plus_icon.svg';

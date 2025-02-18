@@ -81,6 +81,12 @@ const config: Config = {
           white: '#FFFFFF',
         },
         error: '#FF4F4F',
+        blur: {
+          white: {
+            60: '#ffffff90',
+            30: '#FFFFFF4D',
+          },
+        },
       },
       borderRadius: {
         default: 'var(--radius)', // 기본 border-radius (0.5rem)
