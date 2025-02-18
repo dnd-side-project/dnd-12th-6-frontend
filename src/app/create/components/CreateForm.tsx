@@ -11,28 +11,41 @@ import NumberInput from '@/components/common/NumberInput';
 import Textarea from '@/components/common/Textarea';
 
 interface SaveCreateFormDataType {
-  title: string;
-  address_detail: string;
+  detail_address: string;
   date: string;
-  max_length: number;
-  message?: string;
+  max_attendances: number;
+  description: string;
+  title: string;
+  invitationType: 'CREATOR';
+  backgroundImageData?: string;
+
+  invitationId?: number;
+  creator_id?: number;
+  created_at?: string;
+  updated_at?: string;
+  place?: string;
+  state?: string;
+  link?: string;
+  fontName?: string;
+  sticker?: string;
 }
 
 const CreateForm = () => {
   const formik = useFormik<SaveCreateFormDataType>({
     initialValues: {
       title: '',
-      address_detail: '',
+      detail_address: '',
       date: '',
-      max_length: 1,
-      message: '',
+      max_attendances: 1,
+      description: '',
+      invitationType: 'CREATOR',
     },
     validationSchema: yup.object({
       title: yup.string().min(1).max(10).required('이름을 입력해주세요.'),
-      address_detail: yup.string().required('장소명을 입력해주세요.'),
+      detail_address: yup.string().required('장소명을 입력해주세요.'),
       date: yup.string().required('모임 임시를 선택해주세요.'),
-      max_length: yup.number().min(1).max(20),
-      message: yup.string().max(200),
+      max_attendances: yup.number().min(1).max(20),
+      description: yup.string().max(200),
     }),
     onSubmit: (values) => {
       saveInvite(values);
@@ -66,20 +79,19 @@ const CreateForm = () => {
             <InputRoot.Input
               name='address_detail'
               placeholder='ex) 강남역 7번 출구, 아파트 101동 102호'
-              value={formik.values.address_detail}
+              value={formik.values.detail_address}
               onChange={formik.handleChange}
             />
           </InputRoot>
-          {formik.errors.address_detail && (
-            <Field.HelpText status='error'>{formik.errors.address_detail}</Field.HelpText>
+          {formik.errors.detail_address && (
+            <Field.HelpText status='error'>{formik.errors.detail_address}</Field.HelpText>
           )}
         </Field>
         <Field className='mb-[22px]'>
           <Field.Label required>일시</Field.Label>
           <DateInput
-            placeholder='모임 일시'
             value={formik.values.date}
-            onChange={formik.handleChange}
+            onChangeValue={(value: string) => formik.setFieldValue('date', value)}
           />
           {formik.errors.date && (
             <Field.HelpText status='error'>{formik.errors.date}</Field.HelpText>
@@ -93,7 +105,7 @@ const CreateForm = () => {
         <Field>
           <Field.Label optional>초대 인원</Field.Label>
           <NumberInput
-            value={formik.values.max_length}
+            value={formik.values.max_attendances}
             onChangeValue={(value: number) => formik.setFieldValue('max_length', value)}
           />
         </Field>
@@ -101,7 +113,7 @@ const CreateForm = () => {
           <Field.Label optional>메세지</Field.Label>
           <Textarea
             name='message'
-            value={formik.values.message}
+            value={formik.values.description}
             onChange={formik.handleChange}
             placeholder='전달할 메세지를 입력해주세요.'
             counter
