@@ -5,6 +5,7 @@
  * color 관련 작업 필요 fill, stroke, color
  */
 
+export { default as arrow_down } from './arrow_down_icon.svg';
 export { default as back } from './back_icon.svg';
 export { default as calendar } from './calendar_icon.svg';
 export { default as check_circle } from './check_circle_icon.svg';

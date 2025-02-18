@@ -1,9 +1,17 @@
 import PageContainer from '@/components/layout/PageContainer';
 
+import BackgroundView from './components/BackgroundView';
+import CTAButton from './components/CTAButton';
+import CardViewArea from './components/CardViewArea';
+import InviteContentArea from './components/InviteContentArea';
+
 const page = () => {
   return (
     <PageContainer header transparent>
-      <div className='min-h-dvh bg-red-300'></div>
+      <BackgroundView />
+      <CardViewArea />
+      <InviteContentArea />
+      <CTAButton />
     </PageContainer>
   );
 };
