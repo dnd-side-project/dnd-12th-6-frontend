@@ -5,6 +5,16 @@
   font-weight: 700; /* Bold */
   font-style: normal;
 }
+@font-face {
+  font-family: 'GmarketSansBold';
+  src: url('/fonts/GmarketSansBold.otf') format('opentype');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'BaskinrobbinsBold';
+  src: url('/fonts/배스킨라빈스B.otf') format('opentype');
+  font-style: normal;
+}
 
 @tailwind base;
 @tailwind components;

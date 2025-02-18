@@ -38,4 +38,13 @@ export const typography = {
     fontSize: '20px',
     lineHeight: '140%',
   },
+  '.typo-gmarketSans': {
+    fontSize: '20px',
+    lineHeight: '140%',
+    letterSpacing: '-0.075em',
+  },
+  '.typo-baskinrobbins': {
+    fontSize: '20px',
+    lineHeight: '140%',
+  },
 };
