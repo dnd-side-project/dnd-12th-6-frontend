@@ -11,25 +11,27 @@ interface Props {
   header?: boolean;
   bottomNav?: boolean;
   className?: string;
+  transparent?: boolean;
 }
 
 const PageContainer = ({
   header,
   bottomNav,
   className,
+  transparent,
   children,
 }: StrictPropsWithChildren<Props>) => {
   return (
     <div
       className={clsx(
         'w-full max-w-content relative',
-        header && 'pt-[54px]',
+        header && !transparent && 'pt-[54px]',
         bottomNav && 'pb-[88px]',
         className,
       )}
     >
+      {header && <Header transparent={transparent} />}
       {children}
-      {header && <Header />}
       {bottomNav && (
         <BottomNav>
           <BottomNav.Item label='메인' tab={BottomNavList.MAIN} icon='home' />
