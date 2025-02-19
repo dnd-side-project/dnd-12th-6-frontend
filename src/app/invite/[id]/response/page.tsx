@@ -15,7 +15,7 @@ const page = () => {
           </button>
         }
       />
-      <div className='py-32 px-[18px]'>
+      <div className='min-h-dvh py-32 px-[18px]'>
         <ResponseForm />
       </div>
     </PageContainer>

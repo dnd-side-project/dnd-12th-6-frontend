@@ -48,7 +48,7 @@ const ResponseForm = () => {
           />
         </Field>
       </div>
-      <div className='w-full max-w-content px-[18px] fixed left-0 bottom-32'>
+      <div className='w-full max-w-content sticky bottom-32'>
         <Button variant='primaryStrong' className='h-[60px] w-full typo-heading font-semibold'>
           완료
         </Button>
