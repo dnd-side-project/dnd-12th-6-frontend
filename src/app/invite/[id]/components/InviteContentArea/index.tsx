@@ -11,14 +11,17 @@ const InviteContentArea = () => {
   return (
     <div className='min-h-dvh pt-[42px] px-[18px] flex flex-col gap-12'>
       <InviteInfoBox>
-        <div className='flex items-center gap-[22px]'>
+        <div className='flex items-start gap-[22px]'>
           <div className='flex items-center gap-[3px] typo-body font-bold'>
             <Icon name='marker' className='w-20 h-20 text-gray-7' />
             장소
           </div>
-          <div className='flex-1 flex justify-between items-center typo-body font-medium'>
-            강남역 6번 출구
-            <Icon name='arrow_down' className='w-[22px] h-[22px] text-black rotate-180' />
+          <div className='flex-1'>
+            <div className='flex justify-between items-center typo-body font-medium'>
+              강남역 6번 출구
+              <Icon name='arrow_down' className='w-[22px] h-[22px] text-black rotate-180' />
+            </div>
+            <p className='text-gray-6 typo-label2'>서울특별시 강남구 도산대로100</p>
           </div>
         </div>
       </InviteInfoBox>
