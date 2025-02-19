@@ -24,6 +24,7 @@ export function formatDateForManage(dateStr: string) {
   const targetDate = new Date(dateStr);
 
   return format(targetDate, 'yy.MM.dd H:mm');
+}
 
 export function formatDateToYYYYMMDD(dateString: string): string {
   const date = new Date(dateString);
