@@ -79,6 +79,7 @@ const config: Config = {
         static: {
           black: '#000000',
           white: '#FFFFFF',
+          dimmer: 'rgba(23, 23, 25, 0.7)',
         },
         error: '#FF4F4F',
       },
@@ -95,17 +96,9 @@ const config: Config = {
       fontFamily: {
         sans: ['"Pretendard Variable"', 'sans-serif'], // 기본 적용
         nexon: ['"NEXON Lv1 Gothic Low"', 'sans-serif'],
+        gmarketsans: ['"GmarketSansBold"', 'sans-serif'],
+        baskinrobbins: ['"BaskinrobbinsBold"', 'sans-serif'],
       },
-      // fontSize: {
-      //   // title: ['20px', { lineHeight: '140%', letterSpacing: '-0.02em' }],
-      //   heading: '18px',
-      //   body: ['16px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
-      //   label1: ['14px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
-      //   label2: ['13px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
-      //   caption1: ['12px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
-      //   caption2: ['10px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
-      //   headline: ['20px', { lineHeight: '140%', letterSpacing: '0' }],
-      // },
       fontWeight: {
         regular: '400',
         medium: '500',
@@ -117,6 +110,7 @@ const config: Config = {
         navbar: '0px -1px 6px rgba(0, 0, 0, 0.05)',
         module: ['0px 2px 4px rgba(0, 0, 0, 0.05)', '0px 2px 4px rgba(0, 0, 0, 0.06)'],
         moduleProfile: '0px 2px 10px rgba(0, 0, 0, 0.12)',
+        textShadow: '0px 0px 9px rgba(0, 0, 0, 0.1)',
       },
     },
   },

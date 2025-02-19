@@ -15,12 +15,12 @@ type Story = StoryObj<typeof meta>;
 export const Sent: Story = {
   args: {
     card: {
-      invitationType: 'SENT',
-      title: '보낸 초대장',
+      invitationType: 'CREATOR',
+      title: '마라탕원 급구!! 마라샹궈도 좋음',
       date: '2025-02-16T12:30:00',
-      template: 'template',
-      sticker: 'sticker',
-      font: 'font',
+      theme: 'confetti',
+      sticker: 'mono',
+      fontName: 'basic',
       hostName: '누구누구',
     },
   },
@@ -29,12 +29,13 @@ export const Sent: Story = {
 export const Received: Story = {
   args: {
     card: {
-      invitationType: 'RECEIVED',
-      title: '받은 초대장',
+      invitationType: 'INVITED',
+      title: '나랑 놀사람?',
       date: '2025-02-18T16:30:00',
-      template: 'template',
-      sticker: 'sticker',
-      font: 'font',
+      theme: 'lucky',
+      sticker: 'cloud',
+      fontName: 'cute',
+      hostName: '개구리 중사 케로로',
     },
   },
 };
