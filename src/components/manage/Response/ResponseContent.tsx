@@ -42,7 +42,7 @@ const ResponseContent = () => {
               id='comment'
               className='flex flex-col relative w-full h-fit min-h-[57px] bg-message bg-contain bg-no-repeat'
             >
-              <div className='mt-[11px] flex-1 bg-white rounded-sm px-[14px] py-12'>
+              <div className='mt-[11px] flex-1 bg-white rounded-sm px-[14px] py-12 typo-label1 font-regular text-black'>
                 {item.comment}
               </div>
             </section>

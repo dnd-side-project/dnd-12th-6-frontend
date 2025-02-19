@@ -1,14 +1,25 @@
 import Icon from '@/components/common/Icon';
+import { getDdayInfo, formatDateForManage } from '@/utils/format/formatDate';
 
 const InvitationManage = () => {
+  const date = '2025-02-19T20:30:00';
+
   return (
     <div className='w-full px-[18px] bg-white'>
       <p className='flex flex-col gap-y-4 px-4 pt-20 pb-[18px] text-nowrap'>
-        <span className='typo-label1 font-medium text-primary-strong'>D-DAY</span>
-        <span className='typo-title font-bold text-gray-7'>모임 준비가 진행 중이에요</span>
-        <span className='typo-label1 font-medium text-gray-4'>
-          모임이 취소되었거나 초대 기간이 끝났습니다
+        {!getDdayInfo(date).isPassed && (
+          <span className='typo-label1 font-medium text-primary-strong'>
+            D-{getDdayInfo(date).dDay}
+          </span>
+        )}
+        <span className='typo-title font-bold text-gray-7'>
+          {getDdayInfo(date).isPassed ? '모임이 종료되었어요' : '모임 준비가 진행 중이에요'}
         </span>
+        {getDdayInfo(date).isPassed && (
+          <span className='typo-label1 font-medium text-gray-4'>
+            모임이 취소되었거나 초대 기간이 끝났습니다
+          </span>
+        )}
       </p>
       <div className='w-full min-w-320 flex gap-x-20 pr-20 items-center border border-gray-2 rounded-[10px]'>
         <div className='w-[150px] h-[150px] shrink-0 rounded-l-[10px] bg-gray-2'>카드 섹션</div>
@@ -19,7 +30,7 @@ const InvitationManage = () => {
           </div>
           <div className='flex gap-x-4 typo-label1 font-semibold text-gray-6'>
             <Icon name='time_history' className='w-20 h-20' />
-            {'25.01.25 3:00'}
+            {formatDateForManage(date)}
           </div>
           <div className='flex gap-x-4 typo-label1 font-semibold text-gray-6'>
             <Icon name='user_history' className='w-20 h-20' />
