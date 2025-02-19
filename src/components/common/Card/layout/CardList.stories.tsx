@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import { ICard } from '..';
 import CardList from './CardList';
 
 const meta: Meta<typeof CardList> = {
@@ -16,31 +17,59 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const cards = [
+const cards: ICard[] = [
   {
-    invitationType: 'SENT' as const,
-    title: '보낸 초대장',
+    invitationType: 'CREATOR',
+    title: '마라탕원 급구!! 마라샹궈도 좋음',
     date: '2025-02-16T12:30:00',
-    template: 'template',
-    sticker: 'sticker',
-    font: 'font',
+    theme: 'confetti',
+    sticker: 'mono',
+    fontName: 'basic',
     hostName: '누구누구',
   },
   {
-    invitationType: 'RECEIVED' as const,
-    title: '받은 초대장',
+    invitationType: 'INVITED',
+    title: '성심당 빵 모임',
     date: '2025-02-18T16:30:00',
-    template: 'template',
-    sticker: 'sticker',
-    font: 'font',
+    theme: 'mono',
+    sticker: 'mono',
+    fontName: 'cute',
+    hostName: '누구누구',
   },
   {
-    invitationType: 'SENT' as const,
-    title: '2줄 케이스! 최대 20글자',
-    date: '2025-02-20T12:30:00',
-    template: 'template',
-    sticker: 'sticker',
-    font: 'font',
+    invitationType: 'CREATOR',
+    title: '2줄 케이스! 최대 20자',
+    date: '2025-02-16T12:30:00',
+    theme: 'heart',
+    sticker: 'sparkle',
+    fontName: 'bold',
+    hostName: '누구누구',
+  },
+  {
+    invitationType: 'INVITED',
+    title: '영화보고 밥먹자',
+    date: '2025-02-18T16:30:00',
+    theme: 'lucky',
+    sticker: 'cloud',
+    fontName: 'cute',
+    hostName: '개구리 중사 케로로',
+  },
+  {
+    invitationType: 'CREATOR',
+    title: '맛있는거 먹으러 갈사람?',
+    date: '2025-02-18T16:30:00',
+    theme: 'confetti',
+    sticker: 'confetti',
+    fontName: 'bold',
+    hostName: '누구누구',
+  },
+  {
+    invitationType: 'CREATOR',
+    title: '나랑 놀자',
+    date: '2025-02-18T16:30:00',
+    theme: 'mono',
+    sticker: 'mono',
+    fontName: 'basic',
     hostName: '누구누구',
   },
 ];

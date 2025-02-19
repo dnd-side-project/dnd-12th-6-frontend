@@ -5,6 +5,16 @@
   font-weight: 700; /* Bold */
   font-style: normal;
 }
+@font-face {
+  font-family: 'GmarketSansBold';
+  src: url('/fonts/GmarketSansBold.otf') format('opentype');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'BaskinrobbinsBold';
+  src: url('/fonts/BaskinrobbinsB.otf') format('opentype');
+  font-style: normal;
+}
 
 @tailwind base;
 @tailwind components;
@@ -94,4 +104,19 @@
   input[type='number'] {
     -moz-appearance: textfield;
   }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out forwards;
 }

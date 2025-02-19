@@ -16,6 +16,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         preview: "url('/images/create/create_background.png')",
+        message: "url('/images/response/message_background.png')",
       },
       spacing,
       maxWidth: {
@@ -79,6 +80,7 @@ const config: Config = {
         static: {
           black: '#000000',
           white: '#FFFFFF',
+          dimmer: 'rgba(23, 23, 25, 0.7)',
         },
         error: '#FF4F4F',
         blur: {
@@ -101,6 +103,8 @@ const config: Config = {
       fontFamily: {
         sans: ['"Pretendard Variable"', 'sans-serif'], // 기본 적용
         nexon: ['"NEXON Lv1 Gothic Low"', 'sans-serif'],
+        gmarketsans: ['"GmarketSansBold"', 'sans-serif'],
+        baskinrobbins: ['"BaskinrobbinsBold"', 'sans-serif'],
       },
       fontWeight: {
         regular: '400',
@@ -113,6 +117,7 @@ const config: Config = {
         navbar: '0px -1px 6px rgba(0, 0, 0, 0.05)',
         module: ['0px 2px 4px rgba(0, 0, 0, 0.05)', '0px 2px 4px rgba(0, 0, 0, 0.06)'],
         moduleProfile: '0px 2px 10px rgba(0, 0, 0, 0.12)',
+        textShadow: '0px 0px 9px rgba(0, 0, 0, 0.1)',
       },
     },
   },
