@@ -21,3 +21,6 @@ export { default as invite_nodata } from './invite_nodata_icon.svg';
 export { default as invite_empty } from './invite_empty.svg';
 export { default as edit } from './edit_icon.svg';
 export { default as view } from './view_icon.svg';
+export { default as location_history } from './location_history_icon.svg';
+export { default as time_history } from './time_history_icon.svg';
+export { default as user_history } from './user_history_icon.svg';
