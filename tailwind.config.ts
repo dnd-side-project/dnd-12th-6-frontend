@@ -16,6 +16,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         preview: "url('/images/create/create_background.png')",
+        message: "url('/images/response/message_background.png')",
       },
       spacing,
       maxWidth: {
