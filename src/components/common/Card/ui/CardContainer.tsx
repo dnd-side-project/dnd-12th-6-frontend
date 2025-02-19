@@ -1,15 +1,18 @@
 'use client';
 
 import Image from 'next/image';
-import { PropsWithChildren } from 'react';
 
-import cardImage from '/public/images/module/01-Card-Module.png';
+import { ICard } from '..';
 
-const CardContainer = ({ children }: PropsWithChildren) => {
+interface CardContainerProps {
+  theme: ICard['theme'];
+  children: React.ReactNode;
+}
+const CardContainer = ({ theme, children }: CardContainerProps) => {
   return (
     <div className='w-[180px] h-[226px] relative shrink-0 drop-shadow-module'>
       <Image
-        src={cardImage}
+        src={`/images/card/envelope_${theme}_module.png`}
         alt='card'
         width={180}
         height={180}
