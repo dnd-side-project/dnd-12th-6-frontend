@@ -15,7 +15,7 @@ const tabText = {
 
 const ResponseTab = ({ tabState, setTabState }: ResponseTabProps) => {
   return (
-    <div className='px-[18px] w-full flex border-b-2 border-gray-2'>
+    <div className='px-[18px] w-full flex border-b-2 border-gray-2 text-nowrap'>
       {Object.keys(tabText).map((state) => (
         <button
           key={state}
