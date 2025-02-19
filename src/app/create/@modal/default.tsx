@@ -1,3 +1,3 @@
-export default function Default() {
-  return null;
+export default function DefaultModal({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
 }
