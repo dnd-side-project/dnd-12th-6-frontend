@@ -1,10 +1,9 @@
+import BackgroundView from '@/components/invite/BackgroundView';
+import CTAButton from '@/components/invite/CTAButton';
+import CardViewArea from '@/components/invite/CardViewArea';
+import FooterArea from '@/components/invite/FooterArea';
+import InviteContentArea from '@/components/invite/InviteContentArea';
 import PageContainer from '@/components/layout/PageContainer';
-
-import BackgroundView from './components/BackgroundView';
-import CTAButton from './components/CTAButton';
-import CardViewArea from './components/CardViewArea';
-import FooterArea from './components/FooterArea';
-import InviteContentArea from './components/InviteContentArea';
 
 const page = () => {
   return (
