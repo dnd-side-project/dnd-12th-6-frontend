@@ -35,11 +35,13 @@ const PageHeader = ({ left, right, backButton, title }: Props) => {
         </button>
       )}
       {!backButton && left}
+
       {title && (
         <h1 className='absolute left-1/2 -translate-x-1/2 text-center typo-heading font-bold'>
           {title}
         </h1>
       )}
+      <div className='flex-1'></div>
       {right}
     </header>
   );

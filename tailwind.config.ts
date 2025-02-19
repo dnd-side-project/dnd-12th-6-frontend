@@ -102,16 +102,6 @@ const config: Config = {
         sans: ['"Pretendard Variable"', 'sans-serif'], // 기본 적용
         nexon: ['"NEXON Lv1 Gothic Low"', 'sans-serif'],
       },
-      // fontSize: {
-      //   // title: ['20px', { lineHeight: '140%', letterSpacing: '-0.02em' }],
-      //   heading: '18px',
-      //   body: ['16px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
-      //   label1: ['14px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
-      //   label2: ['13px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
-      //   caption1: ['12px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
-      //   caption2: ['10px', { lineHeight: '150%', letterSpacing: '-0.02em' }],
-      //   headline: ['20px', { lineHeight: '140%', letterSpacing: '0' }],
-      // },
       fontWeight: {
         regular: '400',
         medium: '500',

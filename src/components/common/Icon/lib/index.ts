@@ -7,10 +7,12 @@
 
 export { default as arrow_down } from './arrow_down_icon.svg';
 export { default as back } from './back_icon.svg';
+export { default as block } from './block_icon.svg';
 export { default as calendar } from './calendar_icon.svg';
 export { default as chat } from './chat_icon.svg';
 export { default as check_circle } from './check_circle_icon.svg';
 export { default as error } from './error_icon.svg';
+export { default as hand_ok } from './hand_ok_icon.svg';
 export { default as head_count } from './head_count_icon.svg';
 export { default as home } from './home_icon.svg';
 export { default as mailbox } from './mailbox_icon.svg';
@@ -24,3 +26,6 @@ export { default as close } from './close_icon.svg';
 export { default as history } from './history.svg';
 export { default as invite_nodata } from './invite_nodata_icon.svg';
 export { default as invite_empty } from './invite_empty.svg';
+export { default as worry_emoji } from './worry_emoji_icon.svg';
+export { default as worry_emoji_on } from './worry_emoji_on_icon.svg';
+export { default as worry_emoji_off } from './worry_emoji_off_icon.svg';
