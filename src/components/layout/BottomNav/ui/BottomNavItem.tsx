@@ -22,7 +22,7 @@ const BottomNavItem = ({ icon, label, tab }: BottomNavItemProps) => {
       className='w-72 h-40 flex flex-col items-center'
       onClick={() => setActiveTab(tab)}
     >
-      <Icon name={icon} className='w-24 h-24' />
+      <Icon name={icon} className='w-24 h-24 text-gray-6' />
       <div className='h-15 typo-caption2 text-gray-7 font-regular whitespace-nowrap'>{label}</div>
     </Link>
   );

@@ -20,7 +20,7 @@ const page = () => {
 
   return (
     <div className='bg-white z-50 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-content h-dvh'>
-      <PageContainer>
+      <PageContainer className=' overflow-y-scroll'>
         <PageContainer.PageHeader
           title={ROUTER_TITLE.EDIT_CARD}
           left={<PageHeaderCancelButton />}
