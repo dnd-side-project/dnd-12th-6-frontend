@@ -3,6 +3,7 @@ import React from 'react';
 
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -30,16 +31,20 @@ const LoginModal = ({ children }: StrictPropsWithChildren) => {
         </div>
         <DialogFooter className='mb-24'>
           <div className='flex-1 flex flex-col items-center gap-12'>
-            <Link
-              href={`/invite/1/response`}
-              className='w-full h-[56px] flex items-center justify-center typo-body font-semibold border border-gray-2 rounded-sm bg-gray-1'
-            >
-              비회원으로 초대 응답하기
-            </Link>
+            <DialogClose asChild>
+              <Link
+                href={`/invite/1/response`}
+                className='w-full h-[56px] flex items-center justify-center typo-body font-semibold border border-gray-2 rounded-sm bg-gray-1'
+              >
+                비회원으로 초대 응답하기
+              </Link>
+            </DialogClose>
             <span className='text-gray-6 typo-label2'>또는</span>
-            <button className='w-full h-[56px] typo-body font-semibold rounded-sm bg-[#FEE500]'>
-              카카오로 간편 로그인
-            </button>
+            <DialogClose asChild>
+              <button className='w-full h-[56px] typo-body font-semibold rounded-sm bg-[#FEE500]'>
+                카카오로 간편 로그인
+              </button>
+            </DialogClose>
           </div>
         </DialogFooter>
       </DialogContent>
