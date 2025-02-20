@@ -1,8 +1,25 @@
+'use client';
+
+import { useParams, useRouter } from 'next/navigation';
+
+import CardDisplay from '@/components/card/CardDisplay';
 import Icon from '@/components/common/Icon';
+import { IInvitation } from '@/lib/invitation/types';
 import { getDdayInfo, formatDateForManage } from '@/utils/format/formatDate';
 
 const InvitationManage = () => {
+  const { id } = useParams();
+  const router = useRouter();
+
   const date = '2025-02-19T20:30:00';
+  const card: IInvitation = {
+    title: '초대장 제목을 입력해주세요.',
+    theme: 'heart',
+    fontName: 'basic',
+    sticker: 'sparkle',
+    background: 'purple',
+    backgroundImageData: '',
+  };
 
   return (
     <div className='w-full px-[18px] bg-white'>
@@ -22,7 +39,27 @@ const InvitationManage = () => {
         )}
       </p>
       <div className='w-full min-w-320 flex gap-x-20 pr-20 items-center border border-gray-2 rounded-[10px]'>
-        <div className='w-[150px] h-[150px] shrink-0 rounded-l-[10px] bg-gray-2'>카드 섹션</div>
+        <div
+          className='w-[150px] h-[150px] shrink-0 rounded-l-[10px] flex items-center justify-center'
+          style={{
+            backgroundImage:
+              card.background === 'custom'
+                ? `url(${card.backgroundImageData})`
+                : `url(/images/background/background_${card.background}.png)`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+          onClick={() => router.push(`/invite/${id}`)}
+        >
+          <div className='scale-[0.4]'>
+            <CardDisplay
+              title={card.title}
+              theme={card.theme}
+              fontName={card.fontName}
+              sticker={card.sticker}
+            />
+          </div>
+        </div>
         <div className='w-full h-[150px] flex flex-col justify-center items-start gap-y-16'>
           <div className='flex gap-x-4 typo-label1 font-semibold text-gray-6'>
             <Icon name='location_history' className='w-20 h-20 shrink-0' />
