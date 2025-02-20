@@ -24,22 +24,17 @@ const ShareModal = ({ children }: StrictPropsWithChildren) => {
           </DialogTitle>
         </DialogHeader>
         <DialogDescription className='my-40 flex gap-x-[38px] justify-center'>
-          <DialogClose>
-            <button className='flex flex-col items-center gap-y-8'>
-              <div className='w-[60px] h-[60px] rounded-full bg-kakao flex items-center justify-center'>
-                <Image src={KakaoSymbolImage} alt='카카오톡 공유' width={26} height={26} />
-              </div>
-              <span className='typo-label1 font-medium text-gray-7'>카카오톡 공유</span>
-            </button>
+          <DialogClose className='flex flex-col items-center gap-y-8'>
+            <div className='w-[60px] h-[60px] rounded-full bg-kakao flex items-center justify-center'>
+              <Image src={KakaoSymbolImage} alt='카카오톡 공유' width={26} height={26} />
+            </div>
+            <span className='typo-label1 font-medium text-gray-7'>카카오톡 공유</span>
           </DialogClose>
-
-          <DialogClose>
-            <button className='flex flex-col items-center gap-y-8'>
-              <div className='w-[60px] h-[60px] rounded-full bg-primary-strong flex items-center justify-center'>
-                <Icon name='link' className='w-[30px] h-[30px]' />
-              </div>
-              <span className='typo-label1 font-medium text-gray-7'>링크 복사</span>
-            </button>
+          <DialogClose className='flex flex-col items-center gap-y-8'>
+            <div className='w-[60px] h-[60px] rounded-full bg-primary-strong flex items-center justify-center'>
+              <Icon name='link' className='w-[30px] h-[30px]' />
+            </div>
+            <span className='typo-label1 font-medium text-gray-7'>링크 복사</span>
           </DialogClose>
         </DialogDescription>
       </DialogContent>
