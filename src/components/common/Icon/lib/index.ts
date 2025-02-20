@@ -46,3 +46,4 @@ export { default as text } from './text_icon.svg';
 export { default as text_active } from './text_active_icon.svg';
 export { default as redo } from './redo_icon.svg';
 export { default as redo_active } from './redo_active_icon.svg';
+export { default as link } from './link_icon.svg';

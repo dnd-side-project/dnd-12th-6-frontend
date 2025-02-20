@@ -8,6 +8,7 @@ import CancelModal from './CancelModal';
 import DeleteModal from './DeleteModal';
 import ResponseContent from './ResponseContent';
 import ResponseTab from './ResponseTab';
+import ShareModal from './ShareModal';
 
 export type TabState = 'all' | 'accept' | 'reject' | 'pending';
 
@@ -36,11 +37,13 @@ const InvitationResponse = () => {
           </CancelModal>
         )}
       </button>
-      <div className='sticky bottom-0 text-nowrap'>
-        <button className='w-full px-20 py-[18px] text-center bg-gray-7 typo-heading text-white font-semibold'>
-          초대장 공유하기
-        </button>
-      </div>
+      <ShareModal>
+        <div className='sticky bottom-0 text-nowrap'>
+          <button className='w-full px-20 py-[18px] text-center bg-gray-7 typo-heading text-white font-semibold'>
+            초대장 공유하기
+          </button>
+        </div>
+      </ShareModal>
     </>
   );
 };
