@@ -74,7 +74,7 @@ export const TextareaField: Story = {
     children: (
       <>
         <Field.Label>라벨</Field.Label>
-        <Textarea placeholder='전달할 메세지를 입력해주세요.' counter />
+        <Textarea placeholder='전달할 메세지를 입력해주세요.' counter maxlength={10} />
         <Field.HelpText>도움말</Field.HelpText>
       </>
     ),

@@ -32,6 +32,7 @@ const ResponseBox = ({ value, onClick }: ResponseBoxProps) => {
     <div>
       <div className='flex gap-8'>
         <button
+          type='button'
           className={cn(buttonStyle, 'bg-[#EDF3FF] text-[#4986FF]', getButtonStyle('참석'))}
           onClick={() => onClick('참석')}
         >
@@ -41,6 +42,7 @@ const ResponseBox = ({ value, onClick }: ResponseBoxProps) => {
           </span>
         </button>
         <button
+          type='button'
           className={cn(buttonStyle, 'bg-[#FFF1F1] text-[#EF4452]', getButtonStyle('불참'))}
           onClick={() => onClick('불참')}
         >
@@ -51,6 +53,7 @@ const ResponseBox = ({ value, onClick }: ResponseBoxProps) => {
         </button>
       </div>
       <button
+        type='button'
         className={cn(
           'h-[56px] w-full mt-8 flex items-center justify-center gap-6 text-[#F79D16] rounded-[12px] bg-[#FFF8EE]',
           getButtonStyle('고민'),

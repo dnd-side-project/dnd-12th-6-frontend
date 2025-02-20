@@ -6,12 +6,12 @@ import { cn } from '@/lib/utils';
 
 interface Props extends React.ComponentProps<'textarea'> {
   counter?: boolean;
-  max?: number;
+  maxlength?: number;
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
-  ({ counter, max = 200, className, onChange, ...props }, ref) => {
+  ({ counter, maxlength = 200, className, onChange, ...props }, ref) => {
     const [length, setLength] = useState(0);
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -20,8 +20,6 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
         onChange(e);
       }
     };
-
-    console.log(max, length);
 
     return (
       <div className='w-full h-fit relative'>
@@ -38,10 +36,10 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
           <span
             className={cn(
               'absolute right-24 bottom-24 typo-label1 font-medium text-gray-4',
-              max < length && 'text-error',
+              maxlength < length && 'text-error',
             )}
           >
-            {length}/{max}
+            {length}/{maxlength}
           </span>
         )}
       </div>
