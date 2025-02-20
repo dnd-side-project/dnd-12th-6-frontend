@@ -14,7 +14,7 @@ const DeleteModal = ({ children }: StrictPropsWithChildren) => {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className='w-fit px-40'>
+      <DialogContent className='w-[264px] px-20'>
         <DialogHeader />
         <DialogTitle className='typo-heading font-bold text-gray-7 text-center mb-10'>
           알림
@@ -24,13 +24,9 @@ const DeleteModal = ({ children }: StrictPropsWithChildren) => {
           <br />
           삭제 후에는 복구할 수 없어요.
         </DialogDescription>
-        <DialogFooter className='mt-[38px] flex gap-x-8 typo-label1 font-medium'>
-          <DialogClose className='flex-1 rounded-sm bg-gray-2 text-gray-7 px-[44px] py-12'>
-            취소
-          </DialogClose>
-          <DialogClose className='flex-1 rounded-sm bg-gray-7 text-white px-[44px] py-12'>
-            확인
-          </DialogClose>
+        <DialogFooter className='mt-[38px] flex flex-row gap-x-8 typo-label1 font-medium '>
+          <DialogClose className='flex-1 rounded-sm bg-gray-2 text-gray-7 py-12'>취소</DialogClose>
+          <DialogClose className='flex-1 rounded-sm bg-gray-7 text-white py-12'>확인</DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>
