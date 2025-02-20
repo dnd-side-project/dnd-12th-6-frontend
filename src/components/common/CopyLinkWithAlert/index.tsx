@@ -1,19 +1,26 @@
 'use client';
 
 import clsx from 'clsx';
+import { ReactNode } from 'react';
 
 import useCopyLink from './useCopyLink';
 
 interface CopyLinkProps {
   url: string;
-  children: React.ReactElement;
+  children: ReactNode;
 }
 const CopyLinkWithAlert = ({ url, children }: CopyLinkProps) => {
   const { copyLink, isCopied } = useCopyLink();
 
   return (
     <>
-      <div onClick={() => copyLink(url)}>{children}</div>
+      <div
+        onClick={() => {
+          copyLink(url);
+        }}
+      >
+        {children}
+      </div>
       <div
         className={clsx(
           'z-[100] fixed top-80 left-0 right-0 flex justify-center',
