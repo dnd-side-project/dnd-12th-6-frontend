@@ -32,7 +32,7 @@ export default function InvitationManageCancelPage({ params }: { params: { id: s
             <Image src={KakaoSymbolImage} alt='카카오톡 로고' width={16} height={16} />
             카카오톡으로 알려주기
           </button>
-          <CopyLinkWithAlert url=''>
+          <CopyLinkWithAlert url='https://invity-web.vercel.app/'>
             <button className='w-full px-20 py-[14px] rounded-sm bg-primary-natural text-primary-strong typo-body font-semibold text-center'>
               링크 복사하기
             </button>

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import KakaoSymbolImage from 'public/images/etc/kakao_symbol.png';
 
+import CopyLinkWithAlert from '@/components/common/CopyLinkWithAlert';
 import {
   Dialog,
   DialogContent,
@@ -30,11 +31,13 @@ const ShareModal = ({ children }: StrictPropsWithChildren) => {
             </div>
             <span className='typo-label1 font-medium text-gray-7'>카카오톡 공유</span>
           </DialogClose>
-          <DialogClose className='flex flex-col items-center gap-y-8'>
-            <div className='w-[60px] h-[60px] rounded-full bg-primary-strong flex items-center justify-center'>
-              <Icon name='link' className='w-[30px] h-[30px]' />
-            </div>
-            <span className='typo-label1 font-medium text-gray-7'>링크 복사</span>
+          <DialogClose>
+            <CopyLinkWithAlert url=''>
+              <div className='w-[60px] h-[60px] mb-8 rounded-full bg-primary-strong flex items-center justify-center'>
+                <Icon name='link' className='w-[30px] h-[30px]' />
+              </div>
+              <span className='typo-label1 font-medium text-gray-7'>링크 복사</span>
+            </CopyLinkWithAlert>
           </DialogClose>
         </DialogDescription>
       </DialogContent>
