@@ -14,7 +14,7 @@ const page = () => {
       <InviteContentArea />
       <FooterArea />
       <LoginModal>
-        <CTAButton />
+        <CTAButton>응답하기</CTAButton>
       </LoginModal>
     </PageContainer>
   );
