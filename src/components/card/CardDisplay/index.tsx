@@ -1,5 +1,3 @@
-'use client';
-
 import clsx from 'clsx';
 
 import CardImageView from '@/components/card/CardDisplay/CardImageView';

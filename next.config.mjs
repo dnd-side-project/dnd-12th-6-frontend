@@ -8,6 +8,7 @@ const nextConfig = {
         pathname: '/public',
       },
     ],
+    domains: ['invity-web.vercel.app'],
   },
   swcMinify: true,
   webpack(config) {
