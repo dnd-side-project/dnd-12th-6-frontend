@@ -1,3 +1,5 @@
+import { fontType } from '@/lib/invitation';
+
 import * as TYPES from './types';
 
 const AUTH_API = {
@@ -38,4 +40,8 @@ const INVITATION_API = {
   },
 };
 
-export { AUTH_API, INVITATION_API };
+const CARD_API = {
+  SAVE_FONT: (fontName: fontType) => `/font?fontName=${fontName}`,
+};
+
+export { AUTH_API, INVITATION_API, CARD_API };

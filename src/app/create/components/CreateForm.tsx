@@ -13,9 +13,11 @@ import InputRoot from '@/components/common/Input';
 import NumberInput from '@/components/common/NumberInput';
 import Textarea from '@/components/common/Textarea';
 import { useToast } from '@/hooks/useToast';
+import { useAuthStore } from '@/store/authStore';
 import { useInvitationStore } from '@/store/invitationStore';
 
 interface SaveCreateFormDataType {
+  creatorId: number;
   organizerName: string;
   detailAddress: string;
   date: string;
@@ -26,7 +28,6 @@ interface SaveCreateFormDataType {
   //
   title: string;
   invitationId?: number;
-  creatorId?: number;
   createdAt?: string;
   updatedAt?: string;
   themeName?: string;
@@ -41,9 +42,11 @@ interface SaveCreateFormDataType {
 
 const CreateForm = () => {
   const { toast } = useToast();
+  const { user } = useAuthStore();
   const { invitation } = useInvitationStore();
 
   const validateSchema = yup.object().shape({
+    creatorId: yup.number().required('사용자 아이디는 필수입니다'),
     organizerName: yup
       .string()
       .max(10, '10자 이내로 입력해주세요.')
@@ -127,6 +130,12 @@ const CreateForm = () => {
     setValue('basicBackgroundType', invitation.background);
     setValue('backgroundImageData', invitation.backgroundImageData ?? undefined);
   }, [invitation]);
+
+  useEffect(() => {
+    if (user) {
+      setValue('creatorId', user.userId);
+    }
+  }, [user]);
 
   return (
     <form onSubmit={handleSubmit(submitInvite, onError)}>

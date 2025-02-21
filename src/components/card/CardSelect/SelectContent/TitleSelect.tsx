@@ -12,6 +12,17 @@ export const TitleSelect = () => {
     cute: '깜찍체',
   };
 
+  // useEffect(() => {
+  //   const test = () => {
+  //     customFetch(CARD_API.SAVE_FONT, {
+  //       method: 'POST',
+  //       isJson: true,
+  //     });
+  //   };
+
+  //   test();
+  // }, []);
+
   return (
     <div className='w-full max-w-[360px] h-full flex place-self-center justify-between items-center'>
       {fontArray.map((font, index) => {
