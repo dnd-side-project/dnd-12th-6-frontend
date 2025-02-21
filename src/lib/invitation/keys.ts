@@ -4,4 +4,6 @@ export const cardQueryKeys = {
   received: () => [...cardQueryKeys.all, 'received'] as const,
   create: () => [...cardQueryKeys.all, 'create'] as const,
   background: () => [...cardQueryKeys.all, 'background'] as const,
+  info: (invitationId: number) => [...cardQueryKeys.all, 'info', invitationId] as const,
+  responses: (invitationId: number) => [...cardQueryKeys.all, 'responses', invitationId] as const,
 };

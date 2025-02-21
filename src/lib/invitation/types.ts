@@ -17,6 +17,9 @@ export const backgroundArray = ['custom', 'purple', 'check', 'confetti', 'blue']
 export type backgroundType = (typeof backgroundArray)[number];
 
 export type invitationType = 'CREATOR' | 'INVITED';
+
+export type invitationResponseState = 'ATTENDING' | 'NOT_ATTENDING' | 'PENDING';
+
 /**
  * 초대장 꾸미기 정보
  * - theme: 편지지
@@ -55,4 +58,13 @@ export interface InvitationDTO {
   themeName: themeType;
   basicBakgroundType: backgroundType;
   hostProfileImageUrl: string | null;
+}
+
+export interface InvitationUserResponse {
+  invitationId: number;
+  userId: number;
+  name: string;
+  state: invitationResponseState;
+  writeDate: string;
+  message: string;
 }
