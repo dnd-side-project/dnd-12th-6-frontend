@@ -2,13 +2,13 @@
 
 import clsx from 'clsx';
 
-import { ICard } from '..';
+import { InvitationDTO } from '@/lib/invitation';
 
 const CardBody = ({
   invitationType,
   title,
   fontName,
-}: Pick<ICard, 'invitationType' | 'title' | 'fontName'>) => {
+}: Pick<InvitationDTO, 'invitationType' | 'title' | 'fontName'>) => {
   return (
     <div
       className={clsx(
