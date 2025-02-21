@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import React from 'react';
 
 import useCopyLink from '@/components/common/CopyLinkWithAlert/useCopyLink';
@@ -10,12 +10,14 @@ import CTAButton from '@/components/invite/CTAButton';
 
 const ContentArea = () => {
   const router = useRouter();
+  const { id } = useParams();
+
   const { copyLink } = useCopyLink();
 
   const handleCopyLink = () => {
     const fullDomain = window.location.origin;
 
-    copyLink(`${fullDomain}/invite/${67}`);
+    copyLink(`${fullDomain}/invite/${id}`);
 
     alert('링크가 복사되었습니다.');
   };

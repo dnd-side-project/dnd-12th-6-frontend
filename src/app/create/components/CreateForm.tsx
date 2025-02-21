@@ -1,6 +1,7 @@
 'use client';
 
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
 import { Resolver, SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -41,6 +42,8 @@ interface SaveCreateFormDataType {
 }
 
 const CreateForm = () => {
+  const router = useRouter();
+
   const { toast } = useToast();
   const { user } = useAuthStore();
   const { invitation } = useInvitationStore();
@@ -89,14 +92,16 @@ const CreateForm = () => {
   const submitInvite: SubmitHandler<SaveCreateFormDataType> = async (values) => {
     console.log(values);
 
-    const res = await customFetch(INVITATION_API.SAVE_INVITATIONS, {
+    const res = await customFetch<{ data: { id: number } }>(INVITATION_API.SAVE_INVITATIONS, {
       method: 'POST',
       body: values,
       isJson: true,
     });
 
     if (res) {
-      alert('성공');
+      const id = res?.data?.id;
+
+      router.replace(`/create/success/${id}`);
     }
   };
 

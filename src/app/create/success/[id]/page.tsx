@@ -10,7 +10,6 @@ const page = () => {
   return (
     <PageContainer>
       <PageContainer.PageHeader title={ROUTER_TITLE.CREATE} right={<PageHeaderCloseButton />} />
-
       <ContentArea />
     </PageContainer>
   );
