@@ -12,16 +12,39 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+// card: {
+//   invitationType: 'CREATOR',
+//   title: '마라탕원 급구!! 마라샹궈도 좋음',
+//   date: '2025-02-16T12:30:00',
+//   themeName: 'confetti',
+//   sticker: 'mono',
+//   fontName: 'basic',
+//   hostName: '누구누구',
+// },
+
 export const Sent: Story = {
   args: {
     card: {
-      invitationType: 'CREATOR',
-      title: '마라탕원 급구!! 마라샹궈도 좋음',
+      creatorId: 1,
+      invitationId: 1,
+      createdAt: '2025-02-16T12:30:00',
+      updatedAt: '2025-02-16T12:30:00',
+      place: '나의 최애 마라탕 플레이스',
+      detailAddress: '서울시 강남구',
       date: '2025-02-16T12:30:00',
-      theme: 'confetti',
-      sticker: 'mono',
+      maxAttenances: 5,
+      description: '마라탕원에서 마라탕 먹어요',
+      state: 'Completed',
+      link: '',
+      invitationType: 'CREATOR',
       fontName: 'basic',
-      hostName: '누구누구',
+      sticker: 'mono',
+      title: '마라탕원 급구!! 마라샹궈도 좋음',
+      backgroundImageData: 'none',
+      organizerName: '누구누구',
+      themeName: 'confetti',
+      basicBakgroundType: 'purple',
+      hostProfileImageUrl: null,
     },
   },
 };
@@ -29,13 +52,26 @@ export const Sent: Story = {
 export const Received: Story = {
   args: {
     card: {
+      creatorId: 1,
+      invitationId: 1,
+      createdAt: '2025-02-16T12:30:00',
+      updatedAt: '2025-02-16T12:30:00',
+      place: '대전 성심당 본점',
+      detailAddress: '서울시 강남구',
+      date: '2025-02-16T12:30:00',
+      maxAttenances: 5,
+      description: '나랑 빵 먹으러 갈래?',
+      state: 'Canceled',
+      link: '',
       invitationType: 'INVITED',
-      title: '나랑 놀사람?',
-      date: '2025-02-18T16:30:00',
-      theme: 'lucky',
-      sticker: 'cloud',
       fontName: 'cute',
-      hostName: '개구리 중사 케로로',
+      sticker: 'cloud',
+      title: '성심당 빵 모임',
+      backgroundImageData: 'none',
+      organizerName: '개구리 중사 케로로',
+      themeName: 'lucky',
+      basicBakgroundType: 'blue',
+      hostProfileImageUrl: null,
     },
   },
 };
