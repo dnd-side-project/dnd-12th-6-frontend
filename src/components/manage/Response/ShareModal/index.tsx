@@ -25,13 +25,13 @@ const ShareModal = ({ children }: StrictPropsWithChildren) => {
           </DialogTitle>
         </DialogHeader>
         <DialogDescription className='my-40 flex gap-x-[38px] justify-center'>
-          <DialogClose className='flex flex-col items-center gap-y-8'>
+          <DialogClose className='w-[100px] flex flex-col items-center gap-y-8'>
             <div className='w-[60px] h-[60px] rounded-full bg-kakao flex items-center justify-center'>
               <Image src={KakaoSymbolImage} alt='카카오톡 공유' width={26} height={26} />
             </div>
             <span className='typo-label1 font-medium text-gray-7'>카카오톡 공유</span>
           </DialogClose>
-          <DialogClose>
+          <DialogClose className='w-[100px] flex justify-center'>
             <CopyLinkWithAlert url=''>
               <div className='w-[60px] h-[60px] mb-8 rounded-full bg-primary-strong flex items-center justify-center'>
                 <Icon name='link' className='w-[30px] h-[30px]' />
