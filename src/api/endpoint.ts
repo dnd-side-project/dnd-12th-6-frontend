@@ -5,6 +5,14 @@ const AUTH_API = {
 };
 
 const INVITATION_API = {
+  ALL_INVITATIONS: ({
+    userId,
+    page = TYPES.DEFAULT_INVITATION_PARAMS.page,
+    size = TYPES.DEFAULT_INVITATION_PARAMS.size,
+    sort = TYPES.DEFAULT_INVITATION_PARAMS.sort as 'asc' | 'desc',
+  }: TYPES.GetInvitationParams) => {
+    return `/invitations?userId=${userId}&page=${page}&size=${size}&sort=${sort}`;
+  },
   SENT_INVITATIONS: ({
     userId,
     page = TYPES.DEFAULT_INVITATION_PARAMS.page,
