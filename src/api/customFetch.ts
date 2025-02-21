@@ -13,9 +13,16 @@ export async function customFetch<T, B = unknown>(
 ): Promise<T> {
   const { method = 'GET', body, headers = {}, isJson = true } = options;
 
+  let token: string | null = null;
+
+  if (typeof window !== 'undefined') {
+    token = localStorage.getItem('token');
+  }
+
   const defaultHeaders: Record<string, string> = {
     ...headers,
     ...(isJson ? { 'Content-Type': 'application/json' } : {}),
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
   };
 
   try {
