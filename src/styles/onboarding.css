@@ -1,0 +1,20 @@
+.swiper-pagination {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: #d1d5db; /* 연한 회색 */
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  width: 32px; /* 활성화된 페이지는 길게 */
+  height: 8px;
+  background-color: #6d28d9; /* 보라색 */
+  border-radius: 9999px;
+}
