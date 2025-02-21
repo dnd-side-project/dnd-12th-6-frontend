@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { Toaster } from '@/components/common/Toast/toaster';
 import '@/styles/globals.css';
 import Providers from '@/utils/query/provider';
 
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body>
         <Providers>
           <div className='max-w-content min-h-dvh max-h-dvh my-0 mx-auto relative'>{children}</div>
+          <Toaster />
         </Providers>
       </body>
     </html>

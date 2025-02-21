@@ -21,7 +21,7 @@ export const UploadBackgroundButton = () => {
       const base64Image = reader.result as string;
 
       setPreviewImage(base64Image);
-      setInvitation({ ...invitation, backgroundImageData: base64Image });
+      setInvitation({ ...invitation, backgroundImageData: base64Image, background: undefined });
     };
   };
 
@@ -37,7 +37,7 @@ export const UploadBackgroundButton = () => {
       <button
         className={clsx(
           'relative w-[50px] h-[50px] border-2 bg-gray-6 rounded-full transition-colors duration-150 flex items-center justify-center',
-          invitation.background === 'custom' ? 'border-primary-strong' : 'border-gray-6',
+          invitation.background ? 'border-gray-6' : 'border-primary-strong',
         )}
         style={{
           backgroundImage:
@@ -49,7 +49,6 @@ export const UploadBackgroundButton = () => {
         }}
         onClick={() => {
           fileInputRef.current?.click();
-          setInvitation({ ...invitation, background: 'custom' });
         }}
       >
         {previewImage && (
