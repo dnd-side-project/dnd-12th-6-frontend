@@ -32,3 +32,25 @@ export interface IInvitation {
   background: backgroundType;
   backgroundImageData: string | null;
 }
+
+export interface InvitationDTO {
+  creatorId: number;
+  invitationId: number;
+  createdAt: string;
+  updatedAt: string;
+  place: string;
+  detailAddress: string;
+  date: string;
+  maxAttenances: number;
+  description: string;
+  state: string;
+  link: string;
+  invitationType: 'CREATOR' | 'INVITED';
+  fontName: fontType;
+  sticker: stickerType;
+  title: string;
+  backgroundImageData: string;
+  organizerName: string;
+  themeName: themeType;
+  basicBakgroundType: backgroundType;
+}
