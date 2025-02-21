@@ -4,21 +4,21 @@ import { customFetch, INVITATION_API, GetInvitationParams } from '@/api';
 import { cardQueryKeys, InvitationDTO } from '@/lib/invitation';
 
 /**
- * 받은 초대장 조회 API
+ * 전체 초대장 조회 API
  */
 interface InvitationResponse {
   data: InvitationDTO[];
   message: string;
   result: string;
 }
-export const fetchReceivedInvitations = async ({
+export const fetchInvitations = async ({
   userId,
   page,
   size,
   sort,
 }: GetInvitationParams): Promise<InvitationResponse> => {
   return customFetch(
-    INVITATION_API.RECEIVED_INVITATIONS({
+    INVITATION_API.ALL_INVITATIONS({
       userId,
       page,
       size,
@@ -30,10 +30,10 @@ export const fetchReceivedInvitations = async ({
   );
 };
 
-export function useGetReceivedInvitationsQuery({ userId, page, size, sort }: GetInvitationParams) {
+export function useGetInvitationsQuery({ userId, page, size, sort }: GetInvitationParams) {
   return useQuery<InvitationResponse>({
-    queryKey: cardQueryKeys.received(),
-    queryFn: () => fetchReceivedInvitations({ userId, page, size, sort }),
+    queryKey: cardQueryKeys.all,
+    queryFn: () => fetchInvitations({ userId, page, size, sort }),
     enabled: !!userId,
   });
 }

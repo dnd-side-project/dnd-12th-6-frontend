@@ -1,10 +1,12 @@
 'use client';
 
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
 import { Resolver, SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
+import { customFetch, INVITATION_API } from '@/api';
 import DateInput from '@/components/common/DateInput';
 import Field from '@/components/common/Field';
 import Icon from '@/components/common/Icon';
@@ -12,9 +14,11 @@ import InputRoot from '@/components/common/Input';
 import NumberInput from '@/components/common/NumberInput';
 import Textarea from '@/components/common/Textarea';
 import { useToast } from '@/hooks/useToast';
+import { useAuthStore } from '@/store/authStore';
 import { useInvitationStore } from '@/store/invitationStore';
 
 interface SaveCreateFormDataType {
+  creatorId: number;
   organizerName: string;
   detailAddress: string;
   date: string;
@@ -25,7 +29,6 @@ interface SaveCreateFormDataType {
   //
   title: string;
   invitationId?: number;
-  creatorId?: number;
   createdAt?: string;
   updatedAt?: string;
   themeName?: string;
@@ -39,10 +42,14 @@ interface SaveCreateFormDataType {
 }
 
 const CreateForm = () => {
+  const router = useRouter();
+
   const { toast } = useToast();
+  const { user } = useAuthStore();
   const { invitation } = useInvitationStore();
 
   const validateSchema = yup.object().shape({
+    creatorId: yup.number().required('사용자 아이디는 필수입니다'),
     organizerName: yup
       .string()
       .max(10, '10자 이내로 입력해주세요.')
@@ -84,6 +91,18 @@ const CreateForm = () => {
    */
   const submitInvite: SubmitHandler<SaveCreateFormDataType> = async (values) => {
     console.log(values);
+
+    const res = await customFetch<{ data: { id: number } }>(INVITATION_API.SAVE_INVITATIONS, {
+      method: 'POST',
+      body: values,
+      isJson: true,
+    });
+
+    if (res) {
+      const id = res?.data?.id;
+
+      router.replace(`/create/success/${id}`);
+    }
   };
 
   const onError: SubmitErrorHandler<SaveCreateFormDataType> = async (values) => {
@@ -112,9 +131,16 @@ const CreateForm = () => {
     setValue('title', invitation.title);
     setValue('themeName', invitation.theme);
     setValue('fontName', invitation.fontName);
+    setValue('sticker', invitation.sticker);
     setValue('basicBackgroundType', invitation.background);
     setValue('backgroundImageData', invitation.backgroundImageData ?? undefined);
   }, [invitation]);
+
+  useEffect(() => {
+    if (user) {
+      setValue('creatorId', user.userId);
+    }
+  }, [user]);
 
   return (
     <form onSubmit={handleSubmit(submitInvite, onError)}>
