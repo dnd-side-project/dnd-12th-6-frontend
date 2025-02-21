@@ -1,7 +1,7 @@
 'use client';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Resolver, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
@@ -10,36 +10,51 @@ import Field from '@/components/common/Field';
 import InputRoot from '@/components/common/Input';
 import NumberInput from '@/components/common/NumberInput';
 import Textarea from '@/components/common/Textarea';
+import { useInvitationStore } from '@/store/invitationStore';
 
 interface SaveCreateFormDataType {
-  title: string;
-  detail_address: string;
+  organizerName: string;
+  detailAddress: string;
   date: string;
-  max_attendances: number;
+  maxAttendances: number;
   invitationType: 'CREATOR';
 
   description?: string;
-  backgroundImageData?: string;
-
+  //
+  title?: string;
   invitationId?: number;
-  creator_id?: number;
-  created_at?: string;
-  updated_at?: string;
+  creatorId?: number;
+  createdAt?: string;
+  updatedAt?: string;
+  themeName?: string;
   place?: string;
   state?: string;
   link?: string;
   fontName?: string;
   sticker?: string;
+  backgroundImageData?: string;
+  basicBackgroundType?: string;
 }
 
 const CreateForm = () => {
+  const { invitation } = useInvitationStore();
+
   const validateSchema = yup.object().shape({
-    title: yup.string().min(1).max(10).required('이름을 입력해주세요.'),
-    detail_address: yup.string().required('장소명을 입력해주세요.'),
+    organizerName: yup
+      .string()
+      .max(10, '10자 이내로 입력해주세요.')
+      .required('이름을 입력해주세요.'),
+    detailAddress: yup.string().required('장소명을 입력해주세요.'),
     date: yup.string().required('모임 임시를 선택해주세요.'),
-    max_attendances: yup.number().min(1).max(20).required(),
-    description: yup.string().max(200),
+    maxAttendances: yup
+      .number()
+      .min(1, '1명 이상로 입력해주세요.')
+      .max(20, '최대 20명 이내로 입력해주세요.')
+      .required('초대 인원을 입력해주세요.'),
+    description: yup.string().max(200, '200자 이내로 입력해주세요.'),
     invitationType: yup.string().oneOf(['CREATOR']),
+    // 초대장 꾸미기
+    // title: yup.string().required('초대장 타이틀을 입력해주세요.'),
   });
 
   const {
@@ -47,13 +62,14 @@ const CreateForm = () => {
     watch,
     setValue,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<SaveCreateFormDataType>({
+    mode: 'onBlur',
     defaultValues: {
       title: '',
-      detail_address: '',
+      detailAddress: '',
       date: '',
-      max_attendances: 1,
+      maxAttendances: 1,
       description: '',
       invitationType: 'CREATOR',
     },
@@ -62,7 +78,17 @@ const CreateForm = () => {
 
   const submitInvite = async (values: SaveCreateFormDataType) => {
     console.log(values);
+
+    console.log(invitation);
   };
+
+  useEffect(() => {
+    setValue('title', invitation.title);
+    setValue('themeName', invitation.theme);
+    setValue('fontName', invitation.fontName);
+    setValue('basicBackgroundType', invitation.background);
+    setValue('backgroundImageData', invitation.backgroundImageData ?? undefined);
+  }, [invitation]);
 
   return (
     <form onSubmit={handleSubmit(submitInvite)}>
@@ -70,20 +96,22 @@ const CreateForm = () => {
         <Field className='mb-[22px]'>
           <Field.Label required>주최자명</Field.Label>
           <InputRoot>
-            <InputRoot.Input placeholder='이름 또는 닉네임' {...register('title')} />
+            <InputRoot.Input placeholder='이름 또는 닉네임' {...register('organizerName')} />
           </InputRoot>
-          {errors.title && <Field.HelpText status='error'>{errors.title.message}</Field.HelpText>}
+          {errors.organizerName && (
+            <Field.HelpText status='error'>{errors.organizerName.message}</Field.HelpText>
+          )}
         </Field>
         <Field className='mb-[22px]'>
           <Field.Label required>장소</Field.Label>
           <InputRoot>
             <InputRoot.Input
               placeholder='ex) 강남역 7번 출구, 아파트 101동 102호'
-              {...register('detail_address')}
+              {...register('detailAddress')}
             />
           </InputRoot>
-          {errors.detail_address && (
-            <Field.HelpText status='error'>{errors.detail_address.message}</Field.HelpText>
+          {errors.detailAddress && (
+            <Field.HelpText status='error'>{errors.detailAddress.message}</Field.HelpText>
           )}
         </Field>
         <Field className='mb-[22px]'>
@@ -102,10 +130,13 @@ const CreateForm = () => {
         <Field>
           <Field.Label optional>초대 인원</Field.Label>
           <NumberInput
-            {...register('max_attendances')}
+            {...register('maxAttendances')}
             // value={formik.values.max_attendances}
             // onChangeValue={(value: number) => formik.setFieldValue('max_length', value)}
           />
+          {errors.maxAttendances && (
+            <Field.HelpText status='error'>{errors.maxAttendances.message}</Field.HelpText>
+          )}
         </Field>
         <Field>
           <Field.Label optional>메세지</Field.Label>
@@ -114,12 +145,16 @@ const CreateForm = () => {
             counter
             {...register('description')}
           />
+          {errors.description && (
+            <Field.HelpText status='error'>{errors.description.message}</Field.HelpText>
+          )}
         </Field>
       </div>
 
       <button
         className='sticky bottom-0 w-full h-[57px] flex items-center justify-center bg-gray-7 disabled:bg-gray-3'
         type='submit'
+        disabled={!isValid}
       >
         <p className='typo-heading font-semibold text-white'>완료</p>
       </button>
