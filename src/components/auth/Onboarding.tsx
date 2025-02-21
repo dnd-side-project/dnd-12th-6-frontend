@@ -17,7 +17,7 @@ const onboardingSlides = [
     id: 1,
     label: '초대장 제작',
     title: '초대장을 간편하게 만들어요',
-    subText: '초대장 선택하고 정보 입력하면 완성!\n빠르게 초대장을 만들어보세요.',
+    subText: '초대장을 선택하고 정보를 입력하면 완성!\n빠르게 초대장을 만들어보세요.',
     image: '/images/service/onboarding_1.png',
   },
   {
