@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { backgroundArray } from '@/lib/invitation/types';
+import { backgroundArray, backgroundType } from '@/lib/invitation/types';
 import { useInvitationStore } from '@/store/invitationStore';
 
 import { UploadBackgroundButton } from './UploadBackgroundButton';
@@ -11,6 +11,10 @@ export const BackgroundSelect = () => {
   const backgroundButtons = [...backgroundArray, ...Array(8 - backgroundArray.length).fill(null)];
   const firstRow = backgroundButtons.slice(1, 4);
   const secondRow = backgroundButtons.slice(4, 8);
+
+  const handleChangeBackground = (background?: backgroundType) => {
+    if (background) setInvitation({ ...invitation, background });
+  };
 
   return (
     <div className='w-full h-full flex flex-col items-center justify-center gap-y-20'>
@@ -28,7 +32,7 @@ export const BackgroundSelect = () => {
                 ? `url(/images/background/background_${background}.png)`
                 : 'none',
             }}
-            onClick={background ? () => setInvitation({ ...invitation, background }) : undefined}
+            onClick={() => handleChangeBackground(background)}
           />
         ))}
       </div>
@@ -46,7 +50,7 @@ export const BackgroundSelect = () => {
                 ? `url(/images/background/background_${background}.png)`
                 : 'none',
             }}
-            onClick={background ? () => setInvitation({ ...invitation, background }) : undefined}
+            onClick={() => handleChangeBackground(background)}
           />
         ))}
       </div>

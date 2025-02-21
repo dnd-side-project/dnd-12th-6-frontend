@@ -48,10 +48,10 @@ const CreateForm = () => {
     date: yup.string().required('모임 임시를 선택해주세요.'),
     maxAttendances: yup
       .number()
-      .min(1, '1명 이상로 입력해주세요.')
+      .min(1, '1명 이상 입력해주세요.')
       .max(20, '최대 20명 이내로 입력해주세요.')
-      .required('초대 인원을 입력해주세요.'),
-    description: yup.string().max(200, '200자 이내로 입력해주세요.'),
+      .optional(),
+    description: yup.string().max(200, '200자 이내로 입력해주세요.').optional(),
     invitationType: yup.string().oneOf(['CREATOR']),
     // 초대장 꾸미기
     // title: yup.string().required('초대장 타이틀을 입력해주세요.'),
@@ -62,7 +62,7 @@ const CreateForm = () => {
     watch,
     setValue,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<SaveCreateFormDataType>({
     mode: 'onBlur',
     defaultValues: {
@@ -70,16 +70,17 @@ const CreateForm = () => {
       detailAddress: '',
       date: '',
       maxAttendances: 1,
-      description: '',
       invitationType: 'CREATOR',
     },
     resolver: yupResolver(validateSchema) as Resolver<SaveCreateFormDataType>,
   });
 
+  /**
+   * TODO
+   * API 연동
+   */
   const submitInvite = async (values: SaveCreateFormDataType) => {
     console.log(values);
-
-    console.log(invitation);
   };
 
   useEffect(() => {
@@ -129,11 +130,7 @@ const CreateForm = () => {
       <div className='py-40 px-[18px] flex flex-col gap-40'>
         <Field>
           <Field.Label optional>초대 인원</Field.Label>
-          <NumberInput
-            {...register('maxAttendances')}
-            // value={formik.values.max_attendances}
-            // onChangeValue={(value: number) => formik.setFieldValue('max_length', value)}
-          />
+          <NumberInput {...register('maxAttendances')} />
           {errors.maxAttendances && (
             <Field.HelpText status='error'>{errors.maxAttendances.message}</Field.HelpText>
           )}
@@ -154,7 +151,6 @@ const CreateForm = () => {
       <button
         className='sticky bottom-0 w-full h-[57px] flex items-center justify-center bg-gray-7 disabled:bg-gray-3'
         type='submit'
-        disabled={!isValid}
       >
         <p className='typo-heading font-semibold text-white'>완료</p>
       </button>

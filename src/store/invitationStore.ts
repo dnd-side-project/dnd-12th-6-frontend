@@ -15,7 +15,7 @@ const initialInvitation: IInvitation = {
   sticker: 'none',
   fontName: 'basic',
   background: 'purple',
-  backgroundImageData: '',
+  backgroundImageData: undefined,
 };
 
 export const useInvitationStore = create<InvitationStore>((set) => ({
