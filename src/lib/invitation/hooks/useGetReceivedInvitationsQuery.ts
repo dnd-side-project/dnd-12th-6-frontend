@@ -6,12 +6,17 @@ import { cardQueryKeys, InvitationDTO } from '@/lib/invitation';
 /**
  * 받은 초대장 조회 API
  */
+interface InvitationResponse {
+  data: InvitationDTO[];
+  message: string;
+  result: string;
+}
 export const fetchReceivedInvitations = async ({
   userId,
   page,
   size,
   sort,
-}: GetInvitationParams): Promise<InvitationDTO[]> => {
+}: GetInvitationParams): Promise<InvitationResponse> => {
   return customFetch(
     INVITATION_API.RECEIVED_INVITATIONS({
       userId,
@@ -26,7 +31,7 @@ export const fetchReceivedInvitations = async ({
 };
 
 export function useGetReceivedInvitationsQuery({ userId, page, size, sort }: GetInvitationParams) {
-  return useQuery<InvitationDTO[]>({
+  return useQuery<InvitationResponse>({
     queryKey: cardQueryKeys.received(),
     queryFn: () => fetchReceivedInvitations({ userId, page, size, sort }),
     enabled: !!userId,

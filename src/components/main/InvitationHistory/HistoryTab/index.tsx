@@ -1,25 +1,26 @@
 import { Button } from '@/components/common/Button';
+import { invitationType } from '@/lib/invitation';
 
 interface HistoryTabProps {
-  historyType: 'SENT' | 'RECEIVED';
-  setHistoryType: (historyType: 'SENT' | 'RECEIVED') => void;
+  historyType: invitationType;
+  setHistoryType: (historyType: invitationType) => void;
 }
 const HistoryTab = ({ historyType, setHistoryType }: HistoryTabProps) => {
   return (
     <div className='flex gap-x-8 font-semibold'>
       <Button
-        variant={historyType === 'SENT' ? 'default' : 'secondary'}
+        variant={historyType === 'CREATOR' ? 'default' : 'secondary'}
         size={'tab'}
         className='typo-label1 font-semibold'
-        onClick={() => setHistoryType('SENT')}
+        onClick={() => setHistoryType('CREATOR')}
       >
         보낸 초대장
       </Button>
       <Button
-        variant={historyType === 'RECEIVED' ? 'default' : 'secondary'}
+        variant={historyType === 'INVITED' ? 'default' : 'secondary'}
         size={'tab'}
         className='typo-label1 font-semibold'
-        onClick={() => setHistoryType('RECEIVED')}
+        onClick={() => setHistoryType('INVITED')}
       >
         받은 초대장
       </Button>

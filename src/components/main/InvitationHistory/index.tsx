@@ -3,12 +3,13 @@
 import { useState } from 'react';
 
 import Icon from '@/components/common/Icon';
+import { invitationType } from '@/lib/invitation';
 
 import HistoryCards from './HistoryCards';
 import HistoryTab from './HistoryTab';
 
 export default function InvitationHistory() {
-  const [historyType, setHistoryType] = useState<'SENT' | 'RECEIVED'>('SENT');
+  const [historyType, setHistoryType] = useState<invitationType>('CREATOR');
 
   return (
     <>
