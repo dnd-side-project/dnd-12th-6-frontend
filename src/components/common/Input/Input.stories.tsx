@@ -56,7 +56,7 @@ export const NumberType: Story = {
 
     return (
       <div className='min-w-30'>
-        <NumberInput ref={inputRef} min={1} max={20} />
+        <NumberInput ref={inputRef} minValue={1} maxValue={20} />
         <button
           onClick={() => {
             alert(inputRef.current?.value);
