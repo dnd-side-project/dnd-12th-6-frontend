@@ -22,7 +22,7 @@ export async function customFetch<T, B = unknown>(
   const defaultHeaders: Record<string, string> = {
     ...headers,
     ...(isJson ? { 'Content-Type': 'application/json' } : {}),
-    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    ...{ Authorization: `Bearer ${token}` },
   };
 
   try {

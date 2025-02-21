@@ -5,12 +5,13 @@ import { useEffect, useRef } from 'react';
 
 import { useAuthStore } from '@/store/authStore';
 
-const KakaoLogin = ({ token }: { token: string }) => {
+const KakaoLogin = () => {
   const searchParams = useSearchParams();
   const userId = searchParams.get('userId');
   const name = searchParams.get('name');
   const profileImageUrl = searchParams.get('profileImageUrl');
   const email = searchParams.get('email');
+  const token = searchParams.get('token');
 
   const { setUser } = useAuthStore();
   const hasRedirected = useRef(false);
@@ -26,15 +27,15 @@ const KakaoLogin = ({ token }: { token: string }) => {
 
     hasRedirected.current = true;
     window.location.href = '/';
-  }, [userId, name, profileImageUrl, email]);
+  }, [userId, name, profileImageUrl, email, setUser]);
 
   useEffect(() => {
-    localStorage.setItem('token', token);
+    localStorage.setItem('token', token || '');
   }, [token]);
 
   return (
     <>
-      <div className='flex h-dvh justify-center items-center text-center typo-body text-primary-neon font-bold'>
+      <div className='flex h-dvh justify-center items-center bg-loginGradient text-center typo-body text-gray-1 font-bold'>
         카카오 로그인 중...
       </div>
     </>
