@@ -1,4 +1,5 @@
 import { format, differenceInDays, isBefore, startOfDay } from 'date-fns';
+import { ko } from 'date-fns/locale';
 
 export function formatDate(dateString: string) {
   const date = new Date(dateString);
@@ -41,6 +42,52 @@ export function formatDateToYYYYMMDD(dateString: string): string {
 export function formatDateNoTime(dateString: string) {
   const date = new Date(dateString);
   const year = date.getFullYear().toString().slice(2);
+
+  return `${year}년 ${format(date, 'M월 d일')}`;
+}
+
+/**
+ * "25년 12월 31일(금)" 형식의 날짜 반환
+ */
+export function formatDateWithDay(dateString: string): string {
+  const date = new Date(dateString);
+
+  // 날짜가 유효한지 확인
+  if (isNaN(date.getTime())) {
+    throw new Error('Invalid date string');
+  }
+
+  const year = date.getFullYear().toString().slice(2); // '25년' 형식으로 변환
+
+  return `${year}년 ${format(date, 'M월 d일 (E)', { locale: ko })}`;
+}
+
+/**
+ * "13:00" 형식의 시간 반환
+ */
+export function formatTimeOnly(dateString: string): string {
+  const date = new Date(dateString);
+
+  // 날짜가 유효한지 확인
+  if (isNaN(date.getTime())) {
+    throw new Error('Invalid date string');
+  }
+
+  return format(date, 'HH:mm'); // "13:00" 형식으로 변환
+}
+
+/**
+ * "25년 1월 12일" 형식의 날짜 반환
+ */
+export function formatDateCompact(dateString: string): string {
+  const date = new Date(dateString);
+
+  // 날짜가 유효한지 확인
+  if (isNaN(date.getTime())) {
+    throw new Error('Invalid date string');
+  }
+
+  const year = date.getFullYear().toString().slice(2); // '25년' 형식으로 변환
 
   return `${year}년 ${format(date, 'M월 d일')}`;
 }

@@ -1,10 +1,16 @@
 import React from 'react';
 
-const BackgroundView = () => {
+import { InvitationDTO } from '@/lib/invitation';
+
+const BackgroundView = ({ backgroundImageData, basicBackgroundType }: Partial<InvitationDTO>) => {
+  const backgroundImageUrl = backgroundImageData
+    ? `url(${backgroundImageData})`
+    : `url("/images/background/background_${basicBackgroundType}.png")`;
+
   return (
     <div
       className='fixed w-full max-w-content min-h-dvh bg-center bg-cover bg-no-repeat z-[-1]'
-      style={{ backgroundImage: `url("/images/_mock/mock_background.jpg")` }}
+      style={{ backgroundImage: backgroundImageUrl }}
     ></div>
   );
 };

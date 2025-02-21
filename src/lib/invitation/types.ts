@@ -56,7 +56,7 @@ export interface InvitationDTO {
   backgroundImageData: string | null;
   organizerName: string;
   themeName: themeType;
-  basicBakgroundType: backgroundType;
+  basicBackgroundType: backgroundType;
   hostProfileImageUrl: string | null;
 }
 

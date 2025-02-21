@@ -1,6 +1,19 @@
 import React from 'react';
 
-const InviteMessage = () => {
+import { InvitationUserResponse } from '@/lib/invitation';
+import { formatDateCompact } from '@/utils/format/formatDate';
+
+interface Props {
+  response: InvitationUserResponse;
+}
+const InviteMessage = ({ response }: Props) => {
+  const state =
+    response.state === 'ATTENDING'
+      ? '참석해요'
+      : response.state === 'NOT_ATTENDING'
+        ? '불참해요'
+        : '고민중이에요';
+
   return (
     <div>
       <div className='flex items-center gap-12'>
@@ -8,10 +21,12 @@ const InviteMessage = () => {
           <span className='text-primary-strong typo-heading font-bold'>피</span>
         </div>
         <div className='flex-1 flex flex-col gap-6'>
-          <p className='text-gray-6 typo-caption1 font-medium'>25년 1월 12일</p>
+          <p className='text-gray-6 typo-caption1 font-medium'>
+            {formatDateCompact(response.writeDate)}
+          </p>
           <div className='flex justify-between'>
             <p className='text-gray-6 typo-body font-medium'>
-              <strong className='text-black font-semibold'>피오나 공주님</strong>이 참석해요.
+              <strong className='text-black font-semibold'>{response.name}님</strong>이 {state}.
             </p>
             <button
               className='text-gray-6 typo-caption1 font-semi underline'
@@ -24,7 +39,7 @@ const InviteMessage = () => {
       </div>
       {/* 응답 메시지 */}
       <div className='mt-[17px] w-full px-[14px] py-[17.5px] flex items-center justify-between rounded-md bg-white'>
-        <p>효경이 이번에도 늦으면 1분마다....</p>
+        <p>{response.message}</p>
         <button
           className='text-gray-4 typo-caption1 underline'
           onClick={() => alert('준비중인 서비스입니다.😁')}
