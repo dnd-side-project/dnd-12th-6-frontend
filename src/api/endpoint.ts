@@ -1,4 +1,4 @@
-import { fontType } from '@/lib/invitation';
+import { fontType, stickerType, themeType } from '@/lib/invitation';
 
 import * as TYPES from './types';
 
@@ -42,6 +42,8 @@ const INVITATION_API = {
 
 const CARD_API = {
   SAVE_FONT: (fontName: fontType) => `/font?fontName=${fontName}`,
+  SAVE_THEME: (themeName: themeType) => `/theme?themeName=${themeName}`,
+  SAVE_STICKER: (stickerName: stickerType) => `/sticker?stickerName=${stickerName}`,
 };
 
 export { AUTH_API, INVITATION_API, CARD_API };
