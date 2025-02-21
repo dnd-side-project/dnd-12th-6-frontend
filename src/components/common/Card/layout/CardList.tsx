@@ -3,12 +3,14 @@ import Link from 'next/link';
 import { forwardRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import Card, { ICard } from '..';
+import { InvitationDTO } from '@/lib/invitation';
+
+import Card from '..';
 import { Button } from '../../Button';
 import Icon from '../../Icon';
 
 interface CardListProps {
-  cards: ICard[];
+  cards: InvitationDTO[];
 }
 const CardList = forwardRef<HTMLDivElement, CardListProps>(function CardListWithRef({ cards }) {
   const { ref: inViewRef } = useInView({ threshold: 0.1 });

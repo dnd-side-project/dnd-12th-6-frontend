@@ -16,6 +16,7 @@ export type fontType = (typeof fontArray)[number];
 export const backgroundArray = ['custom', 'purple', 'check', 'confetti', 'blue'] as const;
 export type backgroundType = (typeof backgroundArray)[number];
 
+export type invitationType = 'CREATOR' | 'INVITED';
 /**
  * 초대장 꾸미기 정보
  * - theme: 편지지
@@ -31,4 +32,27 @@ export interface IInvitation {
   fontName: fontType;
   background: backgroundType;
   backgroundImageData: string | null;
+}
+
+export interface InvitationDTO {
+  creatorId: number;
+  invitationId: number;
+  createdAt: string;
+  updatedAt: string;
+  place: string;
+  detailAddress: string;
+  date: string;
+  maxAttenances: number;
+  description: string;
+  state: 'InProgress' | 'Completed' | 'Canceled';
+  link: string;
+  invitationType: invitationType;
+  fontName: fontType;
+  sticker: stickerType;
+  title: string;
+  backgroundImageData: string | null;
+  organizerName: string;
+  themeName: themeType;
+  basicBakgroundType: backgroundType;
+  hostProfileImageUrl: string | null;
 }

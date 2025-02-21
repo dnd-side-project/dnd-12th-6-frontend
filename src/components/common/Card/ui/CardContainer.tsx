@@ -2,10 +2,10 @@
 
 import Image from 'next/image';
 
-import { ICard } from '..';
+import { InvitationDTO } from '@/lib/invitation';
 
 interface CardContainerProps {
-  theme: ICard['theme'];
+  theme: InvitationDTO['themeName'];
   children: React.ReactNode;
 }
 const CardContainer = ({ theme, children }: CardContainerProps) => {
