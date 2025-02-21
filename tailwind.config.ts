@@ -118,6 +118,7 @@ const config: Config = {
         module: ['0px 2px 4px rgba(0, 0, 0, 0.05)', '0px 2px 4px rgba(0, 0, 0, 0.06)'],
         moduleProfile: '0px 2px 10px rgba(0, 0, 0, 0.12)',
         textShadow: '0px 0px 9px rgba(0, 0, 0, 0.1)',
+        toast: '0px 0px 6px 0px rgba(0, 0, 0, 0.12)',
       },
     },
   },

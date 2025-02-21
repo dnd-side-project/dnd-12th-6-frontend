@@ -2,14 +2,16 @@
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useEffect } from 'react';
-import { Resolver, useForm } from 'react-hook-form';
+import { Resolver, SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 import DateInput from '@/components/common/DateInput';
 import Field from '@/components/common/Field';
+import Icon from '@/components/common/Icon';
 import InputRoot from '@/components/common/Input';
 import NumberInput from '@/components/common/NumberInput';
 import Textarea from '@/components/common/Textarea';
+import { useToast } from '@/hooks/useToast';
 import { useInvitationStore } from '@/store/invitationStore';
 
 interface SaveCreateFormDataType {
@@ -21,7 +23,7 @@ interface SaveCreateFormDataType {
 
   description?: string;
   //
-  title?: string;
+  title: string;
   invitationId?: number;
   creatorId?: number;
   createdAt?: string;
@@ -37,6 +39,7 @@ interface SaveCreateFormDataType {
 }
 
 const CreateForm = () => {
+  const { toast } = useToast();
   const { invitation } = useInvitationStore();
 
   const validateSchema = yup.object().shape({
@@ -54,7 +57,7 @@ const CreateForm = () => {
     description: yup.string().max(200, '200자 이내로 입력해주세요.').optional(),
     invitationType: yup.string().oneOf(['CREATOR']),
     // 초대장 꾸미기
-    // title: yup.string().required('초대장 타이틀을 입력해주세요.'),
+    title: yup.string().required('초대장 타이틀을 입력해주세요.'),
   });
 
   const {
@@ -79,8 +82,30 @@ const CreateForm = () => {
    * TODO
    * API 연동
    */
-  const submitInvite = async (values: SaveCreateFormDataType) => {
+  const submitInvite: SubmitHandler<SaveCreateFormDataType> = async (values) => {
     console.log(values);
+  };
+
+  const onError: SubmitErrorHandler<SaveCreateFormDataType> = async (values) => {
+    if (values.title) {
+      toast({
+        description: (
+          <>
+            <Icon name='error' className='w-[13px] h-[13px]' />
+            초대장 꾸미기를 완료해야해요.
+          </>
+        ),
+      });
+    }
+
+    toast({
+      description: (
+        <>
+          <Icon name='error' className='w-[13px] h-[13px]' />
+          작성하지 않은 입력 칸이 있어요.
+        </>
+      ),
+    });
   };
 
   useEffect(() => {
@@ -92,7 +117,7 @@ const CreateForm = () => {
   }, [invitation]);
 
   return (
-    <form onSubmit={handleSubmit(submitInvite)}>
+    <form onSubmit={handleSubmit(submitInvite, onError)}>
       <div className='py-40 px-[18px] flex flex-col gap-32'>
         <Field className='mb-[22px]'>
           <Field.Label required>주최자명</Field.Label>
