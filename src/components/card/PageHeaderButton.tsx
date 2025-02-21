@@ -7,7 +7,11 @@ import { useInvitationStore } from '@/store/invitationStore';
 
 export const PageHeaderCancelButton = () => {
   const router = useRouter();
+
+  const { resetInvitation } = useInvitationStore();
+
   const handleClick = () => {
+    resetInvitation();
     router.back();
   };
 

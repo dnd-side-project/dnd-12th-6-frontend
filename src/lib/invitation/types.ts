@@ -30,8 +30,8 @@ export interface IInvitation {
   title: string;
   sticker: stickerType;
   fontName: fontType;
-  background: backgroundType;
-  backgroundImageData: string | null;
+  background?: backgroundType;
+  backgroundImageData?: string;
 }
 
 export interface InvitationDTO {
