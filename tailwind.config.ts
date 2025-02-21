@@ -89,6 +89,7 @@ const config: Config = {
             30: '#FFFFFF4D',
           },
         },
+        kakao: '#FEE500',
       },
       borderRadius: {
         default: 'var(--radius)', // 기본 border-radius (0.5rem)

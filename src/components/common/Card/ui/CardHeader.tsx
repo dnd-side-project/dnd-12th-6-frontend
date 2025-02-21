@@ -1,14 +1,14 @@
 import { cva } from 'class-variance-authority';
 import Image from 'next/image';
 
-import { ICard } from '..';
+import { InvitationDTO } from '@/lib/invitation';
 
 const CardHeader = ({
   invitationType,
   sticker,
-  hostName,
-  hostProfileImg,
-}: Pick<ICard, 'invitationType' | 'sticker' | 'hostName' | 'hostProfileImg'>) => {
+  organizerName,
+  hostProfileImageUrl,
+}: Pick<InvitationDTO, 'invitationType' | 'sticker' | 'organizerName' | 'hostProfileImageUrl'>) => {
   return (
     <div className={cardHeaderVariants({ invitationType })}>
       {invitationType === 'CREATOR' && (
@@ -24,7 +24,7 @@ const CardHeader = ({
           <div className='w-[38px] h-[38px] rounded-full border-2 border-white drop-shadow-moduleProfile'>
             <Image
               src={
-                hostProfileImg
+                hostProfileImageUrl
                   ? 'https://avatar.iran.liara.run/public'
                   : '/images/user/profile_default_image.svg'
               }
@@ -35,7 +35,7 @@ const CardHeader = ({
           </div>
           <div className='w-fit mt-6 px-8 py-4 bg-white opacity-80 rounded-md typo-caption1 text-gray-7'>
             <span className='font-semibold mr-2'>From.</span>
-            <span className='font-regular'>{hostName}</span>
+            <span className='font-regular'>{organizerName}</span>
           </div>
         </>
       )}
