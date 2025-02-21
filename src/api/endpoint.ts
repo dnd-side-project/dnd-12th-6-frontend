@@ -29,6 +29,12 @@ const INVITATION_API = {
   }: TYPES.GetInvitationParams) => {
     return `/invitedInvitations?userId=${userId}&page=${page}&size=${size}&sort=${sort}`;
   },
+  INVITATION: (invitationId: number) => {
+    return `/specificInvitation/${invitationId}`;
+  },
+  RESPONSES: (invitationId: number) => {
+    return `/getInvitationResponseList?invitationId=${invitationId}`;
+  },
 };
 
 export { AUTH_API, INVITATION_API };
