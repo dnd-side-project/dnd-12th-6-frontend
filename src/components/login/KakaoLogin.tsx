@@ -34,7 +34,7 @@ const KakaoLogin = ({ token }: { token: string }) => {
 
   return (
     <>
-      <div className='flex h-dvh justify-center items-center text-center typo-body text-primary-neon font-bold'>
+      <div className='flex h-dvh justify-center items-center bg-loginGradient text-center typo-body text-gray-1 font-bold'>
         카카오 로그인 중...
       </div>
     </>
