@@ -21,6 +21,7 @@ const INVITATION_API = {
   }: TYPES.GetInvitationParams) => {
     return `/invitedInvitations?userId=${userId}&page=${page}&size=${size}&sort=${sort}`;
   },
+  SAVE_INVITATIONS: '/invitation',
 };
 
 export { AUTH_API, INVITATION_API };

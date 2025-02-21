@@ -5,6 +5,7 @@ import React, { useEffect } from 'react';
 import { Resolver, SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
+import { customFetch, INVITATION_API } from '@/api';
 import DateInput from '@/components/common/DateInput';
 import Field from '@/components/common/Field';
 import Icon from '@/components/common/Icon';
@@ -84,6 +85,16 @@ const CreateForm = () => {
    */
   const submitInvite: SubmitHandler<SaveCreateFormDataType> = async (values) => {
     console.log(values);
+
+    const res = await customFetch(INVITATION_API.SAVE_INVITATIONS, {
+      method: 'POST',
+      body: values,
+      isJson: true,
+    });
+
+    if (res) {
+      alert('성공');
+    }
   };
 
   const onError: SubmitErrorHandler<SaveCreateFormDataType> = async (values) => {
@@ -112,6 +123,7 @@ const CreateForm = () => {
     setValue('title', invitation.title);
     setValue('themeName', invitation.theme);
     setValue('fontName', invitation.fontName);
+    setValue('sticker', invitation.sticker);
     setValue('basicBackgroundType', invitation.background);
     setValue('backgroundImageData', invitation.backgroundImageData ?? undefined);
   }, [invitation]);
