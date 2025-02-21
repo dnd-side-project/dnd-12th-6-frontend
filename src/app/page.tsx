@@ -1,13 +1,19 @@
-import PageContainer from '@/components/layout/PageContainer';
-import InvitationHistory from '@/components/main/InvitationHistory';
-import UpcomingInvitation from '@/components/main/UpcomingInvitation';
+'use client';
+
+import { useEffect } from 'react';
 
 export default function Home() {
-  return (
-    <PageContainer header bottomNav>
-      <UpcomingInvitation />
-      <hr className='h-48 border-none' />
-      <InvitationHistory />
-    </PageContainer>
-  );
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const token = localStorage.getItem('token');
+
+      if (!token) {
+        window.location.href = '/onboarding'; // token이 없으면 /onboarding으로 이동
+      } else {
+        window.location.href = '/main';
+      }
+    }
+  }, []);
+
+  return null;
 }
