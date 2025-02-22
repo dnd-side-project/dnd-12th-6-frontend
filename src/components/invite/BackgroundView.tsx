@@ -6,7 +6,7 @@ import { InvitationDTO } from '@/lib/invitation';
 
 const BackgroundView = ({ backgroundImageData, basicBackgroundType }: Partial<InvitationDTO>) => {
   const backgroundImageUrl = !backgroundImageData?.endsWith('null')
-    ? `url(${backgroundImageData})`
+    ? `url(${process.env.NEXT_PUBLIC_API_URL}${backgroundImageData})`
     : `url("/images/background/background_${basicBackgroundType}.png")`;
 
   return (
