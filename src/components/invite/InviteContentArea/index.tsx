@@ -46,7 +46,7 @@ const InviteContentArea = ({
           <div className='flex items-center typo-body font-medium'>
             {formatDateWithDay(date || '')}
             <span className='h-12 w-2 mx-8 bg-gray-2 rounded-round'></span>
-            <div className='w-[68px] text-center'>{formatTimeOnly(date || '')}</div>
+            <div className='w-[68px] text-center'>{date ? formatTimeOnly(date) : ''}</div>
           </div>
         </div>
       </InviteInfoBox>

@@ -52,11 +52,6 @@ export function formatDateNoTime(dateString: string) {
 export function formatDateWithDay(dateString: string): string {
   const date = new Date(dateString);
 
-  // 날짜가 유효한지 확인
-  if (isNaN(date.getTime())) {
-    throw new Error('Invalid date string');
-  }
-
   const year = date.getFullYear().toString().slice(2); // '25년' 형식으로 변환
 
   return `${year}년 ${format(date, 'M월 d일 (E)', { locale: ko })}`;
@@ -68,11 +63,6 @@ export function formatDateWithDay(dateString: string): string {
 export function formatTimeOnly(dateString: string): string {
   const date = new Date(dateString);
 
-  // 날짜가 유효한지 확인
-  if (isNaN(date.getTime())) {
-    throw new Error('Invalid date string');
-  }
-
   return format(date, 'HH:mm'); // "13:00" 형식으로 변환
 }
 
@@ -81,11 +71,6 @@ export function formatTimeOnly(dateString: string): string {
  */
 export function formatDateCompact(dateString: string): string {
   const date = new Date(dateString);
-
-  // 날짜가 유효한지 확인
-  if (isNaN(date.getTime())) {
-    throw new Error('Invalid date string');
-  }
 
   const year = date.getFullYear().toString().slice(2); // '25년' 형식으로 변환
 

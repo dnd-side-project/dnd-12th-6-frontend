@@ -33,7 +33,7 @@ const INVITATION_API = {
   },
   SAVE_INVITATIONS: '/invitation',
   INVITATION: (invitationId: number) => {
-    return `/specificInvitation/${invitationId}`;
+    return `/specificInvitation?invitationId=${invitationId}`;
   },
   RESPONSES: (invitationId: number) => {
     return `/getInvitationResponseList?invitationId=${invitationId}`;
