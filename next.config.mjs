@@ -7,6 +7,10 @@ const nextConfig = {
         hostname: 'avatar.iran.liara.run',
         pathname: '/public',
       },
+      {
+        protocol: 'http',
+        hostname: 'k.kakaocdn.net',
+      },
     ],
     domains: ['invity-web.vercel.app', 'img1.kakaocdn.net'],
   },
