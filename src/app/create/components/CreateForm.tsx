@@ -92,14 +92,14 @@ const CreateForm = () => {
   const submitInvite: SubmitHandler<SaveCreateFormDataType> = async (values) => {
     console.log(values);
 
-    const res = await customFetch<{ data: { id: number } }>(INVITATION_API.SAVE_INVITATIONS, {
+    const res = await customFetch<{ data: string[] }>(INVITATION_API.SAVE_INVITATIONS, {
       method: 'POST',
       body: values,
       isJson: true,
     });
 
     if (res) {
-      const id = res?.data?.id;
+      const id = res.data[0].split(': ')[1];
 
       router.replace(`/create/success/${id}`);
     }
