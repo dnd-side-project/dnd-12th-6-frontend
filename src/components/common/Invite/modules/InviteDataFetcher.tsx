@@ -12,6 +12,6 @@ export default function InviteDataFetcher({ invitationId, children }: Props) {
   //console.log(invitationId);
   const { data } = useGetInvitationInfoQuery({ invitationId });
 
-  return <>{children(data?.data ?? null)}</>;
+  return <>{children(data?.data[0] ?? null)}</>;
   // return <>{children(invitationMockData)}</>;
 }

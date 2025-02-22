@@ -59,7 +59,7 @@ const CardViewArea = ({
           sticker={sticker ?? 'none'}
         />
       </div>
-      <GuideBox />
+      <GuideBox target='info_area' />
     </div>
   );
 };

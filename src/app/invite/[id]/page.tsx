@@ -2,7 +2,6 @@
 
 import InviteDataFetcher from '@/components/common/Invite/modules/InviteDataFetcher';
 import BackgroundView from '@/components/invite/BackgroundView';
-import CTAButton from '@/components/invite/CTAButton';
 import CardViewArea from '@/components/invite/CardViewArea';
 import FooterArea from '@/components/invite/FooterArea';
 import InviteContentArea from '@/components/invite/InviteContentArea';
@@ -16,6 +15,7 @@ const page = ({ params }: { params: { id: string } }) => {
         {(data) =>
           data && (
             <>
+              {console.log(data)}
               <BackgroundView
                 backgroundImageData={data.backgroundImageData}
                 basicBackgroundType={data.basicBackgroundType}
@@ -30,9 +30,9 @@ const page = ({ params }: { params: { id: string } }) => {
               />
               <InviteContentArea
                 invitationId={Number(params.id)}
-                place={data.place}
+                place={data.detailAddress}
                 date={data.date}
-                maxAttenances={data.maxAttenances}
+                maxAttendances={data.maxAttendances}
                 description={data.description}
               />
             </>
@@ -40,8 +40,15 @@ const page = ({ params }: { params: { id: string } }) => {
         }
       </InviteDataFetcher>
       <FooterArea />
-      <LoginModal>
+      {/* <LoginModal>
         <CTAButton>응답하기</CTAButton>
+      </LoginModal> */}
+      <LoginModal>
+        <div className='sticky bottom-0'>
+          <button className='w-full h-[60px] flex items-center justify-center text-white typo-heading font-semibold bg-gray-7'>
+            응답하기
+          </button>
+        </div>
       </LoginModal>
     </PageContainer>
   );

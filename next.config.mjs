@@ -8,7 +8,7 @@ const nextConfig = {
         pathname: '/public',
       },
     ],
-    domains: ['invity-web.vercel.app'],
+    domains: ['invity-web.vercel.app', 'img1.kakaocdn.net'],
   },
   swcMinify: true,
   webpack(config) {

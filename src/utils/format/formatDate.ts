@@ -1,4 +1,4 @@
-import { format, differenceInDays, isBefore, startOfDay } from 'date-fns';
+import { format, differenceInDays, isBefore, startOfDay, isDate } from 'date-fns';
 import { ko } from 'date-fns/locale';
 
 export function formatDate(dateString: string) {
@@ -51,6 +51,8 @@ export function formatDateNoTime(dateString: string) {
  */
 export function formatDateWithDay(dateString: string): string {
   const date = new Date(dateString);
+
+  if (!dateString || !isDate(date)) return '';
 
   const year = date.getFullYear().toString().slice(2); // '25년' 형식으로 변환
 

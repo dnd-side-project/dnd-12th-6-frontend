@@ -9,7 +9,7 @@ import { cardQueryKeys, InvitationDTO } from '@/lib/invitation';
  * 특정 초대장 조회 API
  */
 interface InvitationResponse {
-  data: InvitationDTO;
+  data: InvitationDTO[];
   message: string;
   result: string;
 }

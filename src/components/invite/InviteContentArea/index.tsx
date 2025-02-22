@@ -14,14 +14,14 @@ const InviteContentArea = ({
   invitationId,
   place,
   date,
-  maxAttenances,
+  maxAttendances,
   description,
 }: Partial<InvitationDTO>) => {
   const { data } = useGetInvitationResponseQuery(invitationId || 0);
   const responses = data?.data || [];
 
   return (
-    <div className='min-h-dvh pt-[42px] px-[18px] flex flex-col gap-12'>
+    <div id='info_area' className='min-h-dvh pt-[42px] px-[18px] flex flex-col gap-12'>
       <InviteInfoBox>
         <div className='flex items-start gap-[22px]'>
           <div className='flex items-center gap-[3px] typo-body font-bold'>
@@ -56,7 +56,7 @@ const InviteContentArea = ({
             <Icon name='head_count' className='w-20 h-20 text-gray-7' />
             인원
           </div>
-          <div className='typo-body font-medium'>{maxAttenances}명</div>
+          <div className='typo-body font-medium'>{maxAttendances}명</div>
         </div>
       </InviteInfoBox>
       <InviteInfoBox>

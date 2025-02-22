@@ -1,9 +1,11 @@
+'use client';
+
 import React from 'react';
 
 import { InvitationDTO } from '@/lib/invitation';
 
 const BackgroundView = ({ backgroundImageData, basicBackgroundType }: Partial<InvitationDTO>) => {
-  const backgroundImageUrl = backgroundImageData
+  const backgroundImageUrl = !backgroundImageData?.endsWith('null')
     ? `url(${backgroundImageData})`
     : `url("/images/background/background_${basicBackgroundType}.png")`;
 
