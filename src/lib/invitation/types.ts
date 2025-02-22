@@ -45,7 +45,7 @@ export interface InvitationDTO {
   place: string;
   detailAddress: string;
   date: string;
-  maxAttenances: number;
+  maxAttendances: number;
   description: string;
   state: 'InProgress' | 'Completed' | 'Canceled';
   link: string;
@@ -56,7 +56,7 @@ export interface InvitationDTO {
   backgroundImageData: string | null;
   organizerName: string;
   themeName: themeType;
-  basicBakgroundType: backgroundType;
+  basicBackgroundType: backgroundType;
   hostProfileImageUrl: string | null;
 }
 

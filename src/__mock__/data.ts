@@ -16,10 +16,10 @@ const invitationMockData: InvitationDTO = {
   fontName: 'basic',
   sticker: 'mono',
   title: '마라탕원 급구!! 마라샹궈도 좋음',
-  backgroundImageData: 'none',
+  backgroundImageData: null,
   organizerName: '누구누구',
   themeName: 'confetti',
-  basicBakgroundType: 'purple',
+  basicBackgroundType: 'purple',
   hostProfileImageUrl: null,
 };
 
@@ -43,7 +43,7 @@ const invitationListMockData: InvitationDTO[] = [
     backgroundImageData: 'none',
     organizerName: '누구누구',
     themeName: 'mono',
-    basicBakgroundType: 'purple',
+    basicBackgroundType: 'purple',
     hostProfileImageUrl: null,
   },
   {
@@ -65,7 +65,7 @@ const invitationListMockData: InvitationDTO[] = [
     backgroundImageData: 'none',
     organizerName: '누구누구',
     themeName: 'heart',
-    basicBakgroundType: 'blue',
+    basicBackgroundType: 'blue',
     hostProfileImageUrl: null,
   },
   {
@@ -87,7 +87,7 @@ const invitationListMockData: InvitationDTO[] = [
     backgroundImageData: 'none',
     organizerName: '누구누구',
     themeName: 'lucky',
-    basicBakgroundType: 'check',
+    basicBackgroundType: 'check',
     hostProfileImageUrl: null,
   },
   {
@@ -109,7 +109,7 @@ const invitationListMockData: InvitationDTO[] = [
     backgroundImageData: 'none',
     organizerName: '누구누구',
     themeName: 'confetti',
-    basicBakgroundType: 'purple',
+    basicBackgroundType: 'purple',
     hostProfileImageUrl: null,
   },
 ];

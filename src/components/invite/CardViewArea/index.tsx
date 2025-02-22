@@ -1,6 +1,8 @@
 'use client';
 
-import CardPreview from './CardPreview';
+import CardDisplay from '@/components/card/CardDisplay';
+import { InvitationDTO } from '@/lib/invitation';
+
 import GuideBox from './GuideBox';
 import InfoBox from './InfoBox';
 
@@ -32,19 +34,32 @@ import InfoBox from './InfoBox';
 //   invitationType: 'SENT',
 // };
 
-const CardViewArea = () => {
+const CardViewArea = ({
+  hostProfileImageUrl,
+  organizerName,
+  title,
+  themeName,
+  fontName,
+  sticker,
+}: Partial<InvitationDTO>) => {
   return (
     <div className='relative min-h-[calc(100dvh-60px)]'>
       <div className='w-full px-[30px] flex flex-col items-center gap-12 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
-        <InfoBox />
-        <CardPreview
+        <InfoBox hostProfileImageUrl={hostProfileImageUrl} organizerName={organizerName} />
+        {/* <CardPreview
           leftSticker='/images/sticker/02-Sticker-L.png'
           rightSticker='/images/sticker/02-Sticker-L.png'
           card='/images/card/01-Envelope-Default Type.png'
           title='☔️🪻초대짱🪻☔️'
+        /> */}
+        <CardDisplay
+          title={title || ''}
+          theme={themeName || 'confetti'}
+          fontName={fontName || 'basic'}
+          sticker={sticker ?? 'none'}
         />
       </div>
-      <GuideBox />
+      <GuideBox target='info_area' />
     </div>
   );
 };

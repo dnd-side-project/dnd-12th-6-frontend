@@ -18,6 +18,7 @@ const config: Config = {
         preview: "url('/images/create/create_background.png')",
         message: "url('/images/response/message_background.png')",
         loginGradient: 'linear-gradient(180deg, #24212A 28.36%, #4A4356 104.61%)',
+        splashGradient: 'linear-gradient(180deg, #3C45C8 0%, #6F3CC8 100%)',
       },
       spacing,
       maxWidth: {
