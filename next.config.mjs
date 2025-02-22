@@ -18,6 +18,13 @@ const nextConfig = {
     });
     return config;
   },
+  redirects: async () => [
+    {
+      source: '/api/:path*',
+      destination: 'https://43.202.1.235:8999/:path*',
+      permanent: false,
+    },
+  ],
 };
 
 export default nextConfig;
