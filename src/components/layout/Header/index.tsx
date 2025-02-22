@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import LogoImage from 'public/logo.svg';
 
 import Icon from '@/components/common/Icon';
@@ -15,11 +16,15 @@ const Header = ({ transparent = false }: HeaderProps) => {
         transparent && 'bg-transparent',
       ])}
     >
-      <LogoImage height={34} />
+      <Link href='/'>
+        <LogoImage height={34} />
+      </Link>
       {transparent && (
-        <button className='text-gray-7'>
-          <Icon name='close' className='w-24 h-24' />
-        </button>
+        <Link href='/'>
+          <button className='text-gray-7'>
+            <Icon name='close' className='w-24 h-24' />
+          </button>
+        </Link>
       )}
     </div>
   );
