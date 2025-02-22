@@ -123,6 +123,9 @@ const config: Config = {
         textShadow: '0px 0px 9px rgba(0, 0, 0, 0.1)',
         toast: '0px 0px 6px 0px rgba(0, 0, 0, 0.12)',
       },
+      textSizeAdjust: {
+        none: 'none',
+      },
     },
   },
   plugins: [
