@@ -1,72 +1,35 @@
-# dnd-12th-6-frontend
 
-## Git convention
+# <img width="60" alt="logo" src="https://github.com/user-attachments/assets/83978bf3-2baa-4998-8b58-77ca58ce651c" /> &nbsp;Invity - 모임을 더욱 의미있게 만드는 초대장 서비스
 
----
 
-```bash
-<commit type>: <description>
-```
+ <img src="https://github.com/user-attachments/assets/4f3b837d-d33a-4ca1-8a57-32dbb1e6a0e0" alt="main" width="750" />
 
-- **commit type**
-  | feat | 새로운 기능 추가 |
-  | --- | --------------------------------- |
-  | fix | 버그 수정 |
-  | docs | 문서 수정 |
-  | style | 코드 스타일 변경 (코드 포매팅 등) |
-  | refactor | 코드 리팩토링 |
-  | test | 테스트 코드 작성 |
-  | chore | 빌드 수정, 패키지 매니저 설정 등 | \
+#### 🔗 [Website](https://invity-web.vercel.app) | [Storybook](https://6797390d7c6813ee3899a466-cobnvmrlvv.chromatic.com/)
 
-  \*출처: https://udacity.github.io/git-styleguide
+<br/>
 
-- **description**
-  - 커밋에 대한 설명
+> 크고 작은 시간을 의미 있게 보내고 기록하려는 사람들이 증가하고 있습니다.<br/>
+> 유저 리서치에서 모임을 위해 카카오톡으로 의견을 취합 할 때 여러 대화 내용이 쌓이며 정보를 찾기 어려운 상황을 발견했습니다.<br/> 
+> 이와 같은 문제를 해결하고 모임의 의미와 즐거움을 더할 수 있는 초대장 서비스를 기획하고 개발했습니다.<br/>
 
-### Issue
+<br />
 
-1. 개발 요구사항에 맞추어 새로운 기능 혹은 수정이 필요한 경우, Github Issue를 등록하여 공유한다.
-2. 이슈 등록 시에는 `이슈 종류: 내용` 의 형식으로 작성한다.
-3. 이슈 등록 후에는 `Assignees`, `Labels`를 지정한다.
-4. 이후 해당 이슈를 해결하는 Pull Request 작성 시 해당 이슈를 연결한다.
-   - 아직 해결되지 않은 경우: `#이슈 번호`
-   - 이슈를 해결한 경우: `resolves #이슈 번호`
+💌 **Invity**는 **지인과의 모임들을 쉽게 추억하고 관리하며 공유**하는 초대장 서비스입니다.<br/>
 
-### Pull Request
+- 직접 고른 편지지와 스티커 등으로 **커스텀 초대장을 만들고, 원하는 사람에게 초대**를 보낼 수 있습니다. <br/>
+- 초대장을 받은 사람은 메시지와 함께 응답하고, 주최자는 이를 관리할 수 있습니다. <br/>
+- 또한, 내가 참석하고 주최했던 모임 기록을 확인할 수 있습니다.
 
-1. PR의 제목은 `[#이슈 번호] 주요한 기능`으로 설정한다. e.g. `[#23] 메인 컴포넌트 분리`
-2. PR 템플릿을 사용하여 형식에 맞게 내용을 작성하고 적절한 label을 등록한다.
-3. Reviewer에 팀원을 지정하고 Assignee에 자신을 등록한다.
-4. 아직 작업 중이지만 중간 리뷰 등의 이유로 미리 등록한 PR의 경우 Draft로 설정한다.
-5. 지정된 Reviewer의 Approval 이후에 merge를 진행한다.
 
-## Git branch strategy
+## ✨ Features
 
-> - **main**: 가장 기본이 되는 branch
-> - **develop**: 다음 출시 버전을 개발하는 브랜치
-> - **feature**: 기능을 개발하는 브랜치
+<img src="https://github.com/user-attachments/assets/9a1fbcbb-01c6-4e6d-8232-b1fb4f5d9f5b" alt="feature" width="1000" />
 
-1. **main** → **develop** 브랜치 분기
-2. **develop** → **feature** 브랜치 분기
-   1. 브랜치 이름은 `이슈 유형/#이슈 번호` e.g. `feat/#27`
-3. 코드 리뷰 진행
-4. **feature** → **develop** Merge
-   1. Squash and Merge
-   2. Merge 후 feature 브랜치 삭제
-5. 배포 시점에 **develop** → **main** PR 및 Merge
-   1. Merge commit or Rebase and Merge
-   2. CI/CD 작동
+## 🛠️ Tech Stack & Architecture
 
-### Version
+![Next JS](https://img.shields.io/badge/Next.js-black?style=flat&logo=next.js&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat&logo=typescript&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-%2338B2AC.svg?style=flat&logo=tailwind-css&logoColor=white) ![Storybook](https://img.shields.io/badge/-Storybook-FF4785?style=flat&logo=storybook&logoColor=white)	![Tanstack Query](https://img.shields.io/badge/-Tanstack%20Query-FF4154?style=flat&logo=react%20query&logoColor=white) ![Zustand](https://img.shields.io/badge/Zustand-black?style=flat) ![PNPM](https://img.shields.io/badge/pnpm-%234a4a4a.svg?style=flat&logo=pnpm&logoColor=f69220) 
 
-1. 버전 관리는 develop branch에서 작업 후, main branch를 릴리즈 branch로 활용한다.
-2. 버전 배포 완료 후, Github의 release에 새로운 버전 업데이트를 확인하여 추가한다.
+<img src="https://github.com/user-attachments/assets/37aff697-bca7-47dd-810d-66e19853e6ed" alt="architecture" width="600" />
 
-## Coding Convention
 
----
 
-> 💡**Airbnb**의 **JavaScript 스타일 가이드**와 **React/JSX** **스타일 가이드**를 따른다.
-
-- [**Airbnb JavaScript Style Guide**](https://github.com/ParkSB/javascript-style-guide)
-- [**Airbnb React/JSX Style Guide**](https://github.com/apple77y/javascript/tree/master/react)
