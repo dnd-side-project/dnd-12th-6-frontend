@@ -1,10 +1,10 @@
 
-# <img width="60" alt="logo" src="https://github.com/user-attachments/assets/83978bf3-2baa-4998-8b58-77ca58ce651c" /> &nbsp;Invity - 모임을 더욱 의미있게 만드는 초대장 서비스
+# <img width="60" alt="logo" src="https://github.com/user-attachments/assets/83978bf3-2baa-4998-8b58-77ca58ce651c" /> &nbsp;Invity - 모임을 의미있게 만드는 초대장 서비스
 
 
  <img src="https://github.com/user-attachments/assets/4f3b837d-d33a-4ca1-8a57-32dbb1e6a0e0" alt="main" width="750" />
 
-#### 🔗 [Website](https://invity-web.vercel.app) | [Storybook](https://6797390d7c6813ee3899a466-cobnvmrlvv.chromatic.com/)
+#### 🔗 [Website](https://invity-web.vercel.app) | 🎨 [Storybook](https://6797390d7c6813ee3899a466-cobnvmrlvv.chromatic.com/)
 
 <br/>
 
@@ -14,11 +14,11 @@
 
 <br />
 
-💌 **Invity**는 **지인과의 모임들을 쉽게 추억하고 관리하며 공유**하는 초대장 서비스입니다.<br/>
+💌 **Invity**는 **지인과의 모임들을 쉽게 추억하고 관리하며 공유**하는 **초대장 서비스**입니다.<br/>
 
 - 직접 고른 편지지와 스티커 등으로 **커스텀 초대장을 만들고, 원하는 사람에게 초대**를 보낼 수 있습니다. <br/>
-- 초대장을 받은 사람은 메시지와 함께 응답하고, 주최자는 이를 관리할 수 있습니다. <br/>
-- 또한, 내가 참석하고 주최했던 모임 기록을 확인할 수 있습니다.
+- 초대장을 받은 사람은 **메시지와 함께 응답하고, 주최자는 이를 관리**할 수 있습니다. <br/>
+- 내가 참석하고 주최했던 **모임 기록을 확인**할 수 있습니다.
 
 
 ## ✨ Features
