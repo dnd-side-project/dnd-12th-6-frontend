@@ -7,7 +7,9 @@ export const size = {
 };
 export const contentType = 'image/png';
 
-export default async function OpengraphImage({ id }: { id: number }) {
+export const runtime = 'edge';
+
+export async function GET({ id = 0 }: { id: number }) {
   const mock = {
     theme: 'confetti',
     title: '초대합니다!! 초대장 🔥 초대합니다!! 초대장 🔥 초대합니다!! 초대장 🔥' + id,
