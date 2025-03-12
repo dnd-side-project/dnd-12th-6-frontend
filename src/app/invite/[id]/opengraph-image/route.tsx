@@ -1,15 +1,18 @@
 import { ImageResponse } from 'next/og';
+import { NextRequest } from 'next/server';
 
 // Open Graph 기본 설정
-export const size = {
+const size = {
   width: 1200,
   height: 600,
 };
-export const contentType = 'image/png';
 
 export const runtime = 'edge';
 
-export async function GET({ id = 0 }: { id: number }) {
+export async function GET(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const id = searchParams.get('id') || '0'; // 쿼리 파라미터로 전달됨
+
   const mock = {
     theme: 'confetti',
     title: '초대합니다!! 초대장 🔥 초대합니다!! 초대장 🔥 초대합니다!! 초대장 🔥' + id,

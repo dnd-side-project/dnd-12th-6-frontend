@@ -26,7 +26,7 @@ export async function generateMetadata(
     title: 'Invity - 초대장',
     description: '초대합니다!! 초대장 🔥 초대합니다!! 초대장 🔥 초대합니다!! 초대장 🔥',
     openGraph: {
-      images: [`/invite/${id}/opengraph-image`, '/opengraph.jpg', ...previousImages],
+      images: [`/invite/${id}/opengraph-image?id=${id}`, '/opengraph.jpg', ...previousImages],
     },
   };
 }
