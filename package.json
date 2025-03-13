@@ -8,7 +8,7 @@
     "node": "20.x"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --hostname 0.0.0.0 --port 3000",
     "dev:https": "next dev --experimental-https",
     "build": "next build",
     "start": "next start",
