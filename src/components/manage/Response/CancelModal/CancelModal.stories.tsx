@@ -6,6 +6,11 @@ const meta: Meta<typeof CancelModal> = {
   title: 'Common/Modal/CancelModal',
   component: CancelModal,
   argTypes: {},
+  parameters: {
+    nextjs: {
+      appDirectory: true,
+    },
+  },
 };
 
 export default meta;
