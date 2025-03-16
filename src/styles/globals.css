@@ -26,6 +26,14 @@
   }
 }
 
+/* 인풋 safari 홧대 이슈 수정 */
+@layer components {
+  .typo-input {
+    @apply origin-left scale-[0.875] typo-body;
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
