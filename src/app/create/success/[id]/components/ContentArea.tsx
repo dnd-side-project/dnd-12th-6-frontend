@@ -5,7 +5,6 @@ import { useParams, useRouter } from 'next/navigation';
 import React from 'react';
 
 import useCopyLink from '@/components/common/CopyLinkWithAlert/useCopyLink';
-import ServicePrepareModal from '@/components/common/Dialog/ServicePrepareModal';
 import CTAButton from '@/components/invite/CTAButton';
 
 const ContentArea = () => {
@@ -20,6 +19,15 @@ const ContentArea = () => {
     copyLink(`${fullDomain}/invite/${id}`);
 
     alert('링크가 복사되었습니다.');
+  };
+
+  const handleShareLink = () => {
+    // navigator.share({ url: 'www.naver.com' });
+    const fullDomain = window.location.origin;
+
+    navigator.share({
+      url: `${fullDomain}/invite/${id}`,
+    });
   };
 
   return (
@@ -38,11 +46,12 @@ const ContentArea = () => {
         </div>
 
         <div className='mt-[60px] flex flex-col gap-12'>
-          <ServicePrepareModal>
-            <button className='h-[52px] typo-body font-semibold rounded-sm bg-[#FEE500]'>
-              카카오톡으로 알려주기
-            </button>
-          </ServicePrepareModal>
+          <button
+            className='h-[52px] typo-body font-semibold rounded-sm bg-[#FEE500]'
+            onClick={handleShareLink}
+          >
+            카카오톡으로 알려주기
+          </button>
           <button
             className='h-[52px] typo-body font-semibold text-primary-strong rounded-sm bg-primary-natural'
             onClick={handleCopyLink}
