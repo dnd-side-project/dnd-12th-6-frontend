@@ -61,7 +61,7 @@ const ContentArea = () => {
         </div>
       </div>
 
-      <div className='fixed bottom-0 max-w-content w-full' onClick={() => router.push('/main')}>
+      <div className='fixed bottom-0 max-w-content w-full' onClick={() => router.push('/')}>
         <CTAButton>메인으로 가기</CTAButton>
       </div>
     </div>

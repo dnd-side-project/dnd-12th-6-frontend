@@ -7,7 +7,7 @@ import Icon from '@/components/common/Icon';
 export const PageHeaderCloseButton = () => {
   const router = useRouter();
   const handleClick = () => {
-    router.replace('/main');
+    router.replace('/');
   };
 
   return (
