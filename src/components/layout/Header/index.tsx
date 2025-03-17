@@ -2,6 +2,7 @@ import Link from 'next/link';
 import LogoImage from 'public/logo.svg';
 
 import Icon from '@/components/common/Icon';
+import ROUTER_PATH from '@/constants/router';
 import { cn } from '@/lib/utils';
 
 interface HeaderProps {
@@ -16,11 +17,11 @@ const Header = ({ transparent = false }: HeaderProps) => {
         transparent && 'bg-transparent',
       ])}
     >
-      <Link href='/'>
+      <Link href={ROUTER_PATH.MAIN}>
         <LogoImage height={34} />
       </Link>
       {transparent && (
-        <Link href='/'>
+        <Link href={ROUTER_PATH.MAIN}>
           <button className='text-gray-7'>
             <Icon name='close' className='w-24 h-24' />
           </button>

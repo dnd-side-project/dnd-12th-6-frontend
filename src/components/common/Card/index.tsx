@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import ROUTER_PATH from '@/constants/router';
 import { InvitationDTO } from '@/lib/invitation/types';
 
 import CardBody from './ui/CardBody';
@@ -12,7 +13,7 @@ interface CardProps {
 }
 const Card = ({ card }: CardProps) => {
   return (
-    <Link href={'/invite/' + card.invitationId}>
+    <Link href={ROUTER_PATH.INVITATION.SHARD_VIEW(card.invitationId)}>
       <CardContainer theme={card.themeName}>
         <CardHeader
           invitationType={card.invitationType}

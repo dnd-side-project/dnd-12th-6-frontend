@@ -11,6 +11,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/common/Dialog/dialog';
+import ROUTER_PATH from '@/constants/router';
 import { StrictPropsWithChildren } from '@/types/common';
 
 const LoginModal = ({ children }: StrictPropsWithChildren) => {
@@ -33,7 +34,7 @@ const LoginModal = ({ children }: StrictPropsWithChildren) => {
           <div className='flex-1 flex flex-col items-center gap-12'>
             <DialogClose asChild>
               <Link
-                href={`/invite/1/response`}
+                href={ROUTER_PATH.INVITATION.RESPONSE(1)}
                 className='w-full h-[56px] flex items-center justify-center typo-body font-semibold border border-gray-2 rounded-sm bg-gray-1'
               >
                 비회원으로 초대 응답하기

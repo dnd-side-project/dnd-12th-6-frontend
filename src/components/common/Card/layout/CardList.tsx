@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { forwardRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
+import ROUTER_PATH from '@/constants/router';
 import { InvitationDTO } from '@/lib/invitation';
 
 import Card from '..';
@@ -21,7 +22,7 @@ const CardList = forwardRef<HTMLDivElement, CardListProps>(function CardListWith
         <div className='flex flex-col items-center my-40'>
           <Icon name='invite_empty' className='w-[72px]' />
           <div className='typo-caption1 font-bold text-gray-5 mt-16'>아직 초대장이 없어요.</div>
-          <Link href='/create'>
+          <Link href={ROUTER_PATH.INVITATION.CREATE}>
             <Button className='mt-40 w-56 rounded-lg typo-label1 font-bold text-white'>
               초대장 만들러 가기
             </Button>

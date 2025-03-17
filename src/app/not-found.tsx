@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import CTAButton from '@/components/invite/CTAButton';
 import PageContainer from '@/components/layout/PageContainer';
+import ROUTER_PATH from '@/constants/router';
 
 export default function NotFound() {
   return (
@@ -13,7 +14,7 @@ export default function NotFound() {
         </p>
       </div>
       <div className='fixed bottom-0 max-w-content w-full'>
-        <Link href={'/'}>
+        <Link href={ROUTER_PATH.MAIN}>
           <CTAButton>홈으로 돌아가기</CTAButton>
         </Link>
       </div>

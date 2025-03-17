@@ -1,10 +1,11 @@
 import Link from 'next/link';
 
 import Icon from '@/components/common/Icon';
+import ROUTER_PATH from '@/constants/router';
 
 const CreateInvitationButton = () => {
   return (
-    <Link href='/create'>
+    <Link href={ROUTER_PATH.INVITATION.CREATE}>
       <button
         className='w-full h-160 flex flex-col justify-center items-center gap-y-8
      bg-primary-natural/60 border border-dashed border-primary-normal rounded-md'

@@ -1,5 +1,7 @@
 import { create } from 'zustand';
 
+import ROUTER_PATH from '@/constants/router';
+
 export enum BottomNavList {
   MAIN = 'MAIN',
   CREATE = 'CREATE',
@@ -8,10 +10,10 @@ export enum BottomNavList {
 }
 
 export const BOTTOM_NAV_URL: Record<BottomNavList, string> = {
-  [BottomNavList.MAIN]: '/',
-  [BottomNavList.CREATE]: '/create',
-  [BottomNavList.LIST]: '/list',
-  [BottomNavList.SETTING]: '/setting',
+  [BottomNavList.MAIN]: ROUTER_PATH.MAIN,
+  [BottomNavList.CREATE]: ROUTER_PATH.INVITATION.CREATE,
+  [BottomNavList.LIST]: ROUTER_PATH.INVITATION.LIST,
+  [BottomNavList.SETTING]: ROUTER_PATH.SETTING,
 };
 
 interface BottomNavState {

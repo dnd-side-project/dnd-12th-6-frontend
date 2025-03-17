@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import { Button } from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
+import ROUTER_PATH from '@/constants/router';
 import { InvitationDTO } from '@/lib/invitation';
 
 import Card from '..';
@@ -29,7 +30,7 @@ const CardScroller = ({ cards }: CardScrollerProps) => {
         )}
       </div>
       {cards.length !== 0 ? (
-        <Link href='/list' className='mx-[18px]'>
+        <Link href={ROUTER_PATH.INVITATION.LIST} className='mx-[18px]'>
           <Button
             variant={'primaryLight'}
             className='w-full px-20 py-3.5 rounded-sm typo-body font-semibold'

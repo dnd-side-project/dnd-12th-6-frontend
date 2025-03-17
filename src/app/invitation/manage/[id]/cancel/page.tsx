@@ -5,6 +5,7 @@ import KakaoSymbolImage from 'public/images/etc/kakao_symbol_primary.png';
 import CopyLinkWithAlert from '@/components/common/CopyLinkWithAlert';
 import Icon from '@/components/common/Icon';
 import PageContainer from '@/components/layout/PageContainer';
+import ROUTER_PATH from '@/constants/router';
 
 // TODO: 복사 링크 URL 수정
 export default function InvitationManageCancelPage({ params }: { params: { id: string } }) {
@@ -13,7 +14,7 @@ export default function InvitationManageCancelPage({ params }: { params: { id: s
   return (
     <PageContainer>
       <header className='z-50 h-[54px] px-[22px] sticky top-0 flex justify-space items-center bg-transparent'>
-        <Link href={`/invitation/manage/${invitationId}`} className='absolute right-[22px]'>
+        <Link href={ROUTER_PATH.INVITATION.MANAGE(invitationId)} className='absolute right-[22px]'>
           <Icon name='close' className='w-24 h-24' />
         </Link>
       </header>
@@ -38,7 +39,7 @@ export default function InvitationManageCancelPage({ params }: { params: { id: s
             </button>
           </CopyLinkWithAlert>
         </div>
-        <Link href='/' className='w-full'>
+        <Link href={ROUTER_PATH.MAIN} className='w-full'>
           <button className='absolute bottom-0 w-full px-20 py-[18px] text-center bg-gray-7 typo-heading text-white font-semibold'>
             메인으로 가기
           </button>
