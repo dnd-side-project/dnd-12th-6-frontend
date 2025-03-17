@@ -39,8 +39,14 @@ export function formatDateToYYYYMMDD(dateString: string): string {
   return format(date, 'yyyy-MM-dd');
 }
 
-export function formatDateNoTime(dateString: string) {
+/**
+ * "25년 1월 12일" 형식의 날짜 반환
+ */
+export function formatDateNoTime(dateString: string): string {
   const date = new Date(dateString);
+
+  if (!dateString || !isDate(date)) return '';
+
   const year = date.getFullYear().toString().slice(2);
 
   return `${year}년 ${format(date, 'M월 d일')}`;
@@ -56,7 +62,7 @@ export function formatDateWithDay(dateString: string): string {
 
   const year = date.getFullYear().toString().slice(2); // '25년' 형식으로 변환
 
-  return `${year}년 ${format(date, 'M월 d일 (E)', { locale: ko })}`;
+  return `${year}년 ${format(date, 'M월 d일(E)', { locale: ko })}`;
 }
 
 /**
@@ -65,16 +71,20 @@ export function formatDateWithDay(dateString: string): string {
 export function formatTimeOnly(dateString: string): string {
   const date = new Date(dateString);
 
+  if (!dateString || !isDate(date)) return '';
+
   return format(date, 'HH:mm'); // "13:00" 형식으로 변환
 }
 
 /**
- * "25년 1월 12일" 형식의 날짜 반환
+ * "25년 12월 31일 오후 00:00" 형식의 날짜 반환
  */
-export function formatDateCompact(dateString: string): string {
+export function formatDateFull(dateString: string): string {
   const date = new Date(dateString);
 
-  const year = date.getFullYear().toString().slice(2); // '25년' 형식으로 변환
+  if (!dateString || !isDate(date)) return '';
 
-  return `${year}년 ${format(date, 'M월 d일')}`;
+  const year = date.getFullYear().toString().slice(2);
+
+  return `${year}년 ${format(date, 'M월 d일 a HH:mm', { locale: ko })}`;
 }

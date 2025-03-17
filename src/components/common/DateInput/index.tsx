@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-import { formatDateToYYYYMMDD } from '@/utils/format/formatDate';
+import { formatDateFull, formatDateToYYYYMMDD } from '@/utils/format/formatDate';
 
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '../BottomSheet';
 import Icon from '../Icon';
@@ -56,7 +56,7 @@ const DateInput = ({ value, onChangeValue }: Props) => {
     <Sheet key={side} onOpenChange={dateReset}>
       <SheetTrigger asChild>
         <div className='cursor-pointer px-16 py-[14px] flex items-center  border-[1.2px] border-gray-2 rounded-sm'>
-          <InputRoot.Input placeholder='모임 일시' value={value} readOnly />
+          <InputRoot.Input placeholder='모임 일시' value={formatDateFull(value)} readOnly />
           <Icon name='calendar' className='w-[21px] h-[21px] text-gray-5' />
         </div>
       </SheetTrigger>

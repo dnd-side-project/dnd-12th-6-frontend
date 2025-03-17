@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { InvitationUserResponse } from '@/lib/invitation';
-import { formatDateCompact } from '@/utils/format/formatDate';
+import { formatDateNoTime } from '@/utils/format/formatDate';
 
 interface Props {
   response: InvitationUserResponse;
@@ -22,7 +22,7 @@ const InviteMessage = ({ response }: Props) => {
         </div>
         <div className='flex-1 flex flex-col gap-6'>
           <p className='text-gray-6 typo-caption1 font-medium'>
-            {formatDateCompact(response.writeDate)}
+            {formatDateNoTime(response.writeDate)}
           </p>
           <div className='flex justify-between'>
             <p className='text-gray-6 typo-body font-medium'>
