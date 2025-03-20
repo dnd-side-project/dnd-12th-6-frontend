@@ -31,8 +31,9 @@ const ResponseForm = ({ type }: ResponseFormProps) => {
     handleSubmit,
     setValue,
     watch,
-    formState: { errors },
+    formState: { errors, isValid, isDirty },
   } = useForm<memberPayload | nonmemberPayload>({
+    mode: 'all',
     defaultValues: {
       invitationId: Number(id),
       state: '',
@@ -106,7 +107,8 @@ const ResponseForm = ({ type }: ResponseFormProps) => {
       </div>
       <div className='w-full max-w-content sticky bottom-32'>
         <Button
-          variant='primaryStrong'
+          disabled={!isDirty || !isValid}
+          variant={!isDirty || !isValid ? 'disabled' : 'primaryStrong'}
           className='h-[60px] w-full typo-heading font-semibold'
           type='submit'
         >
