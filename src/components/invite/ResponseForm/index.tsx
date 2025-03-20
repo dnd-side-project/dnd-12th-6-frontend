@@ -3,51 +3,41 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useParams } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import * as yup from 'yup';
 
 import { Button } from '@/components/common/Button';
 import Field from '@/components/common/Field';
 import Icon from '@/components/common/Icon';
 import InputRoot from '@/components/common/Input';
 import Textarea from '@/components/common/Textarea';
+import {
+  memberPayload,
+  nonmemberPayload,
+  memberResponseSchema,
+  nonmemberResponseSchema,
+} from '@/utils/schema/responseSchema';
 
-import ResponseBox, { ResponseType } from './ResponseBox';
+import ResponseBox from './ResponseBox';
 
-interface InviteResponseForm {
-  invitationId: number;
-  state: ResponseType | string;
-  name: string;
-  password: string;
-  message?: string;
+interface ResponseFormProps {
+  type: 'member' | 'nonmember';
 }
 
-const ResponseForm = () => {
+const ResponseForm = ({ type }: ResponseFormProps) => {
   const { id } = useParams();
 
-  const validateSchema = yup.object().shape({
-    invitationId: yup.number().required(),
-    name: yup.string().required('이름 또는 닉네임을 입력해주세요.'),
-    password: yup
-      .string()
-      .min(4, '임시비밀번호는 4자로 입력해주세요.')
-      .max(4, '임시비밀번호는 4자로 입력해주세요.')
-      .required('임시비밀번호를 입력해주세요.'),
-    state: yup.string().required('참석 여부를 선택해주세요.'),
-    message: yup.string().max(50, '메세지는 50자 이내로 입력해주세요.'),
-  });
-
+  const schema = type === 'member' ? memberResponseSchema : nonmemberResponseSchema;
   const {
     register,
     handleSubmit,
     setValue,
     watch,
     formState: { errors },
-  } = useForm<InviteResponseForm>({
+  } = useForm<memberPayload | nonmemberPayload>({
     defaultValues: {
       invitationId: Number(id),
       state: '',
     },
-    resolver: yupResolver(validateSchema),
+    resolver: yupResolver(schema),
   });
 
   const handleClickType = (value: string) => {
@@ -62,7 +52,7 @@ const ResponseForm = () => {
    * TODO
    * 응답하기 API 연동
    */
-  const submitResponse: SubmitHandler<InviteResponseForm> = (data) => {
+  const submitResponse: SubmitHandler<memberPayload | nonmemberPayload> = (data) => {
     console.log(data);
   };
 
@@ -76,24 +66,26 @@ const ResponseForm = () => {
           </InputRoot>
           {errors.name && <Field.HelpText status={'error'}>{errors.name.message}</Field.HelpText>}
         </Field>
-        <Field>
-          <Field.Label required>임시 비밀번호</Field.Label>
-          <InputRoot>
-            <InputRoot.Input
-              type='password'
-              inputMode='numeric'
-              placeholder='숫자 4자리'
-              {...register('password')}
-            />
-          </InputRoot>
-          <Field.HelpText>
-            <Icon name='error' className='w-12 h-12' />
-            응답 수정시 필요한 번호입니다.
-          </Field.HelpText>
-          {errors.password && (
-            <Field.HelpText status={'error'}>{errors.password.message}</Field.HelpText>
-          )}
-        </Field>
+        {type === 'nonmember' && (
+          <Field>
+            <Field.Label required>임시 비밀번호</Field.Label>
+            <InputRoot>
+              <InputRoot.Input
+                type='password'
+                inputMode='numeric'
+                placeholder='숫자 4자리'
+                {...register('password')}
+              />
+            </InputRoot>
+            <Field.HelpText>
+              <Icon name='error' className='w-12 h-12' />
+              응답 수정시 필요한 번호입니다.
+            </Field.HelpText>
+            {'password' in errors && errors.password && (
+              <Field.HelpText status={'error'}>{errors.password.message}</Field.HelpText>
+            )}
+          </Field>
+        )}
         <Field>
           <Field.Label required>참석 여부</Field.Label>
           <ResponseBox value={watch('state')} onClick={handleClickType} />

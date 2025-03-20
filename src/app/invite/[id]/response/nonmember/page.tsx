@@ -9,7 +9,7 @@ const page = () => {
     <PageContainer>
       <PageContainer.PageHeader title='응답하기' right={<PageHeaderCloseButton />} />
       <div className='min-h-dvh py-32 px-[18px]'>
-        <ResponseForm />
+        <ResponseForm type='nonmember' />
       </div>
     </PageContainer>
   );

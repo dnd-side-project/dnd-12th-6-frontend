@@ -22,7 +22,7 @@ const page = () => {
         right={<PageHeaderCloseButton />}
       />
       <div className='min-h-dvh py-32 px-[18px]'>
-        <ResponseForm />
+        <ResponseForm type='member' />
       </div>
     </div>
   );
