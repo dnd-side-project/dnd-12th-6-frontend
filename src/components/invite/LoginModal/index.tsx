@@ -12,7 +12,7 @@ import {
   DialogTrigger,
 } from '@/components/common/Dialog/dialog';
 
-interface LoginModalProps {
+export interface LoginModalProps {
   invitationId: number;
   children: React.ReactNode;
 }
