@@ -43,7 +43,7 @@ const InviteView = ({ id }: { id: number }) => {
       {/* <LoginModal>
     <CTAButton>응답하기</CTAButton>
   </LoginModal> */}
-      <LoginModal>
+      <LoginModal invitationId={id}>
         <div className='sticky bottom-0'>
           <button className='w-full h-[60px] flex items-center justify-center text-white typo-heading font-semibold bg-gray-7'>
             응답하기
