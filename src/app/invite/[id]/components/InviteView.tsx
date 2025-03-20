@@ -46,9 +46,6 @@ const InviteView = ({ id }: { id: number }) => {
         }
       </InviteDataFetcher>
       <FooterArea />
-      {/* <LoginModal>
-    <CTAButton>응답하기</CTAButton>
-  </LoginModal> */}
       {isLogin ? (
         <Link href={`/invite/${id}/response/member`}>
           <CTAButton>응답하기</CTAButton>
