@@ -11,9 +11,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/common/Dialog/dialog';
-import { StrictPropsWithChildren } from '@/types/common';
 
-const LoginModal = ({ children }: StrictPropsWithChildren) => {
+export interface LoginModalProps {
+  invitationId: number;
+  children: React.ReactNode;
+}
+
+const LoginModal = ({ invitationId, children }: LoginModalProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
@@ -33,7 +37,7 @@ const LoginModal = ({ children }: StrictPropsWithChildren) => {
           <div className='flex-1 flex flex-col items-center gap-12'>
             <DialogClose asChild>
               <Link
-                href={`/invite/1/response`}
+                href={`/invite/${invitationId}/response/nonmember`}
                 className='w-full h-[56px] flex items-center justify-center typo-body font-semibold border border-gray-2 rounded-sm bg-gray-1'
               >
                 비회원으로 초대 응답하기
