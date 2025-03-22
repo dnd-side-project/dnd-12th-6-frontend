@@ -6,7 +6,6 @@ import React, { useEffect } from 'react';
 import { Resolver, SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
-import { customFetch, INVITATION_API } from '@/api';
 import DateInput from '@/components/common/DateInput';
 import Field from '@/components/common/Field';
 import Icon from '@/components/common/Icon';
@@ -14,35 +13,16 @@ import InputRoot from '@/components/common/Input';
 import NumberInput from '@/components/common/NumberInput';
 import Textarea from '@/components/common/Textarea';
 import { useToast } from '@/hooks/useToast';
+import useCreateInvitationQuery, {
+  SaveInvitationDataType,
+} from '@/lib/invitation/hooks/useCreateInvitaionQuery';
 import { useAuthStore } from '@/store/authStore';
 import { useInvitationStore } from '@/store/invitationStore';
 
-interface SaveCreateFormDataType {
-  creatorId: number;
-  organizerName: string;
-  detailAddress: string;
-  date: string;
-  maxAttendances: number;
-  invitationType: 'CREATOR';
-
-  description?: string;
-  //
-  title: string;
-  invitationId?: number;
-  createdAt?: string;
-  updatedAt?: string;
-  themeName?: string;
-  place?: string;
-  state?: string;
-  link?: string;
-  fontName?: string;
-  sticker?: string;
-  backgroundImageData?: string;
-  basicBackgroundType?: string;
-}
-
 const CreateForm = () => {
   const router = useRouter();
+
+  const { mutateAsync: mutateCreateInvitation } = useCreateInvitationQuery();
 
   const { toast } = useToast();
   const { user } = useAuthStore();
@@ -73,7 +53,7 @@ const CreateForm = () => {
     setValue,
     handleSubmit,
     formState: { errors },
-  } = useForm<SaveCreateFormDataType>({
+  } = useForm<SaveInvitationDataType>({
     mode: 'onBlur',
     defaultValues: {
       title: '',
@@ -82,30 +62,20 @@ const CreateForm = () => {
       maxAttendances: 1,
       invitationType: 'CREATOR',
     },
-    resolver: yupResolver(validateSchema) as Resolver<SaveCreateFormDataType>,
+    resolver: yupResolver(validateSchema) as Resolver<SaveInvitationDataType>,
   });
 
-  /**
-   * TODO
-   * API 연동
-   */
-  const submitInvite: SubmitHandler<SaveCreateFormDataType> = async (values) => {
-    console.log(values);
+  const submitInvite: SubmitHandler<SaveInvitationDataType> = async (values) => {
+    const res = await mutateCreateInvitation(values);
 
-    const res = await customFetch<{ data: string[] }>(INVITATION_API.SAVE_INVITATIONS, {
-      method: 'POST',
-      body: values,
-      isJson: true,
-    });
+    if (res.result === 'success') {
+      const subKey = res.data[0].inviteKey;
 
-    if (res) {
-      const id = res.data[0].split(': ')[1];
-
-      router.replace(`/create/success/${id}`);
+      router.replace(`/create/success/${subKey}`);
     }
   };
 
-  const onError: SubmitErrorHandler<SaveCreateFormDataType> = async (values) => {
+  const onError: SubmitErrorHandler<SaveInvitationDataType> = async (values) => {
     if (values.title) {
       toast({
         description: (
