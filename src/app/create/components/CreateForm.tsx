@@ -134,13 +134,13 @@ const CreateForm = () => {
     setValue('sticker', invitation.sticker);
     setValue('basicBackgroundType', invitation.background);
     setValue('backgroundImageData', invitation.backgroundImageData ?? undefined);
-  }, [invitation]);
+  }, [invitation, setValue]);
 
   useEffect(() => {
     if (user) {
       setValue('creatorId', user.userId);
     }
-  }, [user]);
+  }, [user, setValue]);
 
   return (
     <form onSubmit={handleSubmit(submitInvite, onError)}>
