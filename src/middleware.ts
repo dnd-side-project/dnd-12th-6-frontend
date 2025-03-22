@@ -1,4 +1,4 @@
-import { NextResponse, NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 
 // import ROUTER_PATH from './constants/router';
 
@@ -10,8 +10,7 @@ import { NextResponse, NextRequest } from 'next/server';
 // ];
 
 // This function can be marked `async` if using `await` inside
-export async function middleware(request: NextRequest) {
-  console.log(request);
+export async function middleware() {
   // const { pathname } = request.nextUrl;
 
   // const token = request.cookies.get('token')?.value;

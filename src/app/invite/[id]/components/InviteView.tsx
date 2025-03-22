@@ -1,6 +1,6 @@
 'use client';
 
-import InviteDataFetcher from '@/components/common/Invite/modules/InviteDataFetcher';
+import InviteKeyDataFetcher from '@/components/common/Invite/modules/InviteKeyDataFetcher';
 import BackgroundView from '@/components/invite/BackgroundView';
 import CardViewArea from '@/components/invite/CardViewArea';
 import FooterArea from '@/components/invite/FooterArea';
@@ -8,14 +8,13 @@ import InviteContentArea from '@/components/invite/InviteContentArea';
 import LoginModal from '@/components/invite/LoginModal';
 import PageContainer from '@/components/layout/PageContainer';
 
-const InviteView = ({ id }: { id: number }) => {
+const InviteView = ({ id }: { id: string }) => {
   return (
     <PageContainer header transparent>
-      <InviteDataFetcher invitationId={id}>
+      <InviteKeyDataFetcher inviteKey={id}>
         {(data) =>
           data && (
             <>
-              {console.log(data)}
               <BackgroundView
                 backgroundImageData={data.backgroundImageData}
                 basicBackgroundType={data.basicBackgroundType}
@@ -29,7 +28,7 @@ const InviteView = ({ id }: { id: number }) => {
                 sticker={data.sticker}
               />
               <InviteContentArea
-                invitationId={id}
+                invitationId={data.invitationId}
                 place={data.detailAddress}
                 date={data.date}
                 maxAttendances={data.maxAttendances}
@@ -38,7 +37,7 @@ const InviteView = ({ id }: { id: number }) => {
             </>
           )
         }
-      </InviteDataFetcher>
+      </InviteKeyDataFetcher>
       <FooterArea />
       {/* <LoginModal>
     <CTAButton>응답하기</CTAButton>

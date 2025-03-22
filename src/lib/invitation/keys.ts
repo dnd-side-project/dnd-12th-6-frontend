@@ -5,5 +5,6 @@ export const cardQueryKeys = {
   create: () => [...cardQueryKeys.all, 'create'] as const,
   background: () => [...cardQueryKeys.all, 'background'] as const,
   info: (invitationId: number) => [...cardQueryKeys.all, 'info', invitationId] as const,
+  infoKey: (inviteKey: string) => [...cardQueryKeys.all, 'info_key', inviteKey] as const,
   responses: (invitationId: number) => [...cardQueryKeys.all, 'responses', invitationId] as const,
 };

@@ -35,6 +35,9 @@ const INVITATION_API = {
   INVITATION: (invitationId: number) => {
     return `/specificInvitation?invitationId=${invitationId}`;
   },
+  INVITATION_KEY: (inviteKey: string) => {
+    return `/getInvitationByInviteKey?inviteKey=${inviteKey}`;
+  },
   RESPONSES: (invitationId: number) => {
     return `/getInvitationResponseList?invitationId=${invitationId}`;
   },

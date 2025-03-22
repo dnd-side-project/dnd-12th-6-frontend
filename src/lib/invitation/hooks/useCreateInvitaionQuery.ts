@@ -31,7 +31,7 @@ export interface SaveInvitationDataType {
   basicBackgroundType?: string;
 }
 
-interface CreateInvitationResponse {
+interface InvitationResponse {
   data: [
     {
       invitationId: number;
@@ -44,7 +44,7 @@ interface CreateInvitationResponse {
 
 export const fetchCreateInvitation = (
   values: SaveInvitationDataType,
-): Promise<CreateInvitationResponse> => {
+): Promise<InvitationResponse> => {
   return customFetch(INVITATION_API.SAVE_INVITATIONS, {
     method: 'POST',
     body: values,

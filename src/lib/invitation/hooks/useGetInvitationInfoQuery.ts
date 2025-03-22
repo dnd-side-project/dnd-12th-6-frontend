@@ -6,7 +6,7 @@ import { customFetch, INVITATION_API } from '@/api';
 import { cardQueryKeys, InvitationDTO } from '@/lib/invitation';
 
 /**
- * 특정 초대장 조회 API
+ * 초대장 조회 API
  */
 interface InvitationResponse {
   data: InvitationDTO[];
