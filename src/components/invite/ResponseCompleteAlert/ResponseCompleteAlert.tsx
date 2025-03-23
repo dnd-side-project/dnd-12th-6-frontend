@@ -1,19 +1,37 @@
 'use client';
 
 import Image from 'next/image';
+import { useSearchParams, useRouter } from 'next/navigation';
 import CardImage from 'public/images/response/card.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Drawer, DrawerContent } from '@/components/common/Drawer/drawer';
 import Icon from '@/components/common/Icon';
 
-type CompleteType = 'response' | 'edit';
+type CompleteType = 'response' | 'edit' | null;
 
-interface ResponseCompleteAlertProps {
-  completeType: CompleteType;
-}
-const ResponseCompleteAlert = ({ completeType }: ResponseCompleteAlertProps) => {
-  const [open, setOpen] = useState<boolean>(true);
+const ResponseCompleteAlert = () => {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const value = searchParams.get('complete');
+  const isCompleteType = (val: string | null): val is 'response' | 'edit' =>
+    val === 'response' || val === 'edit';
+  const completeType: CompleteType = isCompleteType(value) ? value : null;
+
+  const [open, setOpen] = useState<boolean>(completeType !== null);
+
+  useEffect(() => {
+    if (completeType !== null) {
+      const current = new URLSearchParams(window.location.search);
+
+      current.delete('complete');
+
+      router.replace(`${window.location.pathname}?${current.toString()}`, {
+        scroll: false,
+      });
+    }
+  }, [completeType, router]);
 
   return (
     <Drawer open={open} onClose={() => setOpen(false)}>

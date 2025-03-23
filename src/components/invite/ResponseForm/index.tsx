@@ -1,7 +1,7 @@
 'use client';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { Button } from '@/components/common/Button';
@@ -24,6 +24,7 @@ interface ResponseFormProps {
 
 const ResponseForm = ({ type }: ResponseFormProps) => {
   const { id } = useParams();
+  const router = useRouter();
 
   const schema = type === 'member' ? memberResponseSchema : nonmemberResponseSchema;
   const {
@@ -55,6 +56,7 @@ const ResponseForm = ({ type }: ResponseFormProps) => {
    */
   const submitResponse: SubmitHandler<memberPayload | nonmemberPayload> = (data) => {
     console.log(data);
+    router.push(`/invite/${id}?complete=response`);
   };
 
   return (
