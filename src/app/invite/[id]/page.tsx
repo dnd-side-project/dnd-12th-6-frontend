@@ -1,5 +1,7 @@
 import { Metadata, ResolvingMetadata } from 'next';
 
+import CompleteAlertHandler from '@/components/invite/ResponseCompleteAlert/CompleteAlertHandler';
+
 import InviteView from './components/InviteView';
 
 type Props = {
@@ -32,7 +34,12 @@ export async function generateMetadata(
 }
 
 const page = ({ params }: { params: { id: string } }) => {
-  return <InviteView id={Number(params.id)} />;
+  return (
+    <>
+      <InviteView id={Number(params.id)} />
+      <CompleteAlertHandler />
+    </>
+  );
 };
 
 export default page;
