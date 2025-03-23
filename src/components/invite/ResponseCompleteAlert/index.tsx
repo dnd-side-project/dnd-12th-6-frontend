@@ -3,7 +3,12 @@
 import Image from 'next/image';
 import CardImage from 'public/images/response/card.png';
 
-import { Drawer, DrawerContent } from '@/components/common/Drawer/drawer';
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerTitle,
+} from '@/components/common/Drawer/drawer';
 import Icon from '@/components/common/Icon';
 
 type CompleteType = 'response' | 'edit' | null;
@@ -17,6 +22,8 @@ const ResponseCompleteAlert = ({ completeType, open, onClose }: ResponseComplete
   return (
     <Drawer open={open} onClose={onClose}>
       <DrawerContent className='bg-transparent left-[18px] right-[18px] bottom-32'>
+        <DrawerTitle className='invisible'>초대 응답하기</DrawerTitle>
+        <DrawerDescription className='invisible'>초대장에 응답합니다.</DrawerDescription>
         <div className='pb-32 flex flex-col items-center justify-center text-center bg-white rounded-[25px]'>
           <div className='mt-12 mx-auto w-64 h-[6px] bg-gray-2 rounded-sm mb-32' />
           <Image src={CardImage} alt='card' width={108} height={108} />
