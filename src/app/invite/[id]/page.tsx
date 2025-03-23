@@ -1,6 +1,6 @@
 import { Metadata, ResolvingMetadata } from 'next';
 
-import ResponseCompleteAlert from '@/components/invite/ResponseCompleteAlert/ResponseCompleteAlert';
+import CompleteAlertHandler from '@/components/invite/ResponseCompleteAlert/CompleteAlertHandler';
 
 import InviteView from './components/InviteView';
 
@@ -37,7 +37,7 @@ const page = ({ params }: { params: { id: string } }) => {
   return (
     <>
       <InviteView id={Number(params.id)} />
-      <ResponseCompleteAlert />
+      <CompleteAlertHandler />
     </>
   );
 };

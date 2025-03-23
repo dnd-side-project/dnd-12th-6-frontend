@@ -56,7 +56,8 @@ const ResponseForm = ({ type }: ResponseFormProps) => {
    */
   const submitResponse: SubmitHandler<memberPayload | nonmemberPayload> = (data) => {
     console.log(data);
-    router.push(`/invite/${id}?complete=response`);
+    router.push(`/invite/${id}`);
+    sessionStorage.setItem('completeAlert', 'response');
   };
 
   return (
